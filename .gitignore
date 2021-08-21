@@ -1,0 +1,10 @@
+node_modules/
+.prettierrc
+package-lock.json
+migrate/
+config/default.json
+seeder.js
+files/
+client/node_modules/
+client/.eslintcache
+client/package-lock.json
