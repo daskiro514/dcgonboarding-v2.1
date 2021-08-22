@@ -436,6 +436,10 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   margin-right: auto;
 }
 
+.bg-admin .masterAdminSidebar img {
+  width: 50% !important;
+}
+
 .overflow1 {
   height: 95vh;
   overflow: auto;
