@@ -438,6 +438,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .bg-admin .masterAdminSidebar img {
   width: 50% !important;
+  border: 3px solid #555!important;
 }
 
 .overflow1 {
@@ -538,6 +539,10 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .masterAdminTopNav .navbar-toggle {
   margin-top: 0px;
+}
+
+.masterAdminTopNav .navbar img {
+  border: 2px solid #555!important;
 }
 
 .masterAdminSidebar span:hover {
