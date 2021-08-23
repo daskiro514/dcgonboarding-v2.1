@@ -267,8 +267,6 @@ router.get('/updateConnectedAccount/:id', async (req, res) => {
     text: `Hi ${partnerForUpdate.name}. You need to provide more information to be approved as a PARTNER of DCG. We send you the update link. ${accountLink.url} We will let you know again when you have completed the updates. DCGONBOARDING Team.`
   }
 
-  console.log(emailContentToPartner)
-
   mailgun.messages().send(emailContentToPartner, function (error, body) {
     console.log(body)
   })
