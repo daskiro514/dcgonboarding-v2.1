@@ -18,7 +18,6 @@ const stripe = require('stripe')(secret_key)
 const returnURL = config.get('returnURL')
 // Mailgun Info
 const mailgunApiKey = config.get('mailgun.mailgunApiKey')
-console.log(mailgunApiKey)
 const mailgunDomain = config.get('mailgun.domain')
 var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 // For Reports
