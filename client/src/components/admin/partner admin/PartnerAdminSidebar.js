@@ -21,7 +21,7 @@ const PartnerAdminSidebar = ({ logout, user }) => {
       <br />
       <div className="w3-circle">
         <span onClick={() => goPage('')} className="glyphicon glyphicon-dashboard"><Spaces spaceLength={1} /><span>DASHBOARD</span></span>
-        <span onClick={() => history.push(`/sales`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={1} /><span>SALES PAGE</span></span>
+        <span onClick={() => history.push(`/sales/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={1} /><span>SALES PAGE</span></span>
         <span onClick={() => goPage('customers')} className="glyphicon glyphicon-user"><Spaces spaceLength={1} /><span>CUSTOMERS</span></span>
         <span onClick={() => goPage('products')} className="glyphicon glyphicon-user"><Spaces spaceLength={1} /><span>PRODUCTS</span></span>
         <span onClick={() => goPage('editsalespage')} className="glyphicon glyphicon-pencil"><Spaces spaceLength={1} /><span>EDIT SALES PAGE</span></span>

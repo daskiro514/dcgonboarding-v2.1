@@ -35,7 +35,7 @@ const Routes = props => {
         <Route exact path="/partner" component={PartnerApplication} />
         <Route exact path="/thanks/:id" component={Thanks} />
         <Route exact path="/failedconnectaccount/:id" component={FailedConnectAccount} />
-        <PrivateRoute path="/sales" component={Sales} />
+        <Route path="/sales/:id" component={Sales} />
         <PrivateRoute path="/checkoutsub/:id" component={CheckoutForSubscription} />
         <PrivateRoute path="/checkoutone/:id" component={CheckoutForProduct} />
         <PrivateRoute path="/thankscustomer" component={ThanksForCustomer} />
