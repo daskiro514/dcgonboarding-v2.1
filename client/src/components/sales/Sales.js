@@ -4,13 +4,16 @@ import { connect } from 'react-redux'
 import salesBundle from '../../img/sales/sales-bundle.png'
 import defaultLogo from '../../img/sales/sales-logo.png'
 import defaultBackground from '../../img/sales/sales-bg.png'
-import { getSalesProducts, getPublishableKey } from '../../actions/partner'
+import { getTempUser, getSalesProducts, getPublishableKey } from '../../actions/partner'
 
-const Sales = ({ oneTimeProducts, subscriptionProducts, defaultProducts, user, getSalesProducts, getPublishableKey, title, subtitle, description, backgroundColor, fontColor, boxColor, logoImage, backgroundImage, baseURL }) => {
+const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, getTempUser, getSalesProducts, getPublishableKey, title, subtitle, description, backgroundColor, fontColor, boxColor, logoImage, backgroundImage, baseURL }) => {
+  const userID = match.params.id
+
   React.useEffect(() => {
-    getSalesProducts(user._id)
+    getTempUser(userID)
+    getSalesProducts(userID)
     getPublishableKey()
-  }, [getSalesProducts, getPublishableKey, user._id])
+  }, [getTempUser, getSalesProducts, getPublishableKey, userID])
 
   return (
     <div className="bg-sales container-fluid" style={{ background: backgroundColor ? backgroundColor : 'black', color: fontColor ? fontColor : 'white' }}>
@@ -92,19 +95,18 @@ const Sales = ({ oneTimeProducts, subscriptionProducts, defaultProducts, user, g
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
   oneTimeProducts: state.partner.oneTimeProducts,
   subscriptionProducts: state.partner.subscriptionProducts,
   defaultProducts: state.partner.defaultProducts,
-  title: state.auth.user.salesPageTitle,
-  subtitle: state.auth.user.salesPageSubtitle,
-  description: state.auth.user.salesPageDescription,
-  backgroundColor: state.auth.user.salesPageBackgroundColor,
-  fontColor: state.auth.user.salesPageFontColor,
-  boxColor: state.auth.user.salesPageBoxColor,
-  logoImage: state.auth.user.salesPageLogoImage,
-  backgroundImage: state.auth.user.salesPageBackgroundImage,
+  title: state.partner.tempUser.salesPageTitle,
+  subtitle: state.partner.tempUser.salesPageSubtitle,
+  description: state.partner.tempUser.salesPageDescription,
+  backgroundColor: state.partner.tempUser.salesPageBackgroundColor,
+  fontColor: state.partner.tempUser.salesPageFontColor,
+  boxColor: state.partner.tempUser.salesPageBoxColor,
+  logoImage: state.partner.tempUser.salesPageLogoImage,
+  backgroundImage: state.partner.tempUser.salesPageBackgroundImage,
   baseURL: state.admin.baseURL,
 })
 
-export default connect(mapStateToProps, { getSalesProducts, getPublishableKey })(Sales)
+export default connect(mapStateToProps, { getTempUser, getSalesProducts, getPublishableKey })(Sales)

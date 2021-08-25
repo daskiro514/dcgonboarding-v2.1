@@ -181,6 +181,15 @@ router.get('/getProducts/:id', async (req, res) => {
   })
 })
 
+router.get('/getTempUser/:id', async (req, res) => {
+  let user = await User.findById(req.params.id).select('-password')
+
+  res.json({
+    success: true,
+    user
+  })
+})
+
 router.get('/getSalesProducts/:id', async (req, res) => {
   let masterAdmin = await User.findOne({ type: 'admin' })
   let defaultProducts = await Product.find({ owner: masterAdmin._id })

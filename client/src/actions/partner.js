@@ -6,6 +6,7 @@ import {
   SUBSCRIPTION_PRODUCT_CREATE_INPROGRESS,
   UPDATING_SUBSCRIPTION_PRODUCT_PAGE_NOW,
   PARTNER_PRODUCTS_LOADED,
+  PARTNER_TEMP_USER_LOADED,
   PARTNER_SALE_PRODUCT_LOADED,
   PUSBLISHABLE_KEY_LOADED,
   CUSTOMER_CREATE_INPROGRESS,
@@ -106,6 +107,16 @@ export const getProducts = userID => async dispatch => {
     dispatch({
       type: PARTNER_PRODUCTS_LOADED,
       payload: res.data
+    })
+  }
+}
+
+export const getTempUser = userID => async dispatch => {
+  const res = await api.get(`/partner/getTempUser/${userID}`)
+  if (res.data.success) {
+    dispatch({
+      type: PARTNER_TEMP_USER_LOADED,
+      payload: res.data.user
     })
   }
 }

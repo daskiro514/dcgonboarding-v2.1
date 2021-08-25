@@ -4,6 +4,7 @@ import {
   SUBSCRIPTION_PRODUCT_CREATE_INPROGRESS,
   UPDATING_SUBSCRIPTION_PRODUCT_PAGE_NOW,
   PARTNER_PRODUCTS_LOADED,
+  PARTNER_TEMP_USER_LOADED,
   PARTNER_SALE_PRODUCT_LOADED,
   PUSBLISHABLE_KEY_LOADED,
   CUSTOMER_CREATE_INPROGRESS,
@@ -21,6 +22,7 @@ const initialState = {
   createOneTimeProductInProgress: false,
   subscriptionProductPageIsUpdating: false,
   createSubscriptionProductInProgress: false,
+  tempUser: {},
   oneTimeProducts: [],
   subscriptionProducts: [],
   defaultProducts: [],
@@ -68,6 +70,11 @@ function partnerReducer(state = initialState, action) {
         oneTimeProducts: payload.oneTimeProducts,
         subscriptionProducts: payload.subscriptionProducts,
         defaultProducts: payload.defaultProducts
+      }
+    case PARTNER_TEMP_USER_LOADED:
+      return {
+        ...state,
+        tempUser: payload
       }
     case PARTNER_SALE_PRODUCT_LOADED:
       return {
