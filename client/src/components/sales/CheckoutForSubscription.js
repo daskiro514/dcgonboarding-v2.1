@@ -4,12 +4,7 @@ import { connect } from 'react-redux'
 import { getProductByID, createCustomer } from '../../actions/partner'
 import cellphone from '../../img/course/cellphone.jpg'
 import { loadStripe } from '@stripe/stripe-js'
-import {
-  CardNumberElement, CardExpiryElement, CardCvcElement,
-  Elements,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js'
+import { CardNumberElement, CardExpiryElement, CardCvcElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js'
 import Spinner from '../layout/Spinner'
 import { useHistory } from "react-router-dom"
 
@@ -59,12 +54,6 @@ const CheckoutForSubscription = ({ match, getProductByID, productForSale, stripe
 
 const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, history }) => {
   const [error, setError] = React.useState('');
-  // const [name, setName] = React.useState('Customer King')
-  // const [email, setEmail] = React.useState('brewmaster0806@gmail.com')
-  // const [phone, setPhone] = React.useState('12345678904')
-  // const [username, setUsername] = React.useState('king4')
-  // const [password, setPassword] = React.useState('admin123')
-  // const [password2, setPassword2] = React.useState('admin123')
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [phone, setPhone] = React.useState('')
@@ -108,7 +97,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
       sellerID: sellerID,
       paymentMethodID: paymentMethod.paymentMethod.id,
       productForSale: productForSale
-    }, history)
+    }, history, sellerID)
   }
 
   return (
@@ -192,7 +181,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
+  user: state.partner.tempUser,
   productForSale: state.partner.productForSale,
   stripePublishableKey: state.partner.stripePublishableKey,
   customerCreateInProgress: state.partner.customerCreateInProgress

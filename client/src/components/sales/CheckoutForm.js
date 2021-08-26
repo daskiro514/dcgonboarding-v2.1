@@ -47,7 +47,7 @@ const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionFo
           ownerID,
           productForSale,
           billingDetails
-        }, history)
+        }, history, ownerID)
         setCheckoutIsInProgress(false)
       }
     }
@@ -127,7 +127,7 @@ const Field = ({
 )
 
 const mapStateToProps = state => ({
-  ownerID: state.auth.user._id,
+  ownerID: state.partner.tempUser._id,
   productForSale: state.partner.productForSale,
 })
 

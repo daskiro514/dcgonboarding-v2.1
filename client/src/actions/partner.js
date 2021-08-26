@@ -152,7 +152,7 @@ export const getPublishableKey = () => async dispatch => {
   }
 }
 
-export const createCustomer = (formData, history) => async dispatch => {
+export const createCustomer = (formData, history, sellerID) => async dispatch => {
   dispatch({
     type: CUSTOMER_CREATE_INPROGRESS,
     payload: true
@@ -168,7 +168,7 @@ export const createCustomer = (formData, history) => async dispatch => {
     type: CUSTOMER_CREATE_INPROGRESS,
     payload: false
   })
-  history.push(`/thankscustomer`)
+  history.push(`/sales/${sellerID}`)
 }
 
 export const getPartnerTransactions = partnerID => async dispatch => {
@@ -201,10 +201,10 @@ export const getPaymentIntent = price => async dispatch => {
   }
 }
 
-export const addTransactionForOneTimeProductSale = (transaction, history) => async dispatch => {
+export const addTransactionForOneTimeProductSale = (transaction, history, ownerID) => async dispatch => {
   const res = await api.post(`/partner/addTransactionForOneTimeProductSale`, transaction)
   if (res.data.success) {
-    history.push(`/home`)
+    history.push(`/sales/${ownerID}`)
   }
 }
 
