@@ -20,7 +20,7 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }
     password: '',
     description: '',
     instagram: 'https://instagram.com',
-    facebook: 'https://faceboook.com',
+    facebook: 'https://facebook.com',
     twitter: 'https://twitter.com',
   })
 

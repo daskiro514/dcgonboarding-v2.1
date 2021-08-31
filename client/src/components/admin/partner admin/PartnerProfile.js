@@ -96,14 +96,14 @@ const PartnerProfile = ({ partner }) => {
             <br />
             <div className="w3-right">
               <button
-                className="btn btn-primary"
+                // className="btn btn-primary"
                 onClick={e => {
                   e.stopPropagation()
                   showPasswordResetModal('block', partner)
                 }}
               >RESET PASSWORD</button>
               <Spaces spaceLength={1} />
-              <a href='https://gravatar.com' target="_blank" className="btn btn-info">RESET IMAGE</a>
+              <button><a href='https://gravatar.com' target="_blank" style={{textDecoration: 'none', color: 'black'}}>RESET IMAGE</a></button>
             </div>
           </div>
         </div>
