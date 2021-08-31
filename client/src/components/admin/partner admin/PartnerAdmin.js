@@ -9,6 +9,7 @@ import EditCoursePage from './EditCoursePage'
 import CourseVideos from './CourseVideos'
 import PartnerCustomers from './PartnerCustomers'
 import PartnerProducts from './PartnerProducts'
+import PartnerProfile from './PartnerProfile'
 import { connect } from 'react-redux'
 import { getProducts } from '../../../actions/partner'
 
@@ -35,6 +36,7 @@ const PartnerAdmin = ({ user, getProducts }) => {
               <PrivateRoute exact path="/editsalespage" component={EditSalesPage} />
               <PrivateRoute exact path="/editcoursepage" component={EditCoursePage} />
               <PrivateRoute exact path="/coursevideos" component={CourseVideos} />
+              <PrivateRoute exact path="/profile" component={PartnerProfile} />
             </Router>
           </div>
         </div>

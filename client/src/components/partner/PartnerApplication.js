@@ -117,8 +117,7 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }
                       required
                     />
                     <small className="form-text">
-                      This site uses Gravatar so if you want a profile image, use a
-                      Gravatar email
+                      DCG automatically uses gravatar image for user's profile photo. So please set your image on gravatar.com first if you didn't set it yet.
                     </small>
                   </div>
                   <div className="form-group">

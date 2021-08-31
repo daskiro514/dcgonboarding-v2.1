@@ -1,5 +1,6 @@
 import api from '../utils/api'
 import { setAlert } from './alert'
+import { loadUser } from './auth'
 import {
   // PARTNERS
   PARTNER_REGISTER_SUCCESS,
@@ -179,6 +180,7 @@ export const resetPassword = formData => async dispatch => {
   if (res.data.success) {
     dispatch(setAlert('Password Reset Success!', 'success'))
     dispatch(getPartners())
+    dispatch(loadUser())
   }
 }
 

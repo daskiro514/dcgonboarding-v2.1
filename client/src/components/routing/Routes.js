@@ -38,7 +38,7 @@ const Routes = props => {
         <Route path="/sales/:id" component={Sales} />
         <Route path="/checkoutsub/:id" component={CheckoutForSubscription} />
         <Route path="/checkoutone/:id" component={CheckoutForProduct} />
-        <PrivateRoute path="/thankscustomer" component={ThanksForCustomer} />
+        <Route path="/thankscustomer" component={ThanksForCustomer} />
         <PrivateRoute path="/coursereports" component={CourseReport} />
         <PrivateRoute path="/report/:id" component={ReportArticle} />
         <PrivateRoute path="/video/:id" component={Video} />

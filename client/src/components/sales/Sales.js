@@ -22,7 +22,7 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
         <br />
         <div className="container">
           <div className="row">
-            <div className="col-md-5">
+            <div className="col-md-7">
               <Link to='/home'>
                 <img src={logoImage ? baseURL + logoImage : defaultLogo} alt="error" className="img-responsive sales-logo-center logo" />
               </Link>
@@ -32,14 +32,14 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                 {description ? description : "Lorem ipsum dolor sit amet, consectueture adipiscing elit, sed diam nonummy nibg euismod tinicidiunt ut laroreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim venaim, quis nostrud exercitation aullamcorper suscipt laotrertis nisl ut alliqiuip ex ea commaod consequat. Duils autem ve eum iriuree"}
               </p>
             </div>
-            <div className="col-md-7">
+            <div className="col-md-5">
               <img src={salesBundle} alt="error" className="img-responsive" />
               <br />
               <br />
               <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-11 overflow">
-                  <>
+                  {/* <>
                     MASTER SUBSCRIPTION PRODUCTS<br />
                     {defaultProducts.map((item, index) =>
                       <React.Fragment key={index}>
@@ -53,9 +53,9 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                         </Link>
                       </React.Fragment>
                     )}
-                  </>
+                  </> */}
                   <>
-                    SUBSCRIPTION PRODUCTS<br />
+                    {/* SUBSCRIPTION PRODUCTS<br /> */}
                     {subscriptionProducts.map((item, index) =>
                       <React.Fragment key={index}>
                         <Link to={`/checkoutsub/${item._id}`}>
@@ -70,7 +70,7 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                     )}
                   </>
                   <>
-                    ONE TIME PRODUCTS<br />
+                    {/* ONE TIME PRODUCTS<br /> */}
                     {oneTimeProducts.map((item, index) =>
                       <React.Fragment key={index}>
                         <Link to={`/checkoutone/${item._id}`}>

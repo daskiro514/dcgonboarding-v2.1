@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Moment from 'react-moment';
+import Moment from 'react-moment'
 import { showPartnerDetail } from '../../../../actions/admin'
 
 const PartnerDetail = ({ showPartnerDetail, PartnerForShow, showPartner }) => {
