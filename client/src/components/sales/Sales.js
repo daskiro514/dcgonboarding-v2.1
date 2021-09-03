@@ -39,8 +39,8 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
               <div className="row">
                 <div className="col-md-1"></div>
                 <div className="col-md-11 overflow">
-                  {/* <>
-                    MASTER SUBSCRIPTION PRODUCTS<br />
+                  <>
+                    {/* MASTER SUBSCRIPTION PRODUCTS<br /> */}
                     {defaultProducts.map((item, index) =>
                       <React.Fragment key={index}>
                         <Link to={`/checkoutsub/${item._id}`}>
@@ -53,7 +53,7 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                         </Link>
                       </React.Fragment>
                     )}
-                  </> */}
+                  </>
                   <>
                     {/* SUBSCRIPTION PRODUCTS<br /> */}
                     {subscriptionProducts.map((item, index) =>

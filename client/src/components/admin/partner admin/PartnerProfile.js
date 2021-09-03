@@ -106,7 +106,7 @@ const PartnerProfile = ({ partner }) => {
                 }}
               >RESET PASSWORD</button>
               <Spaces spaceLength={1} />
-              <button><a href='https://gravatar.com' target="_blank" style={{ textDecoration: 'none', color: 'black' }}>RESET IMAGE</a></button>
+              <button><a href='https://gravatar.com' target="_blank" rel="noreferrer" style={{ textDecoration: 'none', color: 'black' }}>RESET IMAGE</a></button>
             </div>
           </div>
         </div>

@@ -14,6 +14,7 @@ import PartnerApplication from '../partner/PartnerApplication'
 import Thanks from '../layout/Thanks'
 import FailedConnectAccount from '../layout/FailedConnectAccount'
 import Sales from '../sales/Sales'
+import Sales2 from '../sales/Sales2'
 import CheckoutForSubscription from '../sales/CheckoutForSubscription'
 import CheckoutForProduct from '../sales/CheckoutForProduct'
 import ThanksForCustomer from '../layout/ThanksForCustomer'
@@ -36,6 +37,7 @@ const Routes = props => {
         <Route exact path="/thanks/:id" component={Thanks} />
         <Route exact path="/failedconnectaccount/:id" component={FailedConnectAccount} />
         <Route path="/sales/:id" component={Sales} />
+        <Route path="/sales2/:id" component={Sales2} />
         <Route path="/checkoutsub/:id" component={CheckoutForSubscription} />
         <Route path="/checkoutone/:id" component={CheckoutForProduct} />
         <Route path="/thankscustomer" component={ThanksForCustomer} />
