@@ -352,28 +352,6 @@ const payToHiddenAndPartner = async (subscriptionID, customerID, paidAmount) => 
 }
 
 router.get('/getPartnerTransactions/:id', async (req, res) => {
-  // FOR DEFAULT SUBSCRIPTION UPDATE
-  let product1 = await Product.findOneAndUpdate({name: 'Master Mind Package'}, {
-    description: ''
-  }, {new: true})
-
-  await stripe.products.update(
-    product1.stripeProductID,
-    {description: ''}
-  )
-
-  let product2 = await Product.findOneAndUpdate({name: 'Reports Only'}, {
-    description: ''
-  }, {new: true})
-
-  await stripe.products.update(
-    product2.stripeProductID,
-    {description: ''}
-  )
-
-  // -------------------------------
-
-
   let tempTransactions = await Transaction.find({ ownerID: req.params.id }).populate('customerID').populate('productID').populate('ownerID')
 
   let transactions = []
@@ -401,6 +379,26 @@ router.get('/getPartnerTransactions/:id', async (req, res) => {
     success: true,
     transactions
   })
+
+  // FOR DEFAULT SUBSCRIPTION UPDATE
+  // let product1 = await Product.findOneAndUpdate({name: 'Master Mind Package'}, {
+  //   description: ''
+  // }, {new: true})
+
+  // await stripe.products.update(
+  //   product1.stripeProductID,
+  //   {description: ''}
+  // )
+
+  // let product2 = await Product.findOneAndUpdate({name: 'Reports Only'}, {
+  //   description: ''
+  // }, {new: true})
+
+  // await stripe.products.update(
+  //   product2.stripeProductID,
+  //   {description: ''}
+  // )
+  // // -------------------------------
 })
 
 router.get('/getPartnerCustomers/:id', async (req, res) => {
