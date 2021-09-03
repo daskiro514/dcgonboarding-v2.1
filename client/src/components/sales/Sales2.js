@@ -8,7 +8,7 @@ const Sales2 = () => {
       <div className='row'>
         <div className='w3-center'>
           <br /><br />
-          <img src={sales2Logo} width='300px' />
+          <img src={sales2Logo} alt='LOGO' width='300px' />
         </div>
         <div className='w3-center'>
           <br />
@@ -27,7 +27,7 @@ const Sales2 = () => {
                 <iframe
                   width="100%"
                   // height="100%"
-                  src='https://youtu.be/62Xj5WXShpM'
+                  src='https://www.youtube.com/embed/62Xj5WXShpM'
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
