@@ -3,6 +3,7 @@ import logoImg from "../../img/logo/logo-black.svg"
 import { connect } from 'react-redux'
 import { } from '../../actions/partner'
 import { Link } from "react-router-dom"
+import Spaces from './Spaces'
 
 const Thanks = ({ customer, customerProduct }) => {
 
@@ -12,8 +13,8 @@ const Thanks = ({ customer, customerProduct }) => {
         <div className="top-header">
           <Link to="/home"><img src={logoImg} alt="logo" /></Link>
           <div>
-            <Link to="/home"><span className="glyphicon glyphicon-home"></span>&nbsp;HOME PAGE</Link>
-            <Link to="/sales"><span className="glyphicon glyphicon-book"></span>&nbsp;SALES PAGE</Link>
+            <Link to="/login"><span className="glyphicon glyphicon-log-in"></span><Spaces spaceLength={1} />LOGIN PAGE</Link>
+            <Link to="/home"><span className="glyphicon glyphicon-home"></span><Spaces spaceLength={1} />HOME PAGE</Link>
           </div>
         </div>
         <div className="row">
@@ -32,7 +33,8 @@ const Thanks = ({ customer, customerProduct }) => {
             }
 
             <div className="w3-right">
-              <Link to="/sales" style={{ textDecoration: "none" }} className="w3-button w3-grey w3-round">RETURN TO SALES PAGE</Link>&nbsp;
+              <Link to="/login" style={{ textDecoration: "none" }} className="w3-button w3-grey w3-round">LOGIN PAGE</Link>
+              <Spaces spaceLength={1} />
               <Link to="/home" style={{ textDecoration: "none" }} className="w3-button w3-grey w3-round">HOMEPAGE</Link>
             </div><br /><br /><br />
           </div>

@@ -459,7 +459,9 @@ router.post('/addTransactionForOneTimeProductSale', async (req, res) => {
   await toMasterTransaction.save()
 
   res.json({
-    success: true
+    success: true,
+    customer: req.body.billingDetails,
+    customerProduct: req.body.productForSale
   })
 })
 

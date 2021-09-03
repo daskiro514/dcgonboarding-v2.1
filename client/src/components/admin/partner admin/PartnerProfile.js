@@ -20,6 +20,9 @@ const PartnerProfile = ({ partner }) => {
         <div className="row">
           <div className="col-md-12 ap-box">
             <h2>PARTNER PROFILE</h2>
+            <div className="w3-text-green" style={{ display: 'flex', flexWrap: 'wrap' }}>
+              <span><Spaces spaceLength={4} />Profile image is changed on gravatar.com. You can simply go there by clicking RESET IMAGE below.</span>
+            </div><br />
             <br />
             <table className="w3-table w3-btransfered">
               <thead>
@@ -103,7 +106,7 @@ const PartnerProfile = ({ partner }) => {
                 }}
               >RESET PASSWORD</button>
               <Spaces spaceLength={1} />
-              <button><a href='https://gravatar.com' target="_blank" style={{textDecoration: 'none', color: 'black'}}>RESET IMAGE</a></button>
+              <button><a href='https://gravatar.com' target="_blank" style={{ textDecoration: 'none', color: 'black' }}>RESET IMAGE</a></button>
             </div>
           </div>
         </div>

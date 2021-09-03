@@ -168,7 +168,8 @@ export const createCustomer = (formData, history, sellerID) => async dispatch =>
     type: CUSTOMER_CREATE_INPROGRESS,
     payload: false
   })
-  history.push(`/sales/${sellerID}`)
+  // history.push(`/sales/${sellerID}`)
+  history.push(`/thankscustomer`)
 }
 
 export const getPartnerTransactions = partnerID => async dispatch => {
@@ -204,7 +205,12 @@ export const getPaymentIntent = price => async dispatch => {
 export const addTransactionForOneTimeProductSale = (transaction, history, ownerID) => async dispatch => {
   const res = await api.post(`/partner/addTransactionForOneTimeProductSale`, transaction)
   if (res.data.success) {
-    history.push(`/sales/${ownerID}`)
+    // history.push(`/sales/${ownerID}`)
+    dispatch({
+      type: CUSTOMER_CREATED,
+      payload: res.data
+    })
+    history.push(`/thankscustomer`)
   }
 }
 
