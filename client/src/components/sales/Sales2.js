@@ -26,7 +26,7 @@ const Sales2 = () => {
               <div className="video-responsive" style={{boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.5)'}}>
                 <iframe
                   width="100%"
-                  height="100%"
+                  height="400px"
                   src='https://www.youtube.com/embed/62Xj5WXShpM'
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
