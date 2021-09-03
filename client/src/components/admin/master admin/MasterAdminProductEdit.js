@@ -22,7 +22,7 @@ const MasterAdminProductEdit = ({ product, updateProduct, inProgress, productID 
   }, [product])
 
   const onSubmit = e => {
-    if (name && description && (price > 0.1)) {
+    if (name && (price > 0.1)) {
       updateProduct({ productID, name, price, description, recurringInterval, type }, history)
     } else {
       alert("Please fill the inputs below.")
