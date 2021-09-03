@@ -30,7 +30,7 @@ const Sales2 = () => {
                   src='https://www.youtube.com/embed/62Xj5WXShpM'
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                  allowFullScreen='allowfullscreen'
                   title="Embedded youtube"
                 />
               </div>
