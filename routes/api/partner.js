@@ -422,8 +422,9 @@ router.get('/getPaymentIntent/:price', async (req, res) => {
 })
 
 router.post('/addTransactionForOneTimeProductSale', async (req, res) => {
-  // console.log(req.body)
+  console.log(req.body)
   const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
+  console.log(hiddenAdmin)
   const toHiddenTransferAmount = req.body.productForSale.price * 0.1
   const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
   const transferSentToHidden = await stripe.transfers.create({

@@ -7,13 +7,13 @@ import CheckoutForm from './CheckoutForm'
 import cellphone from '../../img/course/cellphone.jpg'
 import { getProductByID, getPaymentIntent } from '../../actions/partner'
 
-const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePublishableKey, paymentIntent, getPaymentIntent }) => {
+const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePublishableKey, user, paymentIntent, getPaymentIntent }) => {
   React.useEffect(() => {
     getProductByID(match.params.id)
   }, [getProductByID, match.params.id])
 
   React.useEffect(() => {
-    if (productForSale.price > 0) {
+    if (productForSale.price > 0 && paymentIntent.id !== undefined) {
       getPaymentIntent(productForSale.price)
     }
   }, [getPaymentIntent, productForSale.price])
@@ -27,7 +27,7 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
           <br />
           <br />
           <div>
-            <Link to="/sales" className="btn w3-white">BACK</Link>
+            <Link to={`/sales/${user._id}`} className="btn w3-white">BACK</Link>
           </div>
           <br />
           <div className="col-md-7">
@@ -49,6 +49,7 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
 }
 
 const mapStateToProps = state => ({
+  user: state.partner.tempUser,
   productForSale: state.partner.productForSale,
   stripePublishableKey: state.partner.stripePublishableKey,
   paymentIntent: state.partner.paymentIntent,

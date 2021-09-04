@@ -23,7 +23,7 @@ const CheckoutForSubscription = ({ match, getProductByID, productForSale, stripe
           <br />
           <br />
           <div>
-            <Link to="/sales" className="btn w3-white">BACK</Link>
+            <Link to={`/sales/${user._id}`} className="btn w3-white">BACK</Link>
           </div>
           <br />
           <div className="col-md-7">

@@ -7,6 +7,7 @@ import Spinner from '../layout/Spinner'
 import { useHistory } from "react-router-dom"
 
 const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionForOneTimeProductSale }) => {
+  console.log(ownerID)
   const history = useHistory()
   const stripe = useStripe()
   const elements = useElements()
@@ -19,6 +20,7 @@ const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionFo
   })
 
   const handleSubmit = async (event) => {
+    console.log('ok')
     event.preventDefault()
 
     if (!stripe || !elements) {
