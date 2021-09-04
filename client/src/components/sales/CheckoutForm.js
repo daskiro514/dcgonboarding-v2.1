@@ -7,7 +7,6 @@ import Spinner from '../layout/Spinner'
 import { useHistory } from "react-router-dom"
 
 const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionForOneTimeProductSale }) => {
-  console.log(ownerID)
   const history = useHistory()
   const stripe = useStripe()
   const elements = useElements()
@@ -19,9 +18,8 @@ const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionFo
     name: ""
   })
 
-  const handleSubmit = async (event) => {
-    console.log('ok')
-    event.preventDefault()
+  const handleSubmit = async () => {
+    console.log(paymentIntent)
 
     if (!stripe || !elements) {
       return
@@ -56,7 +54,10 @@ const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionFo
   }
 
   return (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="Form" onSubmit={e => {
+      e.preventDefault()
+      handleSubmit()
+    }}>
       {checkoutIsInProgress ? <Spinner /> : null}
       <Field
         label="Name"
@@ -129,7 +130,7 @@ const Field = ({
 )
 
 const mapStateToProps = state => ({
-  ownerID: state.partner.tempUser._id,
+  ownerID: state.partner.productForSale.owner ? state.partner.productForSale.owner._id : "",
   productForSale: state.partner.productForSale,
 })
 

@@ -205,7 +205,6 @@ export const getPaymentIntent = price => async dispatch => {
 export const addTransactionForOneTimeProductSale = (transaction, history, ownerID) => async dispatch => {
   const res = await api.post(`/partner/addTransactionForOneTimeProductSale`, transaction)
   if (res.data.success) {
-    // history.push(`/sales/${ownerID}`)
     dispatch({
       type: CUSTOMER_CREATED,
       payload: res.data

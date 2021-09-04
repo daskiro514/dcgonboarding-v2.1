@@ -217,7 +217,7 @@ router.get('/getSalesProducts/:id', async (req, res) => {
 })
 
 router.get('/getProductByID/:id', async (req, res) => {
-  let product = await Product.findById(req.params.id)
+  let product = await Product.findById(req.params.id).populate('owner')
   res.json({
     success: true,
     product: product
@@ -422,9 +422,7 @@ router.get('/getPaymentIntent/:price', async (req, res) => {
 })
 
 router.post('/addTransactionForOneTimeProductSale', async (req, res) => {
-  console.log(req.body)
   const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
-  console.log(hiddenAdmin)
   const toHiddenTransferAmount = req.body.productForSale.price * 0.1
   const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
   const transferSentToHidden = await stripe.transfers.create({

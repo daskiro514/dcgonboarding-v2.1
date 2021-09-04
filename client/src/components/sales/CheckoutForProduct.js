@@ -13,7 +13,7 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
   }, [getProductByID, match.params.id])
 
   React.useEffect(() => {
-    if (productForSale.price > 0 && paymentIntent.id !== undefined) {
+    if (productForSale.price > 0 && paymentIntent.id == undefined) {
       getPaymentIntent(productForSale.price)
     }
   }, [getPaymentIntent, productForSale.price])
@@ -38,9 +38,9 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
             </div>
           </div>
           <div className="col-md-5" style={{ backgroundColor: "#fff", color: "black" }}>
-              <Elements stripe={stripePromise}>
-                <CheckoutForm paymentIntent={paymentIntent} />
-              </Elements>
+            <Elements stripe={stripePromise}>
+              <CheckoutForm paymentIntent={paymentIntent} />
+            </Elements>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
 }
 
 const mapStateToProps = state => ({
-  user: state.partner.tempUser,
+  user: state.partner.productForSale.owner ? state.partner.productForSale.owner : {},
   productForSale: state.partner.productForSale,
   stripePublishableKey: state.partner.stripePublishableKey,
   paymentIntent: state.partner.paymentIntent,
