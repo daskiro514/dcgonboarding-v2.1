@@ -30,8 +30,10 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 .bg-login {
   color: white;
   position: relative;
-  background: url('./img/login/home-bg.jpg') no-repeat center center/cover;
+  /* background: url('./img/login/home-bg.jpg') no-repeat center center/cover; */
+  background: url('./img/login/home-bg2.png') no-repeat center center/cover;
   height: 100vh;
+  border-top: solid 5px rgb(212, 175, 55);
 }
 
 .login_form {
@@ -100,8 +102,10 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 .bg-home {
   color: white;
   position: relative;
-  background: url('./img/login/home-bg.jpg') no-repeat center center/cover;
+  /* background: url('./img/login/home-bg.jpg') no-repeat center center/cover; */
+  background: url('./img/login/home-bg2.png') no-repeat center center/cover;
   height: 100vh;
+  border-top: solid 5px rgb(212, 175, 55);
 }
 
 @media (max-width: 634px) {
@@ -119,6 +123,9 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .homeLogo {
   margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  width: 300px;
 }
 
 .justify {

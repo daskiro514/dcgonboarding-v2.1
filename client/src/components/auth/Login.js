@@ -3,7 +3,8 @@ import { Redirect, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { login } from '../../actions/auth'
-import logoImg from "../../img/logo/logo.svg"
+// import logoImg from "../../img/logo/logo.svg"
+import logoImg from "../../img/logo/logo2.png"
 
 const Login = ({ login, isAuthenticated, user }) => {
   const [formData, setFormData] = React.useState({
@@ -29,7 +30,9 @@ const Login = ({ login, isAuthenticated, user }) => {
     <section className="container-fluid bg-login">
       <div className='row upperSpace'></div>
       <div className="row w3-center">
-        <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        <Link to='/home'>
+          <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        </Link>
       </div>
       <div className='row w3-center'>
         <form className="form login_form" onSubmit={onSubmit}>

@@ -2,7 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link, useHistory } from "react-router-dom"
 import { resetPassword } from '../../actions/auth'
-import logoImg from "../../img/logo/logo.svg"
+// import logoImg from "../../img/logo/logo.svg"
+import logoImg from "../../img/logo/logo2.png"
 
 const ResetPassword = ({ match, resetPassword }) => {
   let history = useHistory()
@@ -18,7 +19,9 @@ const ResetPassword = ({ match, resetPassword }) => {
     <section className="container-fluid bg-login">
       <div className='row upperSpace'></div>
       <div className="row w3-center">
-        <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        <Link to='/home'>
+          <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        </Link>
       </div>
       <div className='row w3-center'>
         <form className="form login_form" onSubmit={onSubmit}>

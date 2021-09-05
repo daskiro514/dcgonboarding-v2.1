@@ -6,7 +6,8 @@ import HiddenAdmin from '../admin/hidden admin/HiddenAdmin'
 import PartnerAdmin from '../admin/partner admin/PartnerAdmin'
 import CustomerHome from '../customer/CustomerHome'
 import Spaces from './Spaces'
-import logoImg from "../../img/logo/logo.svg"
+// import logoImg from "../../img/logo/logo.svg"
+import logoImg from "../../img/logo/logo2.png"
 
 const Home = ({ isAuthenticated, user }) => {
   if (isAuthenticated && user && user.type === "admin") {
@@ -38,7 +39,9 @@ const Home = ({ isAuthenticated, user }) => {
       <section className="container-fluid bg-home">
         <div className='row upperSpace'></div>
         <div className="row w3-center">
-          <img src={logoImg} alt="logo" className="img-responsive homeLogo" />
+          <Link to='/home'>
+            <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+          </Link>
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className='w3-center'>

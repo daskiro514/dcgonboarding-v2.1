@@ -1,5 +1,6 @@
 import React from 'react'
-import logoImg from "../../img/logo/logo.svg"
+// import logoImg from "../../img/logo/logo.svg"
+import logoImg from "../../img/logo/logo2.png"
 import { connect } from 'react-redux'
 import { forgotPassword } from '../../actions/auth'
 import { Link } from 'react-router-dom'
@@ -23,7 +24,9 @@ const ForgotPassword = ({ forgotPassword }) => {
     <section className="container-fluid bg-login">
       <div className='row upperSpace'></div>
       <div className="row w3-center">
-        <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        <Link to='/home'>
+          <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+        </Link>
       </div>
       <div className='row w3-center'>
         <form className="form login_form" onSubmit={onSubmit}>
