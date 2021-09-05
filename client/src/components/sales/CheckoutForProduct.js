@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import CheckoutForm from './CheckoutForm'
-import cellphone from '../../img/course/cellphone.jpg'
+import cellphone from '../../img/course/logo2.png'
 import { getProductByID, getPaymentIntent } from '../../actions/partner'
 
 const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePublishableKey, user, paymentIntent, getPaymentIntent }) => {

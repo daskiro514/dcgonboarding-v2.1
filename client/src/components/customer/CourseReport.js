@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { getReports } from '../../actions/admin'
 import { getCourses } from '../../actions/partner'
-import cellphone from '../../img/course/cellphone.jpg'
+import logoImage from '../../img/course/logo2.png'
 
 const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, courses }) => {
   React.useEffect(() => {
@@ -25,7 +25,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
             <h1>COURSES</h1>
             <br />
             <div className="report-below-courses">
-              <img src={cellphone} alt="lalala" className="img-responsive" />
+              <img src={logoImage} alt="lalala" className="img-responsive" />
               <p className="justify">
                 Welcome to the onboarding course. The goal of this course is to get you caught up to speed on everything you need to know to get started!
               </p>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getProductByID, createCustomer } from '../../actions/partner'
-import cellphone from '../../img/course/cellphone.jpg'
+import logoImage from '../../img/course/logo2.png'
 import { loadStripe } from '@stripe/stripe-js'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js'
 import Spinner from '../layout/Spinner'
@@ -28,7 +28,7 @@ const CheckoutForSubscription = ({ match, getProductByID, productForSale, stripe
           <br />
           <div className="col-md-7">
             <div className="report-below-courses">
-              <img src={cellphone} alt="PRODUCT" className="img-responsive" />
+              <img src={logoImage} alt="PRODUCT" className="img-responsive" />
               <h3 className="w3-center">{productForSale.name} ({productForSale.price / 100} $ / {productForSale.recurringInterval})</h3>
               <p className="w3-center justify">{productForSale.description}</p>
             </div>

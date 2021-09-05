@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import ColorSelector from 'react-color-selector'
-import defaultLogo from '../../../img/course/cellphone.jpg'
+import defaultLogo from '../../../img/course/logo2.png'
 import Spaces from '../../layout/Spaces'
 import Spinner from '../../layout/Spinner'
 import { defaultCoursePage, updateCoursePage } from '../../../actions/partner'
