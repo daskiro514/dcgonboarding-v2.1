@@ -19,8 +19,6 @@ const CheckoutForm = ({ paymentIntent, ownerID, productForSale, addTransactionFo
   })
 
   const handleSubmit = async () => {
-    console.log(paymentIntent)
-
     if (!stripe || !elements) {
       return
     }

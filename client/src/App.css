@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-
 .ap-title {
   color: #231F20;
 }
@@ -8,10 +7,7 @@
   color: #231F20;
 }
 
-.w3-table td,
-.w3-table th,
-.w3-table-all td,
-.w3-table-all th {
+.w3-table td, .w3-table th, .w3-table-all td, .w3-table-all th {
   padding: 2px 8px;
   display: table-cell;
   text-align: left;
@@ -30,6 +26,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Login ***/
+
 .bg-login {
   color: white;
   position: relative;
@@ -43,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   padding-right: 25px;
 }
 
-@media (max-width: 768px){
+@media (max-width: 768px) {
   h1 {
     font-size: 30px;
   }
@@ -80,8 +77,8 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   }
 }
 
-@media (min-width: 992px){
-  .preview{
+@media (min-width: 992px) {
+  .preview {
     position: fixed;
     width: 40%;
   }
@@ -99,6 +96,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Home(Welcome) ***/
+
 .bg-home {
   color: white;
   position: relative;
@@ -106,7 +104,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   height: 100vh;
 }
 
-@media (max-width: 634px){
+@media (max-width: 634px) {
   .upperSpace {
     height: 100px;
   }
@@ -140,6 +138,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Report(Courses & Report) ***/
+
 .bg-report {
   position: relative;
   min-height: 100vh;
@@ -171,6 +170,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Video ***/
+
 .bg-video {
   position: relative;
   min-height: 100vh;
@@ -191,6 +191,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Article ***/
+
 .bg-article {
   color: white;
   min-height: 100vh;
@@ -253,6 +254,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Sales ***/
+
 .bg-sales {
   padding: 0px;
   position: relative;
@@ -287,6 +289,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Sales ***/
+
 .bg-check {
   color: white;
   background-color: #000;
@@ -314,6 +317,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 /*** Admin ***/
+
 .bg-admin {
   color: white;
   /* background-color: #D2A869; */
@@ -481,7 +485,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 }
 
 .adminSidebar .w3-circle span {
- /* whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}} */
+  /* whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}} */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -507,13 +511,13 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   vertical-align: middle;
 }
 
-@media (max-width: 426px){
+@media (max-width: 426px) {
   .masterAdminSidebar {
     display: none;
   }
 }
 
-@media (min-width: 426px){
+@media (min-width: 426px) {
   .masterAdminTopNav {
     display: none;
   }
@@ -551,10 +555,10 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .masterAdminSidebar .w3-circle span {
   /* whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis"}} */
-   overflow: hidden;
-   text-overflow: ellipsis;
-   white-space: nowrap;
- }
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
 .partnerAdminProducts table tbody tr td {
   vertical-align: middle;
@@ -607,14 +611,77 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 .coursevideos table tbody tr td img {
   margin: 10px 0px;
 }
-@media (min-width: 992px){
-  .preview{
+
+@media (min-width: 992px) {
+  .preview {
     position: fixed;
     width: 40%;
   }
 }
 
+.sales2 {
+  padding: 0px 0px !important;
+  color: black
+}
+
+.sales2 .row {
+  margin: 0px 0px;
+}
+
 .sales2 h1, h2, h3, h4, h5, h6 {
   margin: 0px 0px !important;
   padding: 0px 0px !important;
+}
+
+.sales2 .video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.sales2 .video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.sales2 .blackParts ul li {
+  font-size: 20px;
+  list-style-type: none;
+}
+
+.sales2 .blackParts ul li span {
+  margin-right: 10px;
+}
+
+.sales2 .getAccess ul li {
+  list-style-type: none;
+  font-size: 30px;
+}
+
+.sales2 .getAccess ul li span {
+  margin-right: 10px;
+}
+
+.sales2 .dollars {
+  top: 0;
+
+  color: #ff7902;
+  margin: 70px 0px;
+}
+
+.sales2 .dollars h1 {
+  font-size: 44px !important;
+  
+}
+
+.sales2 .aboutCoach p {
+  font-size: 19px !important;
+}
+
+.sales2 .ending p {
+  font-size: 12px !important;
 }

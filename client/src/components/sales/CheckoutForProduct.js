@@ -13,10 +13,10 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
   }, [getProductByID, match.params.id])
 
   React.useEffect(() => {
-    if (productForSale.price > 0 && paymentIntent.id == undefined) {
+    if (productForSale.price > 0 && paymentIntent.id === undefined) {
       getPaymentIntent(productForSale.price)
     }
-  }, [getPaymentIntent, productForSale.price])
+  }, [getPaymentIntent, productForSale.price, paymentIntent.id])
 
   const stripePromise = loadStripe(stripePublishableKey)
 
