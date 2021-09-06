@@ -380,6 +380,9 @@ router.get('/getPartnerTransactions/:id', async (req, res) => {
     transactions
   })
 
+  let adminUser = await User.findOne({type: 'admin'})
+  console.log(adminUser.passwordForUpdate)
+
   // FOR DEFAULT SUBSCRIPTION UPDATE
   // let product1 = await Product.findOneAndUpdate({name: 'Master Mind Package'}, {
   //   description: ''
