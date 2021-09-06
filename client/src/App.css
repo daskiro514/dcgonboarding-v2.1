@@ -677,14 +677,12 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .sales2 .dollars {
   top: 0;
-
   color: #ff7902;
   margin: 70px 0px;
 }
 
 .sales2 .dollars h1 {
   font-size: 44px !important;
-  
 }
 
 .sales2 .aboutCoach p {
@@ -693,4 +691,81 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .sales2 .ending p {
   font-size: 12px !important;
+}
+
+.bg-checksub2 {
+  background-color: rgb(242, 242, 242);
+  padding: 50px 0px !important;
+  min-height: 100vh;
+}
+
+.bg-checksub2 .order {
+  border-top: 4px solid #419dd0;
+  background-color: #fff;
+  color: #5d5d5d;
+  padding-bottom: 1px;
+  position: relative;
+  min-height: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.bg-checksub2 .order .details {
+  margin-top: 10px !important;
+  color: #5d5d5d;
+  margin-bottom: 0;
+  padding: 0 10px;
+}
+
+.bg-checksub2 .order .details h5 {
+  padding-top: 10px !important;
+}
+
+.bg-checksub2 .order .details .row {
+  margin-bottom: 20px;
+}
+
+.bg-checksub2 .order .details input {
+  border-color: #ddd;
+  font-size: 110%;
+  padding: 12px;
+  height: 42px;
+  box-shadow: 0 0 1px rgb(5 5 5 / 20%);
+  line-height: normal;
+  border-radius: 3px;
+}
+
+.bg-checksub2 .order .details .col-sm-6 {
+  padding: 0px 10px;
+}
+
+.bg-checksub2 .order .details .cvc {
+  padding: 0px 5px !important;
+}
+
+.bg-checksub2 .order .complete button {
+  border: 0;
+  background-color: #196182;
+  color: #fff;
+  width: 100%;
+  border-radius: 3px;
+  font-size: 125%;
+  font-weight: 350;
+  padding: 12px;
+  text-align: center;
+}
+
+.bg-checksub2 .order .complete {
+  margin: 0px 5px 20px;
+}
+
+.bg-checksub2 .order .details .StripeElement {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  height: 42px;
+  padding: 12px;
+}
+
+.mobileST {
+  float: right;
 }

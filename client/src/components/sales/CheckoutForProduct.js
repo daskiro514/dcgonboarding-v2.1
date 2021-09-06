@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 import CheckoutForm from './CheckoutForm'
-import cellphone from '../../img/course/logo2.png'
+import logoImage from '../../img/course/logo2.png'
 import { getProductByID, getPaymentIntent } from '../../actions/partner'
 
 const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePublishableKey, user, paymentIntent, getPaymentIntent }) => {
@@ -32,7 +32,7 @@ const CheckoutForProduct = ({ match, getProductByID, productForSale, stripePubli
           <br />
           <div className="col-md-7">
             <div className="report-below-courses">
-              <img src={cellphone} alt="PRODUCT" className="img-responsive" />
+              <img src={logoImage} alt="PRODUCT" className="img-responsive" />
               <h3 className="w3-center">{productForSale.name} ({productForSale.price / 100} $)</h3>
               <p className="w3-center justify">{productForSale.description}</p>
             </div>

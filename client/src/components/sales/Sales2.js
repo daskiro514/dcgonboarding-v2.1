@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getTempUser, getSalesProducts, getPublishableKey } from '../../actions/partner'
 import sales2Logo from '../../img/sales2/sales2-logo.png'
 import sales2Sign from '../../img/sales2/sales2-sign.png'
 import sales2BG from '../../img/sales2/sales2-bg.jpg'
@@ -11,7 +13,24 @@ import sales2Facebook from '../../img/sales2/sales2-facebook.png'
 import sales2Arrows from '../../img/sales2/sales2-arrows.png'
 import sales2MiniPhoto from '../../img/sales2/sales2-miniphoto.png'
 
-const Sales2 = () => {
+const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defaultProducts }) => {
+  const userID = match.params.id
+  const [mastermindProduct, setMastermindProduct] = React.useState({})
+
+  React.useEffect(() => {
+    getTempUser(userID)
+    getSalesProducts(userID)
+    getPublishableKey()
+  }, [getTempUser, getSalesProducts, getPublishableKey, userID])
+
+  React.useEffect(() => {
+    if (defaultProducts.length) {
+      // console.log(defaultProducts)
+      const mastermindProduct = defaultProducts.find(element => element.name === 'Master Mind Package' || element.price === 49700)
+      setMastermindProduct(mastermindProduct)
+    }
+  }, [defaultProducts])
+
 
   return (
     <div className='container-fluid sales2'>
@@ -77,7 +96,7 @@ const Sales2 = () => {
               padding: '10px 0px 20px',
               marginBottom: '10px'
             }}>
-              <Link to='/home' style={{ textDecoration: 'none', color: 'white' }}>
+              <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{ textDecoration: 'none', color: 'white' }}>
                 BECOME A PART OF THE Forex, Crypto and Optionis MASTERMIND
               </Link>
             </div>
@@ -87,7 +106,7 @@ const Sales2 = () => {
           </div>
         </div>
       </div>
-     
+
       <div className='row' style={{ backgroundColor: 'black', color: 'white', marginTop: '30px' }}>
         <div className='text-uppercase w3-center' style={{ padding: '50px 0px 30px' }}>
           <h1>what will you get!</h1>
@@ -125,7 +144,7 @@ const Sales2 = () => {
       </div>
 
       <div className='row' style={{ backgroundColor: '#eee', height: '80px', width: '100%' }}></div>
-      
+
       <div className='row'>
         <div className='container'>
           <div className='row'>
@@ -153,7 +172,7 @@ const Sales2 = () => {
               textAlign: 'center',
               width: '50%',
             }}>
-              <Link to='/home' style={{
+              <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{
                 textDecoration: 'none',
                 color: 'white'
               }}>
@@ -165,7 +184,7 @@ const Sales2 = () => {
           </div>
         </div>
       </div>
-      
+
       <div className='row' style={{ backgroundColor: 'black', color: 'white', paddingTop: '40px' }}>
         <div className='container blackParts'>
           <div className='row'>
@@ -211,7 +230,7 @@ const Sales2 = () => {
                   textAlign: 'center',
                   width: '50%',
                 }}>
-                  <Link to='/home' style={{
+                  <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{
                     textDecoration: 'none',
                     color: 'white'
                   }}>
@@ -225,7 +244,7 @@ const Sales2 = () => {
           </div>
         </div>
       </div>
-      
+
       <div className='row' style={{
         backgroundColor: 'rgb(15,15,15)'
       }}>
@@ -242,7 +261,7 @@ const Sales2 = () => {
           </div>
         </div>
       </div>
-      
+
       <div className='row'>
         <div className='container'>
           <div className='row aboutCoach'>
@@ -264,7 +283,7 @@ const Sales2 = () => {
                 textAlign: 'center',
                 width: '50%',
               }}>
-                <Link to='/home' style={{
+                <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{
                   textDecoration: 'none',
                   color: 'white'
                 }}>
@@ -319,7 +338,7 @@ const Sales2 = () => {
             textAlign: 'center',
             width: '50%',
           }}>
-            <Link to='/home' style={{
+            <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{
               textDecoration: 'none',
               color: 'white'
             }}>
@@ -346,9 +365,13 @@ const Sales2 = () => {
           </div>
         </div>
       </div>
-    
+
     </div>
   )
 }
 
-export default Sales2
+const mapStateToProps = state => ({
+  defaultProducts: state.partner.defaultProducts,
+})
+
+export default connect(mapStateToProps, { getTempUser, getSalesProducts, getPublishableKey })(Sales2)
