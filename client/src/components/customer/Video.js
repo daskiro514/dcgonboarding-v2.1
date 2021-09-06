@@ -10,15 +10,16 @@ const Video = ({ course, match, getCourseByID }) => {
   }, [match.params.id, getCourseByID])
 
   return (
-    <div className="bg-video" style={{ background: 'black' }}>
+    <div className="bg-video">
       <br /><br />
       <div className="container">
         <div className=" row">
-          <div>
+          <div className="col-md-12">
             <Link to="/coursereports" className="btn w3-white">
               BACK
             </Link>
           </div>
+          <br />
           <div className="col-md-1"></div>
           <div className="col-md-10">
             <p className="text-center">

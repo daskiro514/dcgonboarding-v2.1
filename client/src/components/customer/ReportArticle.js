@@ -15,9 +15,10 @@ const ReportArticle = ({ baseURL, match, getReportByID, report }) => {
       <br /><br />
       <div className="container">
         <div className="row">
-          <div>
+          <div className="col-md-12">
             <Link to="/coursereports" className="btn w3-white">BACK</Link>
           </div>
+          <br />
           <h1 className='w3-center text-center'>{report.title}</h1>
           <br /><br />
           <div className="col-md-5">

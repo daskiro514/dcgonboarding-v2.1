@@ -22,6 +22,7 @@ import ThanksForCustomer from '../layout/ThanksForCustomer'
 import CourseReport from '../customer/CourseReport'
 import ReportArticle from '../customer/ReportArticle'
 import Video from '../customer/Video'
+import DefaultVideo from '../customer/DefaultVideo'
 
 const Routes = props => {
   return (
@@ -46,6 +47,7 @@ const Routes = props => {
         <PrivateRoute path="/coursereports" component={CourseReport} />
         <PrivateRoute path="/report/:id" component={ReportArticle} />
         <PrivateRoute path="/video/:id" component={Video} />
+        <PrivateRoute path="/defaultvideo/:id" component={DefaultVideo} />
         <Route component={NotFound} />
       </Switch>
     </section>

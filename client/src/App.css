@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   position: relative;
   /* background: url('./img/login/home-bg.jpg') no-repeat center center/cover; */
   background: url('./img/login/home-bg2.png') no-repeat center center/cover;
-  height: 100vh;
+  min-height: 100vh;
   border-top: solid 5px rgb(212, 175, 55);
   /* background-color: rgba(0, 0, 0, 0.408); */
 }
@@ -40,7 +40,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 .login_form {
   width: 25%;
   margin: auto;
-  padding-right: 25px;
+  padding-bottom: 45px;
 }
 
 @media (max-width: 768px) {
@@ -78,6 +78,13 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   .login_form {
     width: 50%;
   }
+  .bg-video .text-center {
+    color: gold;
+    font-size: 22px !important;
+  }
+  .bg-customer a {
+    font-size: 16px !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -105,7 +112,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   position: relative;
   /* background: url('./img/login/home-bg.jpg') no-repeat center center/cover; */
   background: url('./img/login/home-bg2.png') no-repeat center center/cover;
-  height: 100vh;
+  min-height: 100vh;
   border-top: solid 5px rgb(212, 175, 55);
   /* background-color: rgba(0, 0, 0, 0.408); */
 }
@@ -150,7 +157,9 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .bg-report {
   position: relative;
+  background: url('./img/login/home-bg2.png') no-repeat center center/cover;
   min-height: 100vh;
+  border-top: solid 5px rgb(212, 175, 55);
   color: white;
 }
 
@@ -182,7 +191,9 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .bg-video {
   position: relative;
+  background: url('./img/login/home-bg2.png') no-repeat center center/cover;
   min-height: 100vh;
+  border-top: solid 5px rgb(212, 175, 55);
   color: white;
 }
 
