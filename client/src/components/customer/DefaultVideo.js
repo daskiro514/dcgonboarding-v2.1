@@ -22,7 +22,7 @@ const DefaultVideo = ({ match, baseURL }) => {
     const video = baseURL + 'default/' + defaultVideos[match.params.id] + '.mp4'
     setVideo(video)
     setTitle(defaultVideos[match.params.id])
-  }, [match])
+  }, [match, baseURL])
 
   return (
     <div className="bg-video">

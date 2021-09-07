@@ -85,6 +85,9 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   .bg-customer a {
     font-size: 16px !important;
   }
+  .bg-customer .header h1 {
+    font-size: 25px !important;
+  }
 }
 
 @media (min-width: 992px) {
@@ -780,3 +783,55 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 .mobileST {
   float: right;
 }
+
+.bg-customer .whitepanel {
+  background-color: white;
+  color: black;
+  padding: 20px 35px;
+}
+
+.bg-customer .whitepanel p {
+  font-size: 20px !important;
+  margin: 0px;
+}
+
+.bg-customer .whitepanel p a {
+  color: #188bf6 !important;
+}
+
+.bg-customer .whitepanel .greendiv {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.bg-customer .whitepanel .greendiv a {
+  background-color: #30a05c;
+  color: #fff;
+  font-weight: bold;
+  padding: 13px 35px;
+  width: 100%;
+  display: inline-block
+}
+
+.bg-customer .whitepanel .greendiv a .firstspan {
+  font-size: 27;
+}
+
+.bg-customer .whitepanel .greendiv a .secondspan {
+  font-size: 14px;
+}
+
+.bg-customer .footer  {
+  margin: 50px 0px;
+}
+
+.bg-customer .footer p {
+  font-size: 18px;
+  color: rgb(212, 175, 55);
+  margin: 0px;
+}
+
+.bg-customer h1 {
+  font-size: 50px;
+}
+
