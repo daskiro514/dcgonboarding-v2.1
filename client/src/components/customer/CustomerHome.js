@@ -18,10 +18,10 @@ const CustomerHome = ({ isAuthenticated, user, logout }) => {
         <Link to="/coursereports">COURSES & REPORTS</Link>
         <a onClick={logout} href="#!"><Spaces spaceLength={3} />LOGOUT</a>
       </div>
-      <div className='row' style={{marginTop: '50px', marginBottom: '20px'}}>
+      <div className='row' style={{margin: '50px 20px 20px'}}>
         <div className='container'>
           <div className='row'>
-            <div className='w3-center'>
+            <div className='w3-center header'>
               <h1>Welcome To The</h1>
               <h1>DCG Trading Mastermind</h1>
             </div>

@@ -87,6 +87,13 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   }
   .bg-customer .header h1 {
     font-size: 25px !important;
+    margin: 0;
+  }
+  .bg-customer .greendiv .firstspan {
+    font-size: 18px !important;
+  }
+  .bg-customer .greendiv .secondspan {
+    font-size: 12px !important;
   }
 }
 
