@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getProducts, approveProduct, goEditProductPage } from '../../../actions/admin'
+import { getProducts, approveProduct, goEditProductPage, suspendProduct } from '../../../actions/admin'
 import Spaces from '../../layout/Spaces'
 import { useHistory } from "react-router-dom"
 
-const MasterAdminProducts = ({ getProducts, approveProduct, pendingApprovalProducts, approvedProducts, goEditProductPage }) => {
+const MasterAdminProducts = ({ getProducts, approveProduct, pendingApprovalProducts, approvedProducts, goEditProductPage, suspendProduct }) => {
   let history = useHistory()
 
   React.useEffect(() => {
@@ -19,8 +19,9 @@ const MasterAdminProducts = ({ getProducts, approveProduct, pendingApprovalProdu
             <div className="col-md-12 ap-box">
               <h2>PENDING APPROVAL PRODUCTS</h2>
               <div className="w3-text-indigo" style={{ display: 'flex', flexWrap: 'wrap' }}>
-                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-check"></span> is for APPROVE.</span>
+                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-check"></span> is for APPROVE for SALE.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pencil"></span> is for EDIT.</span>
+                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pause"></span> is for SUSPEND for SALE.</span>
               </div><br />
               <div className='table-responsive'>
                 <table className="w3-table w3-bordered w3-hoverable">
@@ -95,6 +96,8 @@ const MasterAdminProducts = ({ getProducts, approveProduct, pendingApprovalProdu
                         <td>{item.stripeProductID}</td>
                         <td>
                           <button onClick={() => goEditProductPage(item, history)}><span className="glyphicon glyphicon-pencil"></span></button>
+                          <Spaces spaceLength={1} />
+                          <button onClick={() => suspendProduct(item._id)}><span className="glyphicon glyphicon-pause"></span></button>
                         </td>
                       </tr>
                     ))}
@@ -115,4 +118,4 @@ const mapStateToProps = state => ({
   approvedProducts: state.admin.products.filter(element => element.status === 'Approved')
 })
 
-export default connect(mapStateToProps, { getProducts, approveProduct, goEditProductPage })(MasterAdminProducts)
+export default connect(mapStateToProps, { getProducts, approveProduct, goEditProductPage, suspendProduct })(MasterAdminProducts)

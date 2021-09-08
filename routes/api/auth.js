@@ -89,12 +89,10 @@ router.post(
     const { username, password } = req.body
 
     try {
-      let user = await User.findOne({ username })
+      let user = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i')})
 
       if (!user) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'Invalid Credentials' }] })
+        return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
       }
 
       // FOR SUSPENDED CUSTOMERS (THEY CAN'T LOGIN)

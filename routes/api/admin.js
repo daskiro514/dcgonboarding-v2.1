@@ -452,6 +452,13 @@ router.post('/updateProduct', async (req, res) => {
   })
 })
 
+router.get('/suspendProduct/:id', async (req, res) => {
+  await Product.findOneAndUpdate({ _id: req.params.id }, { status: 'Not Approved' }, { new: true })
+  res.json({
+    success: true,
+  })
+})
+
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID')

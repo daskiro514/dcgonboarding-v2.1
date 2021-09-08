@@ -226,6 +226,13 @@ export const updateProduct = (product, history) => async dispatch => {
   history.push('/products')
 }
 
+export const suspendProduct = (productID) => async dispatch => {
+  const res = await api.get(`/admin/suspendProduct/${productID}`)
+  if (res.data.success) {
+    dispatch(getProducts())
+  }
+}
+
 // CUSTOMERS
 export const getAllCustomers = () => async dispatch => {
   const res = await api.get('/admin/getAllCustomers')
