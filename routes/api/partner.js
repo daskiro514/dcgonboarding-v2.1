@@ -50,6 +50,24 @@ router.post('/addOneTimeProductToStripe', async (req, res) => {
 
   await newProduct.save()
 
+  // TO MASTER ADMIN EMAIL -> NEW PARTNER APPLIED
+  const masterAdmin = await User.findOne({ type: 'admin' })
+  const partner = await User.findById(req.body.productOwner)
+
+  var emailContentToAdmin = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: masterAdmin.email,
+    subject: 'New Product Added.',
+    text: `Hi ${masterAdmin.name}. A Partner(${partner.name}) added a new product(${newProduct.name}) on his product list. 
+    You can check that product here https://dcgonboarding.com/home/products 
+    Best Regards.
+    DCGONBOARDING Team.`
+  }
+
+  mailgun.messages().send(emailContentToAdmin, function (error, body) {
+    console.log(body)
+  })
+
   res.json({
     success: true
   })
@@ -82,6 +100,24 @@ router.post('/updateOneTimeProduct', async (req, res) => {
     stripePriceID: price.id,
     status: 'Not Approved'
   }, { new: true })
+
+  // TO MASTER ADMIN EMAIL -> A PRODUCT UPDATED
+  const masterAdmin = await User.findOne({ type: 'admin' })
+  const partner = await User.findById(product.owner)
+
+  var emailContentToAdmin = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: masterAdmin.email,
+    subject: 'Product Updated.',
+    text: `Hi ${masterAdmin.name}. A Partner(${partner.name}) updated his/her product(${product.name}) on his product list. 
+    You can check that product here https://dcgonboarding.com/home/products 
+    Best Regards.
+    DCGONBOARDING Team.`
+  }
+
+  mailgun.messages().send(emailContentToAdmin, function (error, body) {
+    console.log(body)
+  })
 
   res.json({
     success: true
@@ -117,6 +153,24 @@ router.post('/addSubscriptionProductToStripe', async (req, res) => {
 
   await newProduct.save()
 
+  // TO MASTER ADMIN EMAIL -> NEW PRODUCT ADDED
+  const masterAdmin = await User.findOne({ type: 'admin' })
+  const partner = await User.findById(req.body.productOwner)
+
+  var emailContentToAdmin = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: masterAdmin.email,
+    subject: 'New Product Added.',
+    text: `Hi ${masterAdmin.name}. A Partner(${partner.name}) added a new product(${newProduct.name}) on his product list. 
+    You can check that product here https://dcgonboarding.com/home/products 
+    Best Regards.
+    DCGONBOARDING Team.`
+  }
+
+  mailgun.messages().send(emailContentToAdmin, function (error, body) {
+    console.log(body)
+  })
+
   res.json({
     success: true
   })
@@ -151,6 +205,24 @@ router.post('/updateSubscriptionProduct', async (req, res) => {
     stripePriceID: price.id,
     status: 'Not Approved'
   }, { new: true })
+
+  // TO MASTER ADMIN EMAIL -> A PRODUCT UPDATED
+  const masterAdmin = await User.findOne({ type: 'admin' })
+  const partner = await User.findById(product.owner)
+
+  var emailContentToAdmin = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: masterAdmin.email,
+    subject: 'Product Updated.',
+    text: `Hi ${masterAdmin.name}. A Partner(${partner.name}) updated his/her product(${product.name}) on his product list. 
+    You can check that product here https://dcgonboarding.com/home/products 
+    Best Regards.
+    DCGONBOARDING Team.`
+  }
+
+  mailgun.messages().send(emailContentToAdmin, function (error, body) {
+    console.log(body)
+  })
 
   res.json({
     success: true

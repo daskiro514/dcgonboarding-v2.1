@@ -69,12 +69,15 @@ router.post('/partnerRegister', async (req, res) => {
       type: 'account_onboarding',
     })
 
+    // TO MASTER ADMIN EMAIL -> NEW PARTNER APPLIED
+    const masterAdmin = await User.findOne({ type: 'admin' })
+
     var emailContentToAdmin = {
       from: 'DCGONBOARDING <info@dcgonboarding.com>',
       to: masterAdmin.email,
-      subject: 'New Partner Applied.',
-      text: `Hi ${masterAdmin.name}. ${pendingPartner.name} applied as a partner of DCG. 
-      You can check his information here https://dcgonboarding.com/home/pending 
+      subject: 'Pending User(Partner) Updated His/Her Information.',
+      text: `Hi ${masterAdmin.name}. Applied Partner, ${pendingPartner.name} updated his/her information. 
+      You can check his/her information here https://dcgonboarding.com/home/pending 
       Best Regards.
       DCGONBOARDING Team.`
     }
@@ -149,7 +152,7 @@ router.post('/partnerRegister', async (req, res) => {
       to: masterAdmin.email,
       subject: 'New Partner Applied.',
       text: `Hi ${masterAdmin.name}. ${pendingPartner.name} applied as a partner of DCG. 
-      You can check his information here https://dcgonboarding.com/home/pending 
+      You can check his/her information here https://dcgonboarding.com/home/pending 
       Best Regards.
       DCGONBOARDING Team.`
     }
