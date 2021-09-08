@@ -40,7 +40,7 @@ router.post('/partnerRegister', async (req, res) => {
   if (tempUser) {
     console.log('AGAIN')
     const filter = { _id: req.body.partnerID }
-    // if (tempUser) {
+
     const update = {
       name: req.body.name,
       email: req.body.email,
@@ -69,16 +69,25 @@ router.post('/partnerRegister', async (req, res) => {
       type: 'account_onboarding',
     })
 
+    var emailContentToAdmin = {
+      from: 'DCGONBOARDING <info@dcgonboarding.com>',
+      to: masterAdmin.email,
+      subject: 'New Partner Applied.',
+      text: `Hi ${masterAdmin.name}. ${pendingPartner.name} applied as a partner of DCG. 
+      You can check his information here https://dcgonboarding.com/home/pending 
+      Best Regards.
+      DCGONBOARDING Team.`
+    }
+
+    mailgun.messages().send(emailContentToAdmin, function (error, body) {
+      console.log(body)
+    })
+
     res.json({
       success: true,
       connectURL: accountLink.url,
       pendingPartner
     })
-    // } else {
-    //   return res
-    //     .status(400)
-    //     .json({ errors: [{ msg: `Failed. Please try again.` }] })
-    // }
   } else {
     const emailSameUser = await User.findOne({ email: req.body.email })
     if (emailSameUser) {
@@ -131,6 +140,23 @@ router.post('/partnerRegister', async (req, res) => {
     })
 
     await newPartner.save()
+
+    // TO MASTER ADMIN EMAIL -> NEW PARTNER APPLIED
+    const masterAdmin = await User.findOne({ type: 'admin' })
+
+    var emailContentToAdmin = {
+      from: 'DCGONBOARDING <info@dcgonboarding.com>',
+      to: masterAdmin.email,
+      subject: 'New Partner Applied.',
+      text: `Hi ${masterAdmin.name}. ${pendingPartner.name} applied as a partner of DCG. 
+      You can check his information here https://dcgonboarding.com/home/pending 
+      Best Regards.
+      DCGONBOARDING Team.`
+    }
+
+    mailgun.messages().send(emailContentToAdmin, function (error, body) {
+      console.log(body)
+    })
 
     res.json({
       success: true,
