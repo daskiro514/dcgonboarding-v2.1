@@ -77,6 +77,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
             <div className="row">
               <div className="col-md-12 ap-box">
                 <h2>Course Videos</h2>
+                <br/>
                 <button onClick={() => stateChange('create')} >CREATE A COURSE</button>
                 {stateForCreate
                   ?
@@ -87,7 +88,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                       value={title}
                       onChange={e => setTitle(e.target.value)}
                     /><br />
-                    <label>VIDEO ID: </label>
+                    <label>VIMEO VIDEO ID: </label>
                     <input
                       value={videoID}
                       onChange={e => setVideoID(e.target.value)}
@@ -135,7 +136,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                       value={title}
                       onChange={e => setTitle(e.target.value)}
                     /><br />
-                    <label>VIDEO ID: </label>
+                    <label>VIMEO VIDEO ID: </label>
                     <input
                       value={videoID}
                       onChange={e => setVideoID(e.target.value)}
@@ -187,7 +188,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                       <th>TITLE</th>
                       <th>THUMB IMAGE</th>
                       <th>DESCRIPTION</th>
-                      <th>VIDEO ID</th>
+                      <th>VIMEO VIDEO ID</th>
                       <th>ACTIONS</th>
                     </tr>
                   </thead>
