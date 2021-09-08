@@ -90,6 +90,25 @@ const PartnerAdminDashboard = ({ getPartnerTransactions, partnerID, transactions
   return (
     <div className="bg-panelMain row">
       <div className="col-md-7">
+        <div className='adminSales'>
+          <div className='row'>
+            <div className='col-md-12'>
+              <button
+                onClick={() => navigator.clipboard.writeText(`https://dcgonboarding.com/sales/${partnerID}`)}
+                style={{color: 'black'}}
+              >
+                Copy Sales Page 1 Link
+              </button>
+              <Spaces spaceLength={1} />
+              <button
+                onClick={() => navigator.clipboard.writeText(`https://dcgonboarding.com/sales2/${partnerID}`)}
+                style={{color: 'black'}}
+              >
+                Copy Sales Page 2 Link
+              </button>
+            </div>
+          </div>
+        </div>
         <div className="adminSales">
           <div className="row">
             <div className="col-md-12 ap-box">
