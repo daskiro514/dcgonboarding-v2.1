@@ -114,6 +114,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                     <button
                       className="w3-right"
                       onClick={() => setStateForCreate(false)}
+                      style={{marginLeft: '10px'}}
                     >
                       <span className="glyphicon glyphicon-remove"><Spaces spaceLength={1} />CANCEL</span>
                     </button>
@@ -162,6 +163,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                     <button
                       className="w3-right"
                       onClick={() => setStateForEdit(false)}
+                      style={{marginLeft: '10px'}}
                     >
                       <span className="glyphicon glyphicon-remove"><Spaces spaceLength={1} />CANCEL</span>
                     </button>

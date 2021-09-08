@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { getProductByID, createCustomer } from '../../actions/partner'
 import { loadStripe } from '@stripe/stripe-js'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js'
@@ -19,23 +20,28 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
     <div className='container-fluid bg-checksub2'>
       <div className='row'>
         <div className='container'>
-          <div className='col-sm-5 mobileST'>
-            {/* <div className='order'>
-              <h1>LALALA</h1>
-            </div> */}
+          <div className='row' style={{padding: '15px'}}>
+            <Link to={`/sales2/${user._id}`} className="btn w3-white">BACK</Link>
           </div>
-          <div className='col-sm-7 mobileST'>
-            {customerCreateInProgress ? <Spinner /> :
-              <Elements stripe={stripePromise}>
-                <CheckoutForm
-                  productForSale={productForSale}
-                  stripe={stripePromise}
-                  sellerID={user._id}
-                  createCustomer={createCustomer}
-                  history={history}
-                />
-              </Elements>
-            }
+          <div className='row'>
+            <div className='col-sm-5 mobileST'>
+              {/* <div className='order'>
+                <h1>LALALA</h1>
+              </div> */}
+            </div>
+            <div className='col-sm-7 mobileST'>
+              {customerCreateInProgress ? <Spinner /> :
+                <Elements stripe={stripePromise}>
+                  <CheckoutForm
+                    productForSale={productForSale}
+                    stripe={stripePromise}
+                    sellerID={user._id}
+                    createCustomer={createCustomer}
+                    history={history}
+                  />
+                </Elements>
+              }
+            </div>
           </div>
         </div>
       </div>
