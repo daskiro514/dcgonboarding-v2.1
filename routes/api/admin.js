@@ -25,6 +25,27 @@ const multer = require('multer')
 
 
 // PARNTERS
+router.post('/checkPartnerUsernameEmail', async (req, res) => {
+  // console.log(req.body)
+  let user1 = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i')})
+  let user2 = await User.findOne({ email: new RegExp(`^${req.body.email}$`, 'i')})
+  let notification = ''
+  let isExist = false
+  if (user1) {
+    notification = 'There is already a User that uses the username you entered. Please try with another one.'
+    isExist = true
+  }
+  if (user2) {
+    notification = 'There is already a User that uses the email you entered. Please try with another one.'
+    isExist = true
+  }
+  res.json({
+    success: true,
+    isExist,
+    notification
+  })
+})
+
 router.post('/partnerRegister', async (req, res) => {
   // const accounts = await stripe.accounts.list()
 

@@ -1,20 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.87877def.chunk.css",
-    "main.js": "/static/js/main.653cbd30.chunk.js",
-    "main.js.map": "/static/js/main.653cbd30.chunk.js.map",
+    "main.css": "/static/css/main.4a8c4f9a.chunk.css",
+    "main.js": "/static/js/main.9c852ecb.chunk.js",
+    "main.js.map": "/static/js/main.9c852ecb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.c012fedc.js",
     "runtime-main.js.map": "/static/js/runtime-main.c012fedc.js.map",
-    "static/css/2.69b6f71e.chunk.css": "/static/css/2.69b6f71e.chunk.css",
-    "static/js/2.63f3a9cc.chunk.js": "/static/js/2.63f3a9cc.chunk.js",
-    "static/js/2.63f3a9cc.chunk.js.map": "/static/js/2.63f3a9cc.chunk.js.map",
+    "static/css/2.85cf5f87.chunk.css": "/static/css/2.85cf5f87.chunk.css",
+    "static/js/2.bc2535f0.chunk.js": "/static/js/2.bc2535f0.chunk.js",
+    "static/js/2.bc2535f0.chunk.js.map": "/static/js/2.bc2535f0.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/2.69b6f71e.chunk.css.map": "/static/css/2.69b6f71e.chunk.css.map",
-    "static/css/main.87877def.chunk.css.map": "/static/css/main.87877def.chunk.css.map",
-    "static/js/2.63f3a9cc.chunk.js.LICENSE.txt": "/static/js/2.63f3a9cc.chunk.js.LICENSE.txt",
+    "static/css/2.85cf5f87.chunk.css.map": "/static/css/2.85cf5f87.chunk.css.map",
+    "static/css/main.4a8c4f9a.chunk.css.map": "/static/css/main.4a8c4f9a.chunk.css.map",
+    "static/js/2.bc2535f0.chunk.js.LICENSE.txt": "/static/js/2.bc2535f0.chunk.js.LICENSE.txt",
     "static/media/App.css": "/static/media/home-bg2.67d557b3.png",
     "static/media/logo-black.2ed2219a.svg": "/static/media/logo-black.2ed2219a.svg",
     "static/media/logo2.304dcb4c.png": "/static/media/logo2.304dcb4c.png",
+    "static/media/notifications.css": "/static/media/notification.c5d9251e.ttf",
     "static/media/pdfIcon.7dc98f36.png": "/static/media/pdfIcon.7dc98f36.png",
     "static/media/sales-bg.98d2a234.png": "/static/media/sales-bg.98d2a234.png",
     "static/media/sales-bundle.efc0c554.png": "/static/media/sales-bundle.efc0c554.png",
@@ -32,9 +33,9 @@
   },
   "entrypoints": [
     "static/js/runtime-main.c012fedc.js",
-    "static/css/2.69b6f71e.chunk.css",
-    "static/js/2.63f3a9cc.chunk.js",
-    "static/css/main.87877def.chunk.css",
-    "static/js/main.653cbd30.chunk.js"
+    "static/css/2.85cf5f87.chunk.css",
+    "static/js/2.bc2535f0.chunk.js",
+    "static/css/main.4a8c4f9a.chunk.css",
+    "static/js/main.9c852ecb.chunk.js"
   ]
 }

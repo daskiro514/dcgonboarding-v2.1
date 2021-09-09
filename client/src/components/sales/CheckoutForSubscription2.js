@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { checkPartnerUsernameEmail } from '../../actions/admin'
 import { getProductByID, createCustomer } from '../../actions/partner'
 import { loadStripe } from '@stripe/stripe-js'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js'
@@ -8,7 +9,7 @@ import { useHistory } from "react-router-dom"
 import sales2Payments from '../../img/sales2/sales2-payments.png'
 import Spinner from '../layout/Spinner'
 
-const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, stripePublishableKey, user, createCustomer, customerCreateInProgress }) => {
+const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, stripePublishableKey, user, createCustomer, customerCreateInProgress, checkPartnerUsernameEmail }) => {
   let history = useHistory()
   const stripePromise = loadStripe(stripePublishableKey)
 
@@ -37,6 +38,7 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
                     stripe={stripePromise}
                     sellerID={user._id}
                     createCustomer={createCustomer}
+                    checkPartnerUsernameEmail={checkPartnerUsernameEmail}
                     history={history}
                   />
                 </Elements>
@@ -49,7 +51,7 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
   )
 }
 
-const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, history }) => {
+const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, history, checkPartnerUsernameEmail }) => {
   const [error, setError] = React.useState('');
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
@@ -70,6 +72,13 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
 
   const onSubmit = async () => {
     let card = elements.getElement(CardNumberElement)
+
+    const isExist = await checkPartnerUsernameEmail({username, email})
+
+    if (isExist) {
+      return
+    }
+
     const paymentMethod = await stripeUse.createPaymentMethod({
       type: 'card',
       card: card,
@@ -77,6 +86,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
         email: email,
       },
     })
+
     if (paymentMethod.error) {
       alert(paymentMethod.error.message)
       return
@@ -89,16 +99,16 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
       alert("Password and confirmed password are not matched. Try again.")
       return
     }
-    createCustomer({
-      name: name,
-      email: email,
-      phone: phone,
-      username: username,
-      password: password,
-      sellerID: sellerID,
-      paymentMethodID: paymentMethod.paymentMethod.id,
-      productForSale: productForSale
-    }, history, sellerID)
+    // await createCustomer({
+    //   name: name,
+    //   email: email,
+    //   phone: phone,
+    //   username: username,
+    //   password: password,
+    //   sellerID: sellerID,
+    //   paymentMethodID: paymentMethod.paymentMethod.id,
+    //   productForSale: productForSale
+    // }, history, sellerID)
   }
 
   return (
@@ -219,4 +229,4 @@ const mapStateToProps = state => ({
   customerCreateInProgress: state.partner.customerCreateInProgress
 })
 
-export default connect(mapStateToProps, { getProductByID, createCustomer })(CheckoutForSubscription2)
+export default connect(mapStateToProps, { getProductByID, createCustomer, checkPartnerUsernameEmail })(CheckoutForSubscription2)

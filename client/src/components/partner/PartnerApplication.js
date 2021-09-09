@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import logoImg from "../../img/logo/logo-black.svg"
-import { partnerRegister } from '../../actions/admin'
+import { partnerRegister, checkPartnerUsernameEmail } from '../../actions/admin'
 import Spinner from '../layout/Spinner'
 import Spaces from '../layout/Spaces'
 import { Link, useHistory } from 'react-router-dom'
 
-const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }) => {
+const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, checkPartnerUsernameEmail }) => {
   let history = useHistory()
   const [buttonName, setButtonName] = React.useState("SUBMIT")
   const [partnerID, setPartnerID] = React.useState(null)
@@ -43,9 +43,14 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }
 
   const onSubmit = async (e) => {
     e.preventDefault()
-    if (!partnerIsRegistered && name && email && username && password && brand && description) {
+    const isExist = await checkPartnerUsernameEmail({
+      username: formData.username,
+      email: formData.email
+    })
+
+    if (!isExist && !partnerIsRegistered && name && email && username && password && brand && description) {
       setButtonName("Processing...")
-      partnerRegister({partnerID, ...formData}, history)
+      await partnerRegister({ partnerID, ...formData }, history)
     }
   }
 
@@ -55,9 +60,9 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }
         <div className="top-header">
           <Link to="/home"><img src={logoImg} alt="logo" /></Link>
           <div>
-            <Link to="/home"><span className="glyphicon glyphicon-home"></span><Spaces spaceLength={1}/>HOME</Link>
-            <Link to="/partner#"><span className="glyphicon glyphicon-book"></span><Spaces spaceLength={1}/>PARTNER APPLICATION</Link>
-            <Link to="/login"><span className="glyphicon glyphicon-log-in"></span><Spaces spaceLength={1}/>LOGIN</Link>
+            <Link to="/home"><span className="glyphicon glyphicon-home"></span><Spaces spaceLength={1} />HOME</Link>
+            <Link to="/partner#"><span className="glyphicon glyphicon-book"></span><Spaces spaceLength={1} />PARTNER APPLICATION</Link>
+            <Link to="/login"><span className="glyphicon glyphicon-log-in"></span><Spaces spaceLength={1} />LOGIN</Link>
           </div>
         </div>
         <div className="row">
@@ -65,8 +70,8 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL }
 
           </div>
           <div className="col-md-8">
-            <h1>PARTNER APPLICATION</h1>
             <form className="form" onSubmit={onSubmit}>
+              <h1>PARTNER APPLICATION</h1>
               <small className="form-text" style={{ color: "indigo" }}>
                 If you submit the application, then the app will be redirected to https://connect.stripe.com/ <br />
                 You should complete that to create the partner account.
@@ -217,4 +222,4 @@ const mapStateToProps = (state) => ({
   connectURL: state.admin.connectURL
 })
 
-export default connect(mapStateToProps, { partnerRegister })(PartnerApplication)
+export default connect(mapStateToProps, { partnerRegister, checkPartnerUsernameEmail })(PartnerApplication)

@@ -272,7 +272,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .bg-partner .row .col-md-8 {
   border-radius: 20px;
-  background-color: #E2E2E2;
+  /* background-color: #E2E2E2; */
   margin-top: 40px;
 }
 
@@ -280,7 +280,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   padding-left: 40px;
   padding-right: 40px;
   padding-bottom: 40px;
-  background-color: #E2E2E2;
+  /* background-color: #E2E2E2; */
 }
 
 /*** Sales ***/

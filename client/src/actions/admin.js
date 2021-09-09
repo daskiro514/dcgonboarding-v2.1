@@ -28,6 +28,16 @@ import {
   REPORT_BYID_LOADED
 } from './types'
 
+export const checkPartnerUsernameEmail = (formData) => async dispatch => {
+  const res = await api.post('/admin/checkPartnerUsernameEmail', formData)
+  if (res.data.success) {
+    if (res.data.isExist) {
+      dispatch(setAlert(res.data.notification, 'danger'))
+    }
+    return res.data.isExist
+  }
+}
+
 export const partnerRegister = (formData, history) => async dispatch => {
   try {
     const res = await api.post('/admin/partnerRegister', formData)

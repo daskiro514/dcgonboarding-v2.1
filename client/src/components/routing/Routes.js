@@ -5,7 +5,8 @@ import { Route, Switch } from 'react-router-dom'
 import Login from '../auth/Login'
 import ForgotPassword from '../auth/ForgotPassword'
 import ResetPassword from '../auth/ResetPassword'
-import Alert from '../layout/Alert'
+// import Alert from '../layout/Alert'
+import Alert1 from '../layout/Alert1'
 import NotFound from '../layout/NotFound'
 import PrivateRoute from '../routing/PrivateRoute'
 
@@ -27,7 +28,8 @@ import DefaultVideo from '../customer/DefaultVideo'
 const Routes = props => {
   return (
     <section>
-      <Alert />
+      {/* <Alert /> */}
+      <Alert1 />
       <Switch>
         {/* <Route exact path="/register" component={Register} /> */}
         <Route exact path="/login" component={Login} />
