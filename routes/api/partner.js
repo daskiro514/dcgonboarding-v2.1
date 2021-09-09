@@ -455,8 +455,9 @@ router.get('/getPartnerTransactions/:id', async (req, res) => {
   // FOR DEFAULT SUBSCRIPTION UPDATE
   // let product1 = await Product.findOneAndRemove({ name: 'DCG Mastermind' })
   // await stripe.products.del(product1.stripeProductID)
-  let product2 = await Product.findOneAndRemove({name: 'DCG Report Only'})
-  await stripe.products.del(product2.stripeProductID)
+  let product2 = await Product.findOneAndRemove({ name: 'DCG Report Only' })
+  console.log(product2)
+  // await stripe.products.del(product2.stripeProductID)
   // let product1 = await Product.findOneAndUpdate({name: 'Master Mind Package'}, {
   //   description: ''
   // }, {new: true})
