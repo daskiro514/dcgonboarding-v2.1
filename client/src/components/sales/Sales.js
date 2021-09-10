@@ -43,7 +43,7 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                     {/* MASTER SUBSCRIPTION PRODUCTS<br /> */}
                     {defaultProducts.map((item, index) =>
                       <React.Fragment key={index}>
-                        <Link to={`/checkoutsub/${item._id}`}>
+                        <Link to={`/checkoutsub2/${item._id}`}>
                           <div className="goldBox row w3-center" style={{ backgroundColor: boxColor ? boxColor : "#ebc27e" }}>
                             <h3>{item.name}</h3>
                             <h4>{item.description}</h4>
@@ -58,7 +58,7 @@ const Sales = ({ match, oneTimeProducts, subscriptionProducts, defaultProducts, 
                     {/* SUBSCRIPTION PRODUCTS<br /> */}
                     {subscriptionProducts.map((item, index) =>
                       <React.Fragment key={index}>
-                        <Link to={`/checkoutsub/${item._id}`}>
+                        <Link to={`/checkoutsub2/${item._id}`}>
                           <div className="goldBox row w3-center" style={{ backgroundColor: boxColor ? boxColor : "#ebc27e" }}>
                             <h3>{item.name}</h3>
                             <h4>{item.description}</h4>

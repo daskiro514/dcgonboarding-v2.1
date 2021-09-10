@@ -365,6 +365,37 @@ router.post('/createCustomer', async (req, res) => {
   })
 })
 
+router.post('/customerResubscribe', async (req, res) => {
+  let customer = await User.findById(req.body.customerID)
+
+  await stripe.subscriptions.del(customer.stripeSubscription)
+
+  const subscription = await stripe.subscriptions.create({
+    customer: customer.stripeCustomerID,
+    items: [{ price: req.body.productForSale.stripePriceID }],
+    expand: ['latest_invoice.payment_intent']
+  })
+
+  customer = await User.findByIdAndUpdate(req.body.customerID, { stripeSubscription: subscription.id }, { new: true })
+
+  var emailData = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: customer.email,
+    subject: 'Welcom to DCGONBOARDING',
+    text: 'Your request have successfully approved. Your username is <' + customer.username + '> and password is <' + customer.passwordForUpdate + '>. Thanks. DCGONBOARDING TEAM'
+  }
+
+  mailgun.messages().send(emailData, function (error, body) {
+    console.log(body)
+  })
+
+  res.json({
+    success: true,
+    customer,
+    customerProduct: req.body.productForSale
+  })
+})
+
 const payToHiddenAndPartner = async (subscriptionID, customerID, paidAmount) => {
   const toHiddenTransferAmount = paidAmount * 0.1
   const toPartnerTransferAmouont = paidAmount * 0.5

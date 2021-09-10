@@ -172,6 +172,25 @@ export const createCustomer = (formData, history, sellerID) => async dispatch =>
   history.push(`/thankscustomer`)
 }
 
+export const customerResubscribe = (formData, history) => async dispatch => {
+  dispatch({
+    type: CUSTOMER_CREATE_INPROGRESS,
+    payload: true
+  })
+  const res = await api.post('/partner/customerResubscribe', formData)
+  if (res.data.success) {
+    dispatch({
+      type: CUSTOMER_CREATED,
+      payload: res.data
+    })
+  }
+  dispatch({
+    type: CUSTOMER_CREATE_INPROGRESS,
+    payload: false
+  })
+  history.push(`/thankscustomer`)
+}
+
 export const getPartnerTransactions = partnerID => async dispatch => {
   const res = await api.get(`/partner/getPartnerTransactions/${partnerID}`)
   if (res.data.success) {

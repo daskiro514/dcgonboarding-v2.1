@@ -2,14 +2,16 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { checkPartnerUsernameEmail } from '../../actions/admin'
-import { getProductByID, createCustomer } from '../../actions/partner'
+import { getProductByID, createCustomer, customerResubscribe } from '../../actions/partner'
 import { loadStripe } from '@stripe/stripe-js'
 import { CardNumberElement, CardExpiryElement, CardCvcElement, Elements, useStripe, useElements } from '@stripe/react-stripe-js'
 import { useHistory } from "react-router-dom"
 import sales2Payments from '../../img/sales2/sales2-payments.png'
 import Spinner from '../layout/Spinner'
+import { setAlert } from '../../actions/alert'
+import { logout } from '../../actions/auth'
 
-const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, stripePublishableKey, user, createCustomer, customerCreateInProgress, checkPartnerUsernameEmail }) => {
+const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, stripePublishableKey, user, createCustomer, customerResubscribe, customerCreateInProgress, checkPartnerUsernameEmail, customer, setAlert, logout }) => {
   let history = useHistory()
   const stripePromise = loadStripe(stripePublishableKey)
 
@@ -17,12 +19,22 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
     getProductByID(match.params.id)
   }, [getProductByID, match.params.id])
 
+
   return (
     <div className='container-fluid bg-checksub2'>
       <div className='row'>
         <div className='container'>
-          <div className='row' style={{padding: '15px'}}>
-            <Link to={`/sales2/${user._id}`} className="btn w3-white">BACK</Link>
+          <div className='row' style={{ padding: '15px' }}>
+            {customer
+              ?
+              customer.type === 'customer'
+                ?
+                <a onClick={logout} className="btn w3-white" href="/">BACK</a>
+                :
+                <Link onClick={() => history.goBack()} className="btn w3-white">BACK</Link>
+              :
+              null
+            }
           </div>
           <div className='row'>
             <div className='col-sm-5 mobileST'>
@@ -38,8 +50,11 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
                     stripe={stripePromise}
                     sellerID={user._id}
                     createCustomer={createCustomer}
+                    customerResubscribe={customerResubscribe}
                     checkPartnerUsernameEmail={checkPartnerUsernameEmail}
                     history={history}
+                    customer={customer}
+                    setAlert={setAlert}
                   />
                 </Elements>
               }
@@ -51,7 +66,8 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
   )
 }
 
-const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, history, checkPartnerUsernameEmail }) => {
+const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, customerResubscribe, history, checkPartnerUsernameEmail, customer, setAlert }) => {
+  const [isResubscribe, setIsResubscribe] = React.useState(false)
   const [error, setError] = React.useState('');
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
@@ -61,6 +77,21 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
   const [password2, setPassword2] = React.useState('')
   const elements = useElements()
   const stripeUse = useStripe()
+
+  React.useEffect(() => {
+    console.log(customer)
+    if (customer !== null) {
+      if (customer.type === 'customer') {
+        setIsResubscribe(true)
+        setName(customer.name)
+        setUsername(customer.username)
+        setEmail(customer.email)
+        setPhone(customer.phone)
+        setPassword(customer.passwordForUpdate)
+        setPassword2(customer.passwordForUpdate)
+      }
+    }
+  }, [customer])
 
   const handleCardElementsChange = (event) => {
     if (event.error && !error) {
@@ -73,12 +104,6 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
   const onSubmit = async () => {
     let card = elements.getElement(CardNumberElement)
 
-    const isExist = await checkPartnerUsernameEmail({username, email})
-
-    if (isExist) {
-      return
-    }
-
     const paymentMethod = await stripeUse.createPaymentMethod({
       type: 'card',
       card: card,
@@ -88,32 +113,54 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
     })
 
     if (paymentMethod.error) {
-      alert(paymentMethod.error.message)
+      setAlert(paymentMethod.error.message, 'warning')
       return
     }
-    if (password.length < 6) {
-      alert("Password should be over 6 letters or digits.")
-      return
+
+    if (isResubscribe) {
+      await customerResubscribe({
+        customerID: customer._id,
+        paymentMethodID: paymentMethod.paymentMethod.id,
+        productForSale: productForSale
+      }, history, sellerID)
+    } else {
+      const isExist = await checkPartnerUsernameEmail({ username, email })
+
+      if (isExist) {
+        return
+      }
+      if (password.length < 6) {
+        setAlert("Password should be over 6 letters or digits.", 'warning')
+        return
+      }
+      if (password !== password2) {
+        setAlert("Password and confirmed password are not matched. Try again.", 'warning')
+        return
+      }
+      await createCustomer({
+        name: name,
+        email: email,
+        phone: phone,
+        username: username,
+        password: password,
+        sellerID: sellerID,
+        paymentMethodID: paymentMethod.paymentMethod.id,
+        productForSale: productForSale
+      }, history, sellerID)
     }
-    if (password !== password2) {
-      alert("Password and confirmed password are not matched. Try again.")
-      return
-    }
-    // await createCustomer({
-    //   name: name,
-    //   email: email,
-    //   phone: phone,
-    //   username: username,
-    //   password: password,
-    //   sellerID: sellerID,
-    //   paymentMethodID: paymentMethod.paymentMethod.id,
-    //   productForSale: productForSale
-    // }, history, sellerID)
   }
 
   return (
     <div className='order'>
       <div>
+        {isResubscribe
+          ?
+          <div className='details'>
+            <p>If you have already resubscribed, please wait for a while. You can login later.</p>
+          </div>
+          :
+          null
+        }
         <div className='details'>
           <h5>Your details</h5>
         </div>
@@ -126,6 +173,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="name"
                 value={name}
                 onChange={e => setName(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
             <div className='col-sm-6'>
@@ -135,6 +183,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="username"
                 value={username}
                 onChange={e => setUsername(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
           </div>
@@ -146,6 +195,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="phone"
                 value={phone}
                 onChange={e => setPhone(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
             <div className='col-sm-6'>
@@ -155,6 +205,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="email"
                 value={email}
                 onChange={e => setEmail(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
           </div>
@@ -167,6 +218,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="password"
                 value={password}
                 onChange={e => setPassword(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
             <div className='col-sm-6'>
@@ -177,6 +229,7 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
                 name="password2"
                 value={password2}
                 onChange={e => setPassword2(e.target.value)}
+                disabled={isResubscribe ? true : false}
               />
             </div>
           </div>
@@ -224,9 +277,10 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, histor
 
 const mapStateToProps = state => ({
   user: state.partner.tempUser,
+  customer: state.auth.user,
   productForSale: state.partner.productForSale,
   stripePublishableKey: state.partner.stripePublishableKey,
   customerCreateInProgress: state.partner.customerCreateInProgress
 })
 
-export default connect(mapStateToProps, { getProductByID, createCustomer, checkPartnerUsernameEmail })(CheckoutForSubscription2)
+export default connect(mapStateToProps, { getProductByID, createCustomer, customerResubscribe, checkPartnerUsernameEmail, setAlert, logout })(CheckoutForSubscription2)

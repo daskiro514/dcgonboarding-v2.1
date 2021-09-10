@@ -1,12 +1,22 @@
 import React from 'react'
-// import logoImg from "../../img/logo/logo.svg"
 import logoImg from "../../img/logo/logo2.png"
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../../actions/auth'
 import Spaces from '../layout/Spaces'
+import { setAlert } from '../../actions/alert'
 
-const CustomerHome = ({ isAuthenticated, user, logout }) => {
+const CustomerHome = ({ isAuthenticated, user, logout, setAlert }) => {
+  let history = useHistory()
+
+  React.useEffect(() => {
+    const dateInSeconds = (new Date()).getTime() / 1000
+    if (user.subscriptionEndDate < dateInSeconds) {
+      setAlert('Your Subscription Has Already Ended.', 'warning')
+      history.push(`/checkoutsub2/${user.purchasedProductID._id}`)
+    }
+  }, [user, history, setAlert])
+
   return (
     <section className="container-fluid bg-home bg-customer">
       <div className="row w3-center">
@@ -18,7 +28,7 @@ const CustomerHome = ({ isAuthenticated, user, logout }) => {
         <Link to="/coursereports">COURSES & REPORTS</Link>
         <a onClick={logout} href="#!"><Spaces spaceLength={3} />LOGOUT</a>
       </div>
-      <div className='row' style={{margin: '50px 20px 20px'}}>
+      <div className='row' style={{ margin: '50px 20px 20px' }}>
         <div className='container'>
           <div className='row'>
             <div className='w3-center header'>
@@ -161,10 +171,8 @@ const CustomerHome = ({ isAuthenticated, user, logout }) => {
               </a>
             </div>
             <div className='w3-center greendiv'>
-              <p>
-                <div style={{color: 'red', fontSize: '32px'}}><strong>Remember New Member Orientation Is</strong></div>
-                <div style={{color: 'red', fontSize: '32px'}}><strong>Sunday Evening @ 6:00 P.M PST</strong></div>
-              </p>
+              <div style={{ color: 'red', fontSize: '32px' }}><strong>Remember New Member Orientation Is</strong></div>
+              <div style={{ color: 'red', fontSize: '32px' }}><strong>Sunday Evening @ 6:00 P.M PST</strong></div>
             </div>
             <div className='w3-center greendiv'>
               <a href='https://www.dcgzoom.com' target='_blank' rel="noreferrer">
@@ -197,10 +205,8 @@ const CustomerHome = ({ isAuthenticated, user, logout }) => {
               </a>
             </div>
             <div className='w3-center greendiv'>
-              <p>
-                <div>Kind Regards,</div>
-                <div>Jamar James & THE DCG TEAM</div>
-              </p>
+              <div>Kind Regards,</div>
+              <div>Jamar James & THE DCG TEAM</div>
             </div>
           </div>
         </div>
@@ -225,4 +231,4 @@ const mapStateToProps = state => ({
   user: state.auth.user,
 });
 
-export default connect(mapStateToProps, { logout })(CustomerHome);
+export default connect(mapStateToProps, { logout, setAlert })(CustomerHome);

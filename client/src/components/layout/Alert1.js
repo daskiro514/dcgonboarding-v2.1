@@ -22,6 +22,8 @@ const Alert1 = ({ alerts }) => {
       case 'error':
         NotificationManager.error('Error message', alert.msg)
         break
+      default:
+        break
     }
   }
 

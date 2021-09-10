@@ -18,7 +18,7 @@ var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDoma
 // @access   Private
 router.get('/', auth, async (req, res) => {
   try {
-    const user = await User.findById(req.user.id).select('-password')
+    const user = await User.findById(req.user.id).select('-password').populate('purchasedProductID')
     res.json(user)
   } catch (err) {
     console.error(err.message)
@@ -96,12 +96,12 @@ router.post(
       }
 
       // FOR SUSPENDED CUSTOMERS (THEY CAN'T LOGIN)
-      const dateInSeconds = (new Date()).getTime() / 1000
-      if (user.type === 'customer' && user.subscriptionEndDate < dateInSeconds) {
-        return res
-          .status(400)
-          .json({ errors: [{ msg: 'Your Subscription Has Already Ended.' }] })
-      }
+      // const dateInSeconds = (new Date()).getTime() / 1000
+      // if (user.type === 'customer' && user.subscriptionEndDate < dateInSeconds) {
+      //   return res
+      //     .status(400)
+      //     .json({ errors: [{ msg: 'Your Subscription Has Already Ended.' }] })
+      // }
 
       // FOR DELETED CUSTOMERS (THEY CAN'T LOGIN)
       if (user.type === 'customer' && user.customerStatus === 'Deleted') {
