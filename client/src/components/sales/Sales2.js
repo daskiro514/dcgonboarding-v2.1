@@ -25,7 +25,6 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
 
   React.useEffect(() => {
     if (defaultProducts.length) {
-      // console.log(defaultProducts)
       const mastermindProduct = defaultProducts.find(element => element.name === 'Master Mind Package' || element.price === 49700)
       setMastermindProduct(mastermindProduct)
     }

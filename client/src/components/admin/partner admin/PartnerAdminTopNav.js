@@ -32,7 +32,8 @@ const PartnerAdminTopNav = ({ logout, user }) => {
             <li><span onClick={() => goPage('')} className="glyphicon glyphicon-dashboard"><Spaces spaceLength={2} /><span>DASHBOARD</span></span></li>
             <li><span onClick={() => goPage('customers')} className="glyphicon glyphicon-user"><Spaces spaceLength={2} /><span>CUSTOMERS</span></span></li>
             <li><span onClick={() => goPage('products')} className="glyphicon glyphicon-user"><Spaces spaceLength={2} /><span>PRODUCTS</span></span></li>
-            <li><span onClick={() => history.push(`/sales/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={2} /><span>SALES PAGE 1</span></span></li>
+            <li><span onClick={() => history.push(`/sales/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={2} /><span>SALES PAGE</span></span></li>
+            <li><span onClick={() => history.push(`/sales1/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={2} /><span>SALES PAGE 1</span></span></li>
             <li><span onClick={() => history.push(`/sales2/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={2} /><span>SALES PAGE 2</span></span></li>
             <li><span onClick={() => goPage('coursevideos')} className="glyphicon glyphicon-facetime-video"><Spaces spaceLength={2} /><span>COURSE VIDEOS</span></span></li>
             <li><span onClick={() => goPage('editsalespage')} className="glyphicon glyphicon-pencil"><Spaces spaceLength={2} /><span>EDIT SALES PAGE</span></span></li>

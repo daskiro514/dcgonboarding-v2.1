@@ -24,7 +24,7 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
     <div className='container-fluid bg-checksub2'>
       <div className='row'>
         <div className='container'>
-          <div className='row' style={{ padding: '15px' }}>
+          <div className='row' style={{ margin: '10px' }}>
             {customer
               ?
               customer.type === 'customer'
@@ -38,9 +38,26 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
           </div>
           <div className='row'>
             <div className='col-sm-5 mobileST'>
-              {/* <div className='order'>
-                <h1>LALALA</h1>
-              </div> */}
+              <div className='order' style={{ minHeight: '140px' }}>
+                <div className='details'>
+                  <h5>Your order</h5>
+                </div>
+                <div className='details'>
+                  <h5>
+                    {productForSale.name}
+                  </h5>
+                </div>
+                <div className='details'>
+                  <div style={{ borderTop: '2px solid #ddd' }}>
+                    <div style={{ float: 'left' }}>
+                      <h5>Recurring</h5>
+                    </div>
+                    <div style={{ float: 'right' }}>
+                      <h5>${productForSale.price / 100} each 1 {productForSale.recurringInterval}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className='col-sm-7 mobileST'>
               {customerCreateInProgress ? <Spinner /> :

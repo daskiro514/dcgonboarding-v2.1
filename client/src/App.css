@@ -649,6 +649,75 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   }
 }
 
+.sales1 {
+  padding: 0px 0px !important;
+  color: black;
+}
+
+.sales1 .row {
+  margin: 0px 0px;
+}
+
+.sales1 p {
+  margin: 0px 0px;
+  padding: 0px 0px;
+}
+
+.sales1 .salesTop {
+  background-color: black;
+  color: white;
+}
+
+@media (min-width: 992px) {
+  .sales1 .tableShow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .sales1 .tableShow img {
+    margin-bottom: 50px;
+  }
+}
+
+.sales1 hr {
+  border-color: #000;
+  margin: 10px;
+}
+
+.sales1 .tableShow ul {
+  padding: 0px 20px;
+}
+
+.sales1 .tableShow ul li {
+  font-size: 20px;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+.sales1 .tableShow ul li span {
+  margin-right: 10px;
+}
+
+.sales1 .video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.sales1 .video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
 .sales2 {
   padding: 0px 0px !important;
   color: black
@@ -729,7 +798,12 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   min-height: 1px;
   padding-left: 10px;
   padding-right: 10px;
+  margin: 10px
 }
+
+/* .bg-checksub2 > div {
+  margin: 10px;
+} */
 
 .bg-checksub2 .order .details {
   margin-top: 10px !important;
@@ -789,6 +863,13 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .mobileST {
   float: right;
+}
+
+@media (max-width: 769px) {
+  .mobileST {
+    float: right;
+    width: 100% !important;
+  }
 }
 
 .bg-customer .whitepanel {
