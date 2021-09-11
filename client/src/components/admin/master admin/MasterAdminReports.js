@@ -3,11 +3,12 @@ import { connect } from 'react-redux'
 import Moment from 'react-moment'
 import SunEditor, { buttonList } from 'suneditor-react'
 import 'suneditor/dist/css/suneditor.min.css'
+import Spinner from '../../layout/Spinner'
 import Spaces from '../../layout/Spaces'
 import { addNewReport, getReports, updateReport, deleteReport } from '../../../actions/admin'
 import pdfIcon from '../../../img/admin/pdfIcon.png'
 
-const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteReport, reports, baseURL }) => {
+const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteReport, reports, baseURL, isUpdating }) => {
   React.useEffect(() => {
     getReports()
   }, [getReports])
@@ -221,53 +222,59 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
         <div className="adminSales" style={{ marginBottom: "20px" }}>
           <div className="row">
             <div className="col-md-12 ap-box">
-              <div className='table-responsive'>
-                <table className="w3-table w3-bordered w3-hoverable">
-                  <thead>
-                    <tr>
-                      <th>NO</th>
-                      <th>TITLE</th>
-                      <th>THUMB IMAGE</th>
-                      <th>CONTENT</th>
-                      <th>DATE</th>
-                      <th>ACTIONS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {reports.map((item, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td><p style={{ width: '100px' }}>{item.title}</p></td>
-                        <td><img src={baseURL + item.thumbimage} alt="THUMB" width="70px" height="70px" /></td>
-                        <td>
-                          {item.type === 'text' ?
-                            <p style={{ width: '300px' }} dangerouslySetInnerHTML={{ __html: item.content }}></p>
-                            :
-                            <a href={baseURL + item.pdf}>
-                              <img src={pdfIcon} alt="PDF" width="50px" height="50px" />
-                              <Spaces spaceLength={2} />
-                              {item.pdf}
-                            </a>
-                          }
-                        </td>
-                        <td><p style={{ width: '100px' }}><Moment format="MM/DD/YYYY HH:mm:ss">{item.date}</Moment></p></td>
-                        <td>
-                          <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-pencil"></span></button>
-                          <Spaces spaceLength={1} />
-                          <button
-                            onClick={() => {
-                              let deleteAnswer = window.confirm("Are you sure?")
-                              if (deleteAnswer) deleteReport(item._id)
-                            }}
-                          >
-                            <span className="glyphicon glyphicon-trash"></span>
-                          </button>
-                        </td>
+              {isUpdating
+                ?
+                <Spinner />
+                :
+                <div className='table-responsive'>
+                  <table className="w3-table w3-bordered w3-hoverable">
+                    <thead>
+                      <tr>
+                        <th>NO</th>
+                        <th>TITLE</th>
+                        <th>THUMB IMAGE</th>
+                        <th>CONTENT</th>
+                        <th>DATE</th>
+                        <th>ACTIONS</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+                    </thead>
+
+                    <tbody>
+                      {reports.map((item, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td><p style={{ width: '100px' }}>{item.title}</p></td>
+                          <td><img src={baseURL + item.thumbimage} alt="THUMB" width="70px" height="70px" /></td>
+                          <td>
+                            {item.type === 'text' ?
+                              <p style={{ width: '300px' }} dangerouslySetInnerHTML={{ __html: item.content }}></p>
+                              :
+                              <a href={baseURL + item.pdf}>
+                                <img src={pdfIcon} alt="PDF" width="50px" height="50px" />
+                                <Spaces spaceLength={2} />
+                                {item.pdf}
+                              </a>
+                            }
+                          </td>
+                          <td><p style={{ width: '100px' }}><Moment format="MM/DD/YYYY HH:mm:ss">{item.date}</Moment></p></td>
+                          <td>
+                            <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-pencil"></span></button>
+                            <Spaces spaceLength={1} />
+                            <button
+                              onClick={() => {
+                                let deleteAnswer = window.confirm("Are you sure?")
+                                if (deleteAnswer) deleteReport(item._id)
+                              }}
+                            >
+                              <span className="glyphicon glyphicon-trash"></span>
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              }
             </div>
           </div>
         </div>
@@ -279,7 +286,8 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
 
 const mapStateToProps = state => ({
   reports: state.admin.reports,
-  baseURL: state.admin.baseURL
+  baseURL: state.admin.baseURL,
+  isUpdating: state.admin.isReportsUpdating
 })
 
 export default connect(mapStateToProps, { addNewReport, getReports, updateReport, deleteReport })(MasterAdminReports)

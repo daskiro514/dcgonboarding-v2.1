@@ -21,7 +21,8 @@ import {
   CUSTOMER_TRANSACTIONS_LOADED,
   // REPORT
   ADMIN_REPORTS_LOADED,
-  REPORT_BYID_LOADED
+  ADMIN_REPORTS_UPDATING,
+  REPORT_BYID_LOADED,
 } from '../actions/types'
 
 const initialState = {
@@ -53,6 +54,7 @@ const initialState = {
   transactions: [],
   // FOR MASTER REPORTS
   reports: [],
+  isReportsUpdating: false,
   baseURL: "http://" + window.location.hostname + (window.location.port ? ":5000/files/" : "/files/"),
   reportByID: {}
 };
@@ -159,6 +161,11 @@ function partnerReducer(state = initialState, action) {
       return {
         ...state,
         reports: payload.reports
+      }
+    case ADMIN_REPORTS_UPDATING:
+      return {
+        ...state,
+        isReportsUpdating: payload
       }
     case REPORT_BYID_LOADED:
       return {

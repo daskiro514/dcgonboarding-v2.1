@@ -25,6 +25,7 @@ import {
   CUSTOMER_TRANSACTIONS_LOADED,
   // REPORTS
   ADMIN_REPORTS_LOADED,
+  ADMIN_REPORTS_UPDATING,
   REPORT_BYID_LOADED
 } from './types'
 
@@ -327,13 +328,25 @@ export const getAdminTransactions = adminID => async dispatch => {
 
 // REPORTS
 export const addNewReport = formData => async dispatch => {
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: true
+  })
   const res = await api.post('/admin/addNewReport', formData)
   if (res.data.success) {
     dispatch(getReports())
   }
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: false
+  })
 }
 
 export const getReports = () => async dispatch => {
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: true
+  })
   const res = await api.get('/admin/getReports')
   if (res.data.success) {
     dispatch({
@@ -341,6 +354,10 @@ export const getReports = () => async dispatch => {
       payload: res.data
     })
   }
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: false
+  })
 }
 
 export const getReportByID = reportID => async dispatch => {
@@ -354,15 +371,31 @@ export const getReportByID = reportID => async dispatch => {
 }
 
 export const updateReport = formData => async dispatch => {
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: true
+  })
   const res = await api.post('/admin/updateReport', formData)
   if (res.data.success) {
     dispatch(getReports())
   }
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: false
+  })
 }
 
 export const deleteReport = reportID => async dispatch => {
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: true
+  })
   const res = await api.delete(`/admin/deleteReport/${reportID}`)
   if (res.data.success) {
     dispatch(getReports())
   }
+  dispatch({
+    type: ADMIN_REPORTS_UPDATING,
+    payload: false
+  })
 }
