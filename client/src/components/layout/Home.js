@@ -63,7 +63,7 @@ const Home = ({ isAuthenticated, user }) => {
               <div className="video-responsive" style={{ boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.5)' }}>
                 <iframe
                   width="100%"
-                  src='https://www.youtube.com/embed/62Xj5WXShpM'
+                  src='https://www.youtube.com/embed/62Xj5WXShpM?autoplay=1&controls=1'
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
