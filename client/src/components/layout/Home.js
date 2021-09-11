@@ -55,7 +55,7 @@ const Home = ({ isAuthenticated, user }) => {
           <Link to="/partner">PARTNER APPLICATION</Link>
           <Link to="/login"><Spaces spaceLength={3} />LOGIN</Link>
         </div>
-        <br/><br/>
+        <br /><br />
         <div className='row'>
           <div className='col-md-2'></div>
           <div className='col-md-8'>
@@ -74,7 +74,7 @@ const Home = ({ isAuthenticated, user }) => {
           </div>
           <div className='col-md-2'></div>
         </div>
-        <br/><br/>
+        <br /><br />
       </section>
     )
   }

@@ -245,6 +245,7 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
                             :
                             <a href={baseURL + item.pdf}>
                               <img src={pdfIcon} alt="PDF" width="50px" height="50px" />
+                              <Spaces spaceLength={2} />
                               {item.pdf}
                             </a>
                           }

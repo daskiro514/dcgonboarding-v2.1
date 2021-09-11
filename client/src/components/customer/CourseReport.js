@@ -50,7 +50,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
                   </div>
                   <p style={{
                     margin: "5px 10px",
-                    maxHeight: '65px',
+                    height: '65px',
                     overflow: "hidden",
                     textOverflow: "ellipsis"
                   }}>{item}</p>
@@ -66,7 +66,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
                   <p style={{
                     margin: "5px 10px",
                     // whiteSpace: "nowrap",
-                    maxHeight: '65px',
+                    height: '65px',
                     overflow: "hidden",
                     textOverflow: "ellipsis"
                   }}>{item.title}</p>
@@ -90,7 +90,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
                   <p style={{ 
                     margin: "5px 10px", 
                     // whiteSpace: "nowrap", 
-                    maxHeight: '65px',
+                    height: '65px',
                     overflow: "hidden", 
                     textOverflow: "ellipsis" }}>{item.title}</p>
                 </Link>
