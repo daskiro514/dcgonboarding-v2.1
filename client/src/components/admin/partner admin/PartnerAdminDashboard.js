@@ -94,7 +94,7 @@ const PartnerAdminDashboard = ({ getPartnerTransactions, partnerID, transactions
           <div className='row'>
             <div className='col-md-12'>
               <button
-                onClick={() => navigator.clipboard.writeText(`https://dcgonboarding.com/sales/${partnerID}`)}
+                onClick={() => navigator.clipboard.writeText(`https://dcgonboarding.com/sales1/${partnerID}`)}
                 style={{color: 'black'}}
               >
                 Copy Sales Page 1 Link

@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import CreateOneTimeProduct from './partials/CreateOneTimeProduct'
-import CreateSubscriptionProduct from './partials/CreateSubscriptionProduct'
+// import CreateOneTimeProduct from './partials/CreateOneTimeProduct'
+// import CreateSubscriptionProduct from './partials/CreateSubscriptionProduct'
 import UpdateOneTimeProduct from './partials/UpdateOneTimeProduct'
 import UpdateSubscriptionProduct from './partials/UpdateSubscriptionProduct'
 import Spinner from '../../layout/Spinner'
@@ -33,7 +33,8 @@ const PartnerProducts = ({ oneTimeProductPageIsUpdating, subscriptionProductPage
                   />
                   : subscriptionProductPageIsUpdating
                     ? <Spinner />
-                    : <CreateSubscriptionProduct />
+                    : null
+                    // : <CreateSubscriptionProduct />
               }
               <br /><br /><br />
               <div className='table-responsive'>
@@ -90,7 +91,8 @@ const PartnerProducts = ({ oneTimeProductPageIsUpdating, subscriptionProductPage
                   />
                   : oneTimeProductPageIsUpdating
                     ? <Spinner />
-                    : <CreateOneTimeProduct />
+                    : null
+                    // : <CreateOneTimeProduct />
               }
               <br /><br /><br />
               <div className='table-responsive'>
