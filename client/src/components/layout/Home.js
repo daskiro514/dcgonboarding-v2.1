@@ -42,7 +42,7 @@ const Home = ({ isAuthenticated, user }) => {
             <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
           </Link>
         </div>
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
           <div className='w3-center'>
             <Link to="/partner">PARTNER APPLICATION</Link>
           </div>
@@ -50,7 +50,31 @@ const Home = ({ isAuthenticated, user }) => {
           <div className='w3-center'>
             <Link to="/login">LOGIN</Link>
           </div>
+        </div> */}
+        <div className="row w3-center links">
+          <Link to="/partner">PARTNER APPLICATION</Link>
+          <Link to="/login"><Spaces spaceLength={3} />LOGIN</Link>
         </div>
+        <br/><br/>
+        <div className='row'>
+          <div className='col-md-2'></div>
+          <div className='col-md-8'>
+            <div className='w3-center'>
+              <div className="video-responsive" style={{ boxShadow: '0px 20px 20px rgba(0, 0, 0, 0.5)' }}>
+                <iframe
+                  width="100%"
+                  src='https://www.youtube.com/embed/62Xj5WXShpM'
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  title="Embedded youtube"
+                />
+              </div>
+            </div>
+          </div>
+          <div className='col-md-2'></div>
+        </div>
+        <br/><br/>
       </section>
     )
   }

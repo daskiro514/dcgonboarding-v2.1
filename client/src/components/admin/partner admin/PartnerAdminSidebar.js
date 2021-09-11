@@ -27,7 +27,7 @@ const PartnerAdminSidebar = ({ logout, user }) => {
         <span onClick={() => history.push(`/sales1/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={1} /><span>SALES PAGE 1</span></span>
         <span onClick={() => history.push(`/sales2/${user._id}`)} className="glyphicon glyphicon-hand-right"><Spaces spaceLength={1} /><span>SALES PAGE 2</span></span>
         <span onClick={() => goPage('coursevideos')} className="glyphicon glyphicon-facetime-video"><Spaces spaceLength={1} /><span>COURSE VIDEOS</span></span>
-        <span onClick={() => goPage('editsalespage')} className="glyphicon glyphicon-pencil"><Spaces spaceLength={1} /><span>EDIT SALES PAGE</span></span>
+        {/* <span onClick={() => goPage('editsalespage')} className="glyphicon glyphicon-pencil"><Spaces spaceLength={1} /><span>EDIT SALES PAGE</span></span> */}
         <span onClick={() => goPage('editcoursepage')} className="glyphicon glyphicon-edit"><Spaces spaceLength={1} /><span>EDIT COURSE PAGE</span></span>
         <span onClick={() => goPage('profile')} className="glyphicon glyphicon-adjust"><Spaces spaceLength={1} /><span>PROFILE</span></span>
         <span onClick={logout} className="glyphicon glyphicon-log-out"><Spaces spaceLength={1} /><span>LOGOUT</span></span>

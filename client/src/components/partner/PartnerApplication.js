@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import logoImg from "../../img/logo/logo-black.svg"
+// import logoImg from "../../img/logo/logo-black.svg"
 import { partnerRegister, checkPartnerUsernameEmail } from '../../actions/admin'
 import Spinner from '../layout/Spinner'
-import Spaces from '../layout/Spaces'
 import { Link, useHistory } from 'react-router-dom'
+import logoImg from "../../img/logo/logo2.png"
 
 const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, checkPartnerUsernameEmail }) => {
   let history = useHistory()
@@ -57,25 +57,30 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
   return (
     <Fragment>
       <div className="container-fluid bg-partner">
-        <div className="top-header">
+        {/* <div className="top-header">
           <Link to="/home"><img src={logoImg} alt="logo" /></Link>
           <div>
             <Link to="/home"><span className="glyphicon glyphicon-home"></span><Spaces spaceLength={1} />HOME</Link>
             <Link to="/partner#"><span className="glyphicon glyphicon-book"></span><Spaces spaceLength={1} />PARTNER APPLICATION</Link>
             <Link to="/login"><span className="glyphicon glyphicon-log-in"></span><Spaces spaceLength={1} />LOGIN</Link>
           </div>
-        </div>
+        </div> */}
         <div className="row">
           <div className="col-md-2">
 
           </div>
           <div className="col-md-8">
             <form className="form" onSubmit={onSubmit}>
-              <h1>PARTNER APPLICATION</h1>
-              <small className="form-text" style={{ color: "indigo" }}>
-                If you submit the application, then the app will be redirected to https://connect.stripe.com/ <br />
-                You should complete that to create the partner account.
-              </small>
+              <div className='w3-center'>
+                <Link to='/home'>
+                  <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
+                </Link>
+                <h1>PARTNER APPLICATION</h1>
+                <small className="form-text" style={{ color: "lightgrey" }}>
+                  If you submit the application, then the app will be redirected to https://connect.stripe.com/ <br />
+                  You should complete that to create the partner account.
+                </small>
+              </div>
               {buttonName === "SUBMIT" ? (
                 <>
                   <div className="form-group">

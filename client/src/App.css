@@ -82,6 +82,9 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
     color: gold;
     font-size: 22px !important;
   }
+  .bg-home .links a {
+    font-size: 16px !important;
+  }
   .bg-customer a {
     font-size: 16px !important;
   }
@@ -138,6 +141,21 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   font-style: bold;
   font-size: 25px;
   text-decoration: none;
+}
+
+.bg-home .video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+}
+
+.bg-home .video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
 }
 
 .homeLogo {
@@ -248,8 +266,15 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 /*** partner ***/
 
 .bg-partner {
-  background-color: #fff;
-  padding: 0;
+  /* background-color: #fff;
+  padding: 0; */
+  color: white;
+  position: relative;
+  /* background: url('./img/login/home-bg.jpg') no-repeat center center/cover; */
+  background: url('./img/login/home-bg2.png') no-repeat center center/cover;
+  min-height: 100vh;
+  border-top: solid 5px rgb(212, 175, 55);
+  /* background-color: rgba(0, 0, 0, 0.408); */
 }
 
 .bg-partner .top-header {
