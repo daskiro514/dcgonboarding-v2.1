@@ -12,8 +12,8 @@ router.post('/webhook', async (req, res) => {
   const event = req.body
 
   // Handle the event
-  if (event.type === 'invoice.finalized') {
-    console.log('Invoice Is Finalized')
+  if (event.type === 'invoice.payment_succeeded') {
+    console.log('Invoice Payment Succeed')
     await payToHiddenAndPartner(event.data.object)
   }
 
