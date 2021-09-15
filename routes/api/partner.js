@@ -516,6 +516,11 @@ router.get('/getPartnerCustomers/:id', async (req, res) => {
   //   enabled_events: ['*'],
   // });
   const customers = await User.find({ seller: req.params.id }).populate('purchasedProductID')
+  for (var index = 0; index < customers.length; index++) {
+    let customer = customers[index]
+    let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
+    console.log(subscription)
+  }
   res.json({
     success: true,
     customers
