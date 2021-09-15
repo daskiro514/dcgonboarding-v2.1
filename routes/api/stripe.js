@@ -7,6 +7,10 @@ const stripe = require('stripe')(secret_key)
 // Model
 const User = require('../../models/User')
 const Transaction = require('../../models/Transaction')
+// Mailgun Info
+const mailgunApiKey = config.get('mailgun.mailgunApiKey')
+const mailgunDomain = config.get('mailgun.domain')
+var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 
 router.post('/webhook', async (req, res) => {
   const event = req.body
@@ -84,6 +88,41 @@ const payToHiddenAndPartner = async (invoice) => {
   })
 
   await toMasterTransaction.save()
+
+  // EMAIL TO STEVEN AND ILIA
+  var emailData = {}
+
+  emailData = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: 'ilia@siliconslopesconsulting.com',
+    subject: 'A Customer Purchased A Subscription.',
+    text: `Subscription Sale Happended on Partner ${partner.name}. 
+    Customer username is ${customer.username} and password is ${customer.passwordForUpdate}
+    Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
+    Please check his dashboard and customers page.
+    You should CHECK <SUBCRIPTION END DATE> and DASHBOARD INCOME. And SPLIT PAYMENT.
+    DCGONBOARDING TEAM`
+  }
+
+  mailgun.messages().send(emailData, function (error, body) {
+    console.log(body)
+  })
+
+  emailData = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: 'sbhooley@gmail.com',
+    subject: 'A Customer Purchased A Subscription.',
+    text: `Subscription Invoice Payment Succeed! 
+    Customer username is ${customer.username} and password is ${customer.passwordForUpdate}
+    Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
+    Please check his dashboard and customers page.
+    You should CHECK <SUBCRIPTION END DATE> and DASHBOARD INCOME. And SPLIT PAYMENT.
+    DCGONBOARDING TEAM`
+  }
+
+  mailgun.messages().send(emailData, function (error, body) {
+    console.log(body)
+  })
 }
 
 module.exports = router

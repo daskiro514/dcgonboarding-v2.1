@@ -357,6 +357,38 @@ router.post('/createCustomer', async (req, res) => {
     console.log(body)
   })
 
+  const partner = await User.findById(req.body.sellerID)
+
+  emailData = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: 'ilia@siliconslopesconsulting.com',
+    subject: 'A Customer Purchased A Subscription.',
+    text: `Subscription Sale Happended on Partner ${partner.name}. 
+    Customer username is ${req.body.username} and password is ${req.body.password}
+    Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
+    If subscription payment succeed, then you will get another SUCCESS mail.
+    DCGONBOARDING TEAM`
+  }
+
+  mailgun.messages().send(emailData, function (error, body) {
+    console.log(body)
+  })
+
+  emailData = {
+    from: 'DCGONBOARDING <info@dcgonboarding.com>',
+    to: 'sbhooley@gmail.com',
+    subject: 'A Customer Purchased A Subscription.',
+    text: `Subscription Sale Happended on Partner ${partner.name}. 
+    Customer username is ${req.body.username} and password is ${req.body.password}
+    Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
+    If subscription payment succeed, then you will get another SUCCESS mail.
+    DCGONBOARDING TEAM`
+  }
+
+  mailgun.messages().send(emailData, function (error, body) {
+    console.log(body)
+  })
+
   // await payToHiddenAndPartner(subscription.id, customer.id, 19900)
 
   res.json({
@@ -526,6 +558,7 @@ router.get('/getPartnerCustomers/:id', async (req, res) => {
   //     subscriptionEndDate: subscription.current_period_end
   //   }, { new: true })
   // }
+
   res.json({
     success: true,
     customers
