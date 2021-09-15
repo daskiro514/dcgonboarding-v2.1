@@ -60,7 +60,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <br />
               <div>
                 <p style={{ fontSize: '24px' }}>
-                  <strong><u>Now You Can Trade Crypto, Stocks, & Options with the confidence of knowing you're on the "inside."</u></strong>
+                  <strong><u>Now you can trade Crypto, Stocks, & Options with the confidence of knowing you are on the "inside"</u></strong>
                 </p>
               </div>
               <br />

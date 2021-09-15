@@ -77,8 +77,7 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
                 </Link>
                 <h1>PARTNER APPLICATION</h1>
                 <small className="form-text" style={{ color: "lightgrey" }}>
-                  If you submit the application, then the app will be redirected to https://connect.stripe.com/ <br />
-                  You should complete that to create the partner account.
+                  Once application is submitted, you will be redirected to https://connect.stripe.com/ . Create an account to finish setting up your partner account
                 </small>
               </div>
               {buttonName === "SUBMIT" ? (
@@ -126,9 +125,6 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
                       onChange={onChange}
                       required
                     />
-                    <small className="form-text">
-                      DCG automatically uses gravatar image for user's profile photo. So please set your image on gravatar.com first if you didn't set it yet.
-                    </small>
                   </div>
                   <div className="form-group">
                     <label>Phone Number</label>
@@ -141,7 +137,7 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
                       required
                     />
                     <small className="form-text">
-                      If international please use Whatsapp number
+                      If international user, please provide WhatsApp username/phone number.
                     </small>
                   </div>
                   <div className="form-group">
@@ -156,7 +152,7 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
                       required
                     />
                     <small className="form-text">
-                      Password should be over 6 letters and numbers
+                      Password should be a combination of 6 letters and numbers.
                     </small>
                   </div>
                   <div className="form-group">
@@ -202,6 +198,9 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
                       onChange={onChange}
                     />
                   </div>
+                  <small className="form-text">
+                    **DCG automatically uses gravatar image for the  user's profile photo. If you have not done so, please create your image on gravatar.com.
+                  </small>
                   <div className="w3-right">
                     <button type="submit" className="w3-button w3-grey w3-round">{buttonName}</button>
                   </div><br />

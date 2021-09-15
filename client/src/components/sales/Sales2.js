@@ -96,7 +96,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               marginBottom: '10px'
             }}>
               <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{ textDecoration: 'none', color: 'white' }}>
-                BECOME A PART OF THE Forex, Crypto and Optionis MASTERMIND
+                BECOME A PART OF THE FOREX, CRYPTO, AND OPTIONS TRADING MASTERMINDS
               </Link>
             </div>
             <div className='w3-center' style={{ fontSize: '50px', color: '#ff7902' }}>
@@ -245,16 +245,17 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
       </div>
 
       <div className='row' style={{
-        backgroundColor: 'rgb(15,15,15)'
+        // backgroundColor: 'rgb(15,15,15)'
       }}>
         <div style={{
           background: `url(${sales2BG}) no-repeat center center/cover`,
-          opacity: '.3',
         }}>
-          <div className='container'>
-            <div className='row'>
-              <div className='w3-center dollars'>
-                <h1><strong>Our Goal Is To Give You The Tools To Make Money The Rest Of Your Life!</strong></h1>
+          <div style={{backgroundColor: 'rgba(15,15,15,0.7)'}}>
+            <div className='container'>
+              <div className='row'>
+                <div className='w3-center dollars'>
+                  <h1><strong>Our Goal Is To Give You The Tools You Need To Make Money For The Rest Of Your Life</strong></h1>
+                </div>
               </div>
             </div>
           </div>
@@ -341,9 +342,9 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               textDecoration: 'none',
               color: 'white'
             }}>
-              <span style={{ fontSize: '24px' }}>Give me my ACCESS to MASTERMIND</span>
+              <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
               <br />
-              <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED peope - This won't be open long...</span>
+              <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
             </Link>
           </div>
           <div className='row' style={{ marginTop: '80px' }}>
