@@ -519,7 +519,11 @@ router.get('/getPartnerCustomers/:id', async (req, res) => {
   for (var index = 0; index < customers.length; index++) {
     let customer = customers[index]
     let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
-    console.log(subscription)
+    // console.log(subscription)
+    await User.findOneAndUpdate({ stripeCustomerID: subscription.customer }, {
+      subscriptionStartDate: subscription.current_period_start,
+      subscriptionEndDate: subscription.current_period_end
+    }, { new: true })
   }
   res.json({
     success: true,
