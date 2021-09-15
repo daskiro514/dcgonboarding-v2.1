@@ -506,15 +506,15 @@ router.get('/getPartnerTransactions/:id', async (req, res) => {
 })
 
 router.get('/getPartnerCustomers/:id', async (req, res) => {
-  const webhookEndpoints = await stripe.webhookEndpoints.list()
-  for (var index = 0; index < webhookEndpoints.data.length; index++) {
-    let tempEndPoint = webhookEndpoints.data[index]
-    await stripe.webhookEndpoints.del(tempEndPoint.id)
-  }
-  await stripe.webhookEndpoints.create({
-    url: 'https://dcgonboarding.com/api/stripe/webhook',
-    enabled_events: ['*'],
-  });
+  // const webhookEndpoints = await stripe.webhookEndpoints.list()
+  // for (var index = 0; index < webhookEndpoints.data.length; index++) {
+  //   let tempEndPoint = webhookEndpoints.data[index]
+  //   await stripe.webhookEndpoints.del(tempEndPoint.id)
+  // }
+  // await stripe.webhookEndpoints.create({
+  //   url: 'https://dcgonboarding.com/api/stripe/webhook',
+  //   enabled_events: ['*'],
+  // });
   const customers = await User.find({ seller: req.params.id }).populate('purchasedProductID')
   res.json({
     success: true,
