@@ -86,22 +86,23 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             </div>
           </div>
           <br />
-          <div className='row' style={{ padding: '0px 10px' }}>
-            <div className='w3-center' style={{
-              color: 'white',
-              backgroundColor: '#ff7902',
-              fontSize: '28px',
-              fontWeight: 'bold',
-              padding: '10px 0px 20px',
-              marginBottom: '10px'
+          <div className='giveButton' style={{
+            backgroundColor: '#ff7902',
+            fontWeight: 'bold',
+            padding: '5px 0px 5px',
+            margin: 'auto',
+            marginBottom: '10px',
+            textAlign: 'center',
+            width: '50%',
+          }}>
+            <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{
+              textDecoration: 'none',
+              color: 'white'
             }}>
-              <Link to={`/checkoutsub2/${mastermindProduct._id}`} style={{ textDecoration: 'none', color: 'white' }}>
-                BECOME A PART OF THE FOREX, CRYPTO, AND OPTIONS TRADING MASTERMINDS
-              </Link>
-            </div>
-            <div className='w3-center' style={{ fontSize: '50px', color: '#ff7902' }}>
-              <strong>All DCG Classes Are Live - Taught By Traders Who Actually Trade</strong>
-            </div>
+              <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
+              <br />
+              <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
+            </Link>
           </div>
         </div>
       </div>
@@ -166,7 +167,6 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               fontWeight: 'bold',
               padding: '5px 0px 5px',
               margin: 'auto',
-              marginTop: '20px',
               marginBottom: '10px',
               textAlign: 'center',
               width: '50%',
@@ -175,9 +175,9 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 textDecoration: 'none',
                 color: 'white'
               }}>
-                <span style={{ fontSize: '24px' }}>Give me my ACCESS to MASTERMIND</span>
+                <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
                 <br />
-                <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED peope - This won't be open long...</span>
+                <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
               </Link>
             </div>
           </div>
@@ -233,9 +233,9 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                     textDecoration: 'none',
                     color: 'white'
                   }}>
-                    <span style={{ fontSize: '24px' }}>Give me my ACCESS to MASTERMIND</span>
+                    <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
                     <br />
-                    <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED peope - This won't be open long...</span>
+                    <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
                   </Link>
                 </div>
               </div>
@@ -250,7 +250,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
         <div style={{
           background: `url(${sales2BG}) no-repeat center center/cover`,
         }}>
-          <div style={{backgroundColor: 'rgba(15,15,15,0.7)'}}>
+          <div style={{ backgroundColor: 'rgba(15,15,15,0.7)' }}>
             <div className='container'>
               <div className='row'>
                 <div className='w3-center dollars'>

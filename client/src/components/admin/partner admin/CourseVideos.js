@@ -70,14 +70,14 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
   }
 
   return (
-    <div className="col-md-10 bg-panel coursevideos">
+    <div className="bg-panel coursevideos">
       <div className="bg-panelMain row">
         <div className="col-md-12">
           <div className="adminSales">
             <div className="row">
               <div className="col-md-12 ap-box">
                 <h2>Course Videos</h2>
-                <br/>
+                <br />
                 <button onClick={() => stateChange('create')} >CREATE A COURSE</button>
                 {stateForCreate
                   ?
@@ -114,7 +114,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                     <button
                       className="w3-right"
                       onClick={() => setStateForCreate(false)}
-                      style={{marginLeft: '10px'}}
+                      style={{ marginLeft: '10px' }}
                     >
                       <span className="glyphicon glyphicon-remove"><Spaces spaceLength={1} />CANCEL</span>
                     </button>
@@ -163,7 +163,7 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
                     <button
                       className="w3-right"
                       onClick={() => setStateForEdit(false)}
-                      style={{marginLeft: '10px'}}
+                      style={{ marginLeft: '10px' }}
                     >
                       <span className="glyphicon glyphicon-remove"><Spaces spaceLength={1} />CANCEL</span>
                     </button>
@@ -183,43 +183,45 @@ const CourseVideos = ({ courses, getCourses, addNewCourse, updateCourse, deleteC
           <div className="adminSales" style={{ marginBottom: "20px" }}>
             <div className="row">
               <div className="col-md-12 ap-box">
-                <table className="w3-table w3-bordered w3-hoverable">
-                  <thead>
-                    <tr>
-                      <th>NO</th>
-                      <th>TITLE</th>
-                      <th>THUMB IMAGE</th>
-                      <th>DESCRIPTION</th>
-                      <th>VIMEO VIDEO ID</th>
-                      <th>ACTIONS</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {courses.map((item, index) => (
-                      <tr key={index}>
-                        <td>{index + 1}</td>
-                        <td>{item.title}</td>
-                        <td>
-                          <img src={baseURL + item.thumbImage} alt="THUMBIMAGE" width="50px" height="50px" />
-                        </td>
-                        <td>{item.description}</td>
-                        <td>{item.videoID}</td>
-                        <td>
-                          <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-pencil"></span></button>
-                          <Spaces spaceLength={1} />
-                          <button
-                            onClick={() => {
-                              let deleteAnswer = window.confirm("Are you sure?")
-                              if (deleteAnswer) deleteCourse(item._id, partner)
-                            }}
-                          >
-                            <span className="glyphicon glyphicon-trash"></span>
-                          </button>
-                        </td>
+                <div className='table-responsive'>
+                  <table className="w3-table w3-bordered w3-hoverable">
+                    <thead>
+                      <tr>
+                        <th>NO</th>
+                        <th>TITLE</th>
+                        <th>THUMB IMAGE</th>
+                        <th>DESCRIPTION</th>
+                        <th>VIMEO VIDEO ID</th>
+                        <th>ACTIONS</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {courses.map((item, index) => (
+                        <tr key={index}>
+                          <td>{index + 1}</td>
+                          <td>{item.title}</td>
+                          <td>
+                            <img src={baseURL + item.thumbImage} alt="THUMBIMAGE" width="50px" height="50px" />
+                          </td>
+                          <td>{item.description}</td>
+                          <td>{item.videoID}</td>
+                          <td>
+                            <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-pencil"></span></button>
+                            <Spaces spaceLength={1} />
+                            <button
+                              onClick={() => {
+                                let deleteAnswer = window.confirm("Are you sure?")
+                                if (deleteAnswer) deleteCourse(item._id, partner)
+                              }}
+                            >
+                              <span className="glyphicon glyphicon-trash"></span>
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

@@ -21,6 +21,7 @@ const PartnerCustomers = ({ customers, getPartnerCustomers, partnerID }) => {
                     <tr>
                       <th>NO</th>
                       <th>USERNAME</th>
+                      <th>PASSWORD</th>
                       <th>AVATAR</th>
                       <th>NAME</th>
                       <th>TYPE</th>
@@ -36,6 +37,7 @@ const PartnerCustomers = ({ customers, getPartnerCustomers, partnerID }) => {
                       <tr key={index}>
                         <td>{index + 1}</td>
                         <td>{item.username}</td>
+                        <td>{item.passwordForUpdate}</td>
                         <td><img src={item.avatar} alt="PARTNER AVATAR" width="70px" height="70px" /></td>
                         <td>{item.name}</td>
                         <td>{item.type}</td>
