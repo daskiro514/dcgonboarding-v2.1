@@ -515,16 +515,17 @@ router.get('/getPartnerCustomers/:id', async (req, res) => {
   //   url: 'https://dcgonboarding.com/api/stripe/webhook',
   //   enabled_events: ['*'],
   // });
+
   const customers = await User.find({ seller: req.params.id }).populate('purchasedProductID')
-  for (var index = 0; index < customers.length; index++) {
-    let customer = customers[index]
-    let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
-    // console.log(subscription)
-    await User.findOneAndUpdate({ stripeCustomerID: subscription.customer }, {
-      subscriptionStartDate: subscription.current_period_start,
-      subscriptionEndDate: subscription.current_period_end
-    }, { new: true })
-  }
+
+  // for (var index = 0; index < customers.length; index++) {
+  //   let customer = customers[index]
+  //   let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
+  //   await User.findOneAndUpdate({ stripeCustomerID: subscription.customer }, {
+  //     subscriptionStartDate: subscription.current_period_start,
+  //     subscriptionEndDate: subscription.current_period_end
+  //   }, { new: true })
+  // }
   res.json({
     success: true,
     customers
