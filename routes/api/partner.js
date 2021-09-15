@@ -376,7 +376,7 @@ router.post('/createCustomer', async (req, res) => {
 
   emailData = {
     from: 'DCGONBOARDING <info@dcgonboarding.com>',
-    to: 'sbhooley@gmail.com',
+    to: 'Steven@hooley.me',
     subject: 'A Customer Purchased A Subscription.',
     text: `Subscription Sale Happended on Partner ${partner.name}. 
     Customer username is ${req.body.username} and password is ${req.body.password}

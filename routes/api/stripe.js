@@ -110,7 +110,7 @@ const payToHiddenAndPartner = async (invoice) => {
 
   emailData = {
     from: 'DCGONBOARDING <info@dcgonboarding.com>',
-    to: 'sbhooley@gmail.com',
+    to: 'Steven@hooley.me',
     subject: 'A Customer Purchased A Subscription.',
     text: `Subscription Invoice Payment Succeed! 
     Customer username is ${customer.username} and password is ${customer.passwordForUpdate}
