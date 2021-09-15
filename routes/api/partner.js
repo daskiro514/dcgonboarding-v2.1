@@ -335,6 +335,7 @@ router.post('/createCustomer', async (req, res) => {
     { forceHttps: true }
   )
   newUser.avatar = avatar
+
   await newUser.save()
   var emailData = {}
   if (req.body.productForSale.type === 'Subscription Product') {

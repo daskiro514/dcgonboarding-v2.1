@@ -22,7 +22,7 @@ const initialState = {
   createOneTimeProductInProgress: false,
   subscriptionProductPageIsUpdating: false,
   createSubscriptionProductInProgress: false,
-  tempUser: {},
+  tempUser: JSON.parse(localStorage.getItem('tempUser')),
   oneTimeProducts: [],
   subscriptionProducts: [],
   defaultProducts: [],
@@ -72,6 +72,7 @@ function partnerReducer(state = initialState, action) {
         defaultProducts: payload.defaultProducts
       }
     case PARTNER_TEMP_USER_LOADED:
+      localStorage.setItem('tempUser', JSON.stringify(payload))
       return {
         ...state,
         tempUser: payload

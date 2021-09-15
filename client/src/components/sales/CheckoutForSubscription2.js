@@ -96,7 +96,6 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, custom
   const stripeUse = useStripe()
 
   React.useEffect(() => {
-    console.log(customer)
     if (customer !== null) {
       if (customer.type === 'customer') {
         setIsResubscribe(true)
