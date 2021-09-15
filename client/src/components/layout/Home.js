@@ -42,15 +42,6 @@ const Home = ({ isAuthenticated, user }) => {
             <img src={logoImg} alt="lalala" className="img-responsive homeLogo" />
           </Link>
         </div>
-        {/* <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <div className='w3-center'>
-            <Link to="/partner">PARTNER APPLICATION</Link>
-          </div>
-          <Spaces spaceLength={3} />
-          <div className='w3-center'>
-            <Link to="/login">LOGIN</Link>
-          </div>
-        </div> */}
         <div className="row w3-center links">
           <Link to="/partner">PARTNER APPLICATION</Link>
           <Link to="/login"><Spaces spaceLength={3} />LOGIN</Link>
