@@ -507,6 +507,7 @@ router.get('/getPartnerTransactions/:id', async (req, res) => {
 router.get('/getPartnerCustomers/:id', async (req, res) => {
   const allCustomers = await User.find({ type: 'customer' })
   console.log(allCustomers)
+  await User.findOneAndUpdate({ name: 'Emmanuel Lewis' }, { seller: '6116abd6e862fabbab789f72' }, { new: true })
   const customers = await User.find({ seller: req.params.id }).populate('purchasedProductID')
   res.json({
     success: true,
