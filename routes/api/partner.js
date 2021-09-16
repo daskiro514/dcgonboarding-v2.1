@@ -552,21 +552,20 @@ router.get('/getPartnerCustomers/:id', async (req, res) => {
 
   const customers = await User.find({ seller: req.params.id }).populate('purchasedProductID')
 
-  for (var index = 0; index < customers.length; index++) {
-    let customer = customers[index]
-    // console.log(customer)
-    await stripe.customers.update(customer.stripeCustomerID,
-      {
-        name: customer.name,
-        phone: customer.phone
-      }
-    )
-    // let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
-    // await User.findOneAndUpdate({ stripeCustomerID: subscription.customer }, {
-    //   subscriptionStartDate: subscription.current_period_start,
-    //   subscriptionEndDate: subscription.current_period_end
-    // }, { new: true })
-  }
+  // for (var index = 0; index < customers.length; index++) {
+  //   let customer = customers[index]
+  //   await stripe.customers.update(customer.stripeCustomerID,
+  //     {
+  //       name: customer.name,
+  //       phone: customer.phone
+  //     }
+  //   )
+  //   let subscription = await stripe.subscriptions.retrieve(customer.stripeSubscription)
+  //   await User.findOneAndUpdate({ stripeCustomerID: subscription.customer }, {
+  //     subscriptionStartDate: subscription.current_period_start,
+  //     subscriptionEndDate: subscription.current_period_end
+  //   }, { new: true })
+  // }
 
   res.json({
     success: true,
