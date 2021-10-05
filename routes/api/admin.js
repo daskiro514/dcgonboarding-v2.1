@@ -482,7 +482,7 @@ router.get('/suspendProduct/:id', async (req, res) => {
 
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
-  const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID')
+  const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
   res.json({
     success: true,

@@ -35,6 +35,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                       <th>AVATAR</th>
                       <th>NAME</th>
                       <th>STATE</th>
+                      <th>PARTNER</th>
                       <th>EMAIL</th>
                       <th>PHONE</th>
                       <th>PURCHASED SUBSCRIPTION</th>
@@ -58,6 +59,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                           <td><img src={item.avatar} alt="PARTNER AVATAR" width="70px" height="70px" /></td>
                           <td><p style={{width: '120px'}}>{item.name}</p></td>
                           <td>{item.customerStatus === 'Suspended' ? <span className="w3-text-red">Suspended</span> : <span className="w3-text-blue">Active</span>}</td>
+                          <td>{item.seller.name}</td>
                           <td><p style={{width: '100px'}}>{item.email}</p></td>
                           <td><p style={{width: '100px'}}>{item.phone}</p></td>
                           <td>{item.purchasedProductID.name}</td>
