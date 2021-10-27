@@ -4,11 +4,13 @@ import { logout } from '../../../actions/auth'
 import { setCurrentPage } from '../../../actions/admin'
 import { useHistory } from "react-router-dom"
 
-const MasterAdminSidebar = ({ logout, user, setCurrentPage, currentPage }) => {
+const MasterAdminSidebar = ({ logout, setCurrentPage, currentPage }) => {
   let history = useHistory()
 
   const goPage = async location => {
     setCurrentPage(location)
+
+    await history.push(`/`)
 
     if (location === 'dashboard') {
       await history.push(`/home/`)
@@ -72,7 +74,6 @@ const MasterAdminSidebar = ({ logout, user, setCurrentPage, currentPage }) => {
 }
 
 const mapStateToProps = state => ({
-  user: state.auth.user,
   currentPage: state.admin.currentPage
 })
 

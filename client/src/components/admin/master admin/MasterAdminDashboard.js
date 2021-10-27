@@ -5,8 +5,10 @@ import { connect } from 'react-redux'
 import { getAdminTransactions, getPendingPartners, getReports } from '../../../actions/admin'
 import formatDate from '../../../utils/formatDate'
 import Spaces from '../../layout/Spaces'
+import { useHistory } from 'react-router-dom'
 
 const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, getPendingPartners, pendingPartners, getReports, reports, baseURL }) => {
+  const history = useHistory()
   const [graphSeriesData, setGraphSeriesData] = React.useState([])
   const [totalTransferAmount, setTotalTransferAmount] = React.useState(0)
 
@@ -96,7 +98,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
           <div className="row">
             <div className="col-md-12 ap-box">
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <h3 className="w3-center ap-title">TOTAL INCOME</h3><Spaces spaceLength={4} />
+                <h3 className="w3-center ap-title">Total Income</h3><Spaces spaceLength={4} />
                 <h1 className="w3-center">{totalTransferAmount} $</h1>
               </div>
               <LineChart />
@@ -107,14 +109,15 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
           <div className='col-md-6'>
             <div className="adminSales p-2">
               <h3 className="ap-title">Pending Users</h3>
-              {pendingPartners.map((item, index) =>
-                <div key={index} className='mt-1 pl-1' style={{borderLeft: '5px solid #D2A869'}}>
+              {pendingPartners.slice(0, 4).map((item, index) =>
+                <div key={index} className='mt-1 pl-1' style={{ borderLeft: '5px solid #D2A869' }}>
                   <p className='text-black mb-0'>{item.name}</p>
                   <p className='text-silver'>{formatDate(item.date)}</p>
                 </div>
               )}
+              {pendingPartners.length > 4 ? <h3 className='w3-center text-black'>...</h3> : null}
               <div className='text-dcg mt-1'>
-                <p className='w3-right'>View All Users<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
+                <p className='w3-right cursor-pointer' onClick={async () => history.push('/pending')}>View All Users<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
                 <br />
               </div>
             </div>
@@ -122,9 +125,9 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
           <div className='col-md-6'>
             <div className="adminSales p-2">
               <h3 className="ap-title">Recent Reports</h3>
-              {reports.map((item, index) =>
+              {reports.reverse().slice(0, 4).map((item, index) =>
                 <div key={index} className='pt-1 d-flex align-items-center'>
-                  <div className='mr-2'>
+                  <div className='mr-1'>
                     <img src={baseURL + item.thumbimage} alt="THUMB" width="40px" height="40px" className='rounded-circle' />
                   </div>
                   <div>
@@ -133,8 +136,9 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
                   </div>
                 </div>
               )}
+              {reports.length > 4 ? <h3 className='w3-center text-black'>...</h3> : null}
               <div className='text-dcg mt-1'>
-                <p className='w3-right'>View All Reports<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
+                <p className='w3-right cursor-pointer' onClick={async () => history.push('/reports')}>View All Reports<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
                 <br />
               </div>
             </div>
@@ -144,25 +148,25 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
       </div>
       <div className="col-md-5 ap-box">
         <div className="adminSales overflow1">
-          <h3 className="w3-center ap-title">TRACK SALES</h3>
+          <h3 className="ap-title ml-1 mt-1">Track Sales</h3>
           <br />
           {transactions.map((item, index) => (
             <table className="saleList w3-table" key={index}>
               <tbody>
                 <tr>
-                  <td>PRODUCT NAME:</td>
+                  <td className='text-bold'>PRODUCT NAME:</td>
                   <td>{item.product ? item.product : item.productID.name}</td>
                 </tr>
                 <tr>
-                  <td>AMOUNT:</td>
+                  <td className='text-bold'>AMOUNT:</td>
                   <td>{item.amount / 100}<span>$</span></td>
                 </tr>
                 <tr>
-                  <td>CUSTOMER:</td>
+                  <td className='text-bold'>CUSTOMER:</td>
                   <td>{item.customerID ? item.customerID.name : item.customerName}</td>
                 </tr>
                 <tr>
-                  <td>DATE:</td>
+                  <td className='text-bold'>DATE:</td>
                   <td><Moment format="MM/DD/YYYY HH:mm:ss">{item.date}</Moment></td>
                 </tr>
               </tbody>
