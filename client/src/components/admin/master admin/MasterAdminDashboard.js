@@ -1,18 +1,19 @@
 import React from 'react'
 import Moment from 'react-moment'
 import Chart from "react-apexcharts"
-import { PieChart } from 'react-minimal-pie-chart'
 import { connect } from 'react-redux'
-import { getAdminTransactions } from '../../../actions/admin'
+import { getAdminTransactions, getPendingPartners, getReports } from '../../../actions/admin'
 import Spaces from '../../layout/Spaces'
 
-const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions }) => {
+const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, getPendingPartners, pendingPartners, getReports, reports, baseURL }) => {
   const [graphSeriesData, setGraphSeriesData] = React.useState([])
   const [totalTransferAmount, setTotalTransferAmount] = React.useState(0)
 
   React.useEffect(() => {
     getAdminTransactions(adminID)
-  }, [getAdminTransactions, adminID])
+    getPendingPartners()
+    getReports()
+  }, [getAdminTransactions, adminID, getPendingPartners, getReports])
 
   React.useEffect(() => {
     let transferArray = transactions ? transactions : []
@@ -101,23 +102,36 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions }) =
             </div>
           </div>
         </div>
-        <div className="adminSales">
-          <h3 className="w3-center ap-title">PERCENTAGE INCOME</h3>
-          <div className="row">
-            <div className="col-md-7 ap-box">
-              <PieChart
-                style={{ height: "40vh" }}
-                data={[
-                  { title: 'One', value: 99.9, color: '#C13C37' },
-                  { title: 'Two', value: 0.1, color: '#E38627' },
-                ]}
-              />
+        <div className='row'>
+          <div className='col-md-6'>
+            <div className="adminSales p-2">
+              <h3 className="ap-title">Pending Users</h3>
+              <br />
+              {pendingPartners.map((item, index) =>
+                <div key={index}>
+                  {item.name}
+                </div>
+              )}
             </div>
-            <div className="col-md-5 ap-box">
-              <h1 className="w3-center">100%</h1>
-              <p className="w3-center">THIS YEAR</p>
-              <h1 className="w3-center">0%</h1>
-              <p className="w3-center">LAST YEAR</p>
+          </div>
+          <div className='col-md-6'>
+            <div className="adminSales p-2">
+              <h3 className="ap-title">Recent Reports</h3>
+              {reports.map((item, index) =>
+                <div key={index} className='pt-1 d-flex align-items-center'>
+                  <div className='mr-2'>
+                    <img src={baseURL + item.thumbimage} alt="THUMB" width="40px" height="40px" className='rounded-circle' />
+                  </div>
+                  <div>
+                    <p className='text-black mb-0'>{item.title}</p>
+                    <p className='text-silver'>From Jamar James</p>
+                  </div>
+                </div>
+              )}
+              <div className='text-dcg'>
+                <p className='w3-right'>View All Reports<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
+                <br/>
+              </div>
             </div>
           </div>
         </div>
@@ -125,7 +139,8 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions }) =
       </div>
       <div className="col-md-5 ap-box">
         <div className="adminSales overflow1">
-          <h2 className="w3-center ap-title">TRACK SALES</h2>
+          <h3 className="w3-center ap-title">TRACK SALES</h3>
+          <br />
           {transactions.map((item, index) => (
             <table className="saleList w3-table" key={index}>
               <tbody>
@@ -149,7 +164,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions }) =
             </table>
           ))}
         </div>
-        <br/>
+        <br />
       </div>
     </div>
   )
@@ -157,7 +172,10 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions }) =
 
 const mapStateToProps = state => ({
   adminID: state.auth.user._id,
-  transactions: state.admin.transactions
+  transactions: state.admin.transactions,
+  pendingPartners: state.admin.pendingPartners,
+  reports: state.admin.reports,
+  baseURL: state.admin.baseURL
 })
 
-export default connect(mapStateToProps, { getAdminTransactions })(MasterAdminDashboard)
+export default connect(mapStateToProps, { getAdminTransactions, getPendingPartners, getReports })(MasterAdminDashboard)

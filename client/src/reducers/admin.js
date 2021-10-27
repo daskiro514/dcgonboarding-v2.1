@@ -1,4 +1,5 @@
 import { 
+  CURRENT_PAGE_SET,
   // PARTNER
   PARTNER_REGISTER_SUCCESS, 
   PENDINGPARTER_LOADED, 
@@ -26,6 +27,7 @@ import {
 } from '../actions/types'
 
 const initialState = {
+  currentPage: 'dashboard',
   partnerIsRegistered: false,
   pendingPartnerIsLoaded: false,
   pendingPartner: {},
@@ -63,6 +65,12 @@ function partnerReducer(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {
+    case CURRENT_PAGE_SET: {
+      return {
+        ...state,
+        currentPage: payload
+      }
+    }
     // PARTNER
     case PARTNER_REGISTER_SUCCESS:
       return {

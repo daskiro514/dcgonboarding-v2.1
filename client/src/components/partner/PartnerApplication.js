@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-// import logoImg from "../../img/logo/logo-black.svg"
 import { partnerRegister, checkPartnerUsernameEmail } from '../../actions/admin'
 import Spinner from '../layout/Spinner'
 import { Link, useHistory } from 'react-router-dom'
@@ -11,7 +10,6 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
   const [buttonName, setButtonName] = React.useState("SUBMIT")
   const [partnerID, setPartnerID] = React.useState(null)
   const [formData, setFormData] = React.useState({
-    // partnerID: null,
     brand: 'DCG',
     name: '',
     username: '',
@@ -57,14 +55,6 @@ const PartnerApplication = ({ partnerRegister, partnerIsRegistered, connectURL, 
   return (
     <Fragment>
       <div className="container-fluid bg-partner">
-        {/* <div className="top-header">
-          <Link to="/home"><img src={logoImg} alt="logo" /></Link>
-          <div>
-            <Link to="/home"><span className="glyphicon glyphicon-home"></span><Spaces spaceLength={1} />HOME</Link>
-            <Link to="/partner#"><span className="glyphicon glyphicon-book"></span><Spaces spaceLength={1} />PARTNER APPLICATION</Link>
-            <Link to="/login"><span className="glyphicon glyphicon-log-in"></span><Spaces spaceLength={1} />LOGIN</Link>
-          </div>
-        </div> */}
         <div className="row">
           <div className="col-md-2">
 

@@ -2,6 +2,7 @@ import api from '../utils/api'
 import { setAlert } from './alert'
 import { loadUser } from './auth'
 import {
+  CURRENT_PAGE_SET,
   // PARTNERS
   PARTNER_REGISTER_SUCCESS,
   REGISTER_FAIL,
@@ -28,6 +29,13 @@ import {
   ADMIN_REPORTS_UPDATING,
   REPORT_BYID_LOADED
 } from './types'
+
+export const setCurrentPage = currentPage => async dispatch => {
+  dispatch({
+    type: CURRENT_PAGE_SET,
+    payload: currentPage
+  })
+}
 
 export const checkPartnerUsernameEmail = (formData) => async dispatch => {
   const res = await api.post('/admin/checkPartnerUsernameEmail', formData)
