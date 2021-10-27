@@ -108,7 +108,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
             <div className="adminSales p-2">
               <h3 className="ap-title">Pending Users</h3>
               {pendingPartners.map((item, index) =>
-                <div key={index} className='pt-1'>
+                <div key={index} className='mt-1 pl-1' style={{borderLeft: '5px solid #D2A869'}}>
                   <p className='text-black mb-0'>{item.name}</p>
                   <p className='text-silver'>{formatDate(item.date)}</p>
                 </div>
