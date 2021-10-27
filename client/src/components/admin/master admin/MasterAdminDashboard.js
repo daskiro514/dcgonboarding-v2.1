@@ -3,6 +3,7 @@ import Moment from 'react-moment'
 import Chart from "react-apexcharts"
 import { connect } from 'react-redux'
 import { getAdminTransactions, getPendingPartners, getReports } from '../../../actions/admin'
+import formatDate from '../../../utils/formatDate'
 import Spaces from '../../layout/Spaces'
 
 const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, getPendingPartners, pendingPartners, getReports, reports, baseURL }) => {
@@ -106,12 +107,16 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
           <div className='col-md-6'>
             <div className="adminSales p-2">
               <h3 className="ap-title">Pending Users</h3>
-              <br />
               {pendingPartners.map((item, index) =>
-                <div key={index}>
-                  {item.name}
+                <div key={index} className='pt-1'>
+                  <p className='text-black mb-0'>{item.name}</p>
+                  <p className='text-silver'>{formatDate(item.date)}</p>
                 </div>
               )}
+              <div className='text-dcg mt-1'>
+                <p className='w3-right'>View All Users<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
+                <br />
+              </div>
             </div>
           </div>
           <div className='col-md-6'>
@@ -128,9 +133,9 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
                   </div>
                 </div>
               )}
-              <div className='text-dcg'>
+              <div className='text-dcg mt-1'>
                 <p className='w3-right'>View All Reports<i className='fas fa-long-arrow-alt-right ml-1'></i></p>
-                <br/>
+                <br />
               </div>
             </div>
           </div>
