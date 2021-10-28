@@ -1075,6 +1075,31 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   padding: 50px !important;
 }
 
+.py-1 {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.py-2 {
+  padding-bottom: 20px !important;
+  padding-top: 20px !important;
+}
+
+.py-3 {
+  padding-bottom: 30px !important;
+  padding-top: 30px !important;
+}
+
+.py-4 {
+  padding-bottom: 40px !important;
+  padding-top: 40px !important;
+}
+
+.py-5 {
+  padding-bottom: 50px !important;
+  padding-top: 50px !important;
+}
+
 .pt-1 {
   padding-top: 10px !important;
 }
@@ -1204,6 +1229,10 @@ i {
 .selected {
   color: #D2A869;
   border-right: 5px solid #D2A869;
+}
+
+.selected:hover {
+  color: white;
 }
 
 .cursor-pointer {

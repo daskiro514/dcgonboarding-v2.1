@@ -6,11 +6,10 @@ import { getAdminTransactions, getPendingPartners, getReports } from '../../../a
 import formatDate from '../../../utils/formatDate'
 import Spaces from '../../layout/Spaces'
 import { useHistory } from 'react-router-dom'
+import { getTotalIncome, getAdminChartOptions, getAdminChartSeries } from '../../../utils/adminCharts'
 
 const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, getPendingPartners, pendingPartners, getReports, reports, baseURL }) => {
   const history = useHistory()
-  const [graphSeriesData, setGraphSeriesData] = React.useState([])
-  const [totalTransferAmount, setTotalTransferAmount] = React.useState(0)
 
   React.useEffect(() => {
     getAdminTransactions(adminID)
@@ -18,62 +17,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
     getReports()
   }, [getAdminTransactions, adminID, getPendingPartners, getReports])
 
-  React.useEffect(() => {
-    let transferArray = transactions ? transactions : []
-    for (let i = 0; i < transferArray.length; i++) {
-      let transfer = transferArray[i]
-      let transfer_created = new Date(transfer.date)
-      let transfer_created_fullDay = transfer_created.toLocaleDateString()
-      transferArray[i].transferCreatedFullDay = transfer_created_fullDay
-    }
-    let dailyTransfers = []
-    let firstTransferFlag = true
-    let total = 0
-    for (let i = 0; i < transferArray.length; i++) {
-      let dailyTransfer = {
-        transfer_created_day: transferArray[i].transferCreatedFullDay,
-        amount: transferArray[i].amount / 100,
-      }
-      let sameTransferDayFindFlag = false
-      for (let j = 0; j < dailyTransfers.length; j++) {
-        if (dailyTransfers[j].transfer_created_day === dailyTransfer.transfer_created_day) {
-          sameTransferDayFindFlag = true
-          dailyTransfers[j].amount += dailyTransfer.amount
-          break
-        }
-      }
-      if (!sameTransferDayFindFlag || firstTransferFlag) {
-        sameTransferDayFindFlag = false
-        firstTransferFlag = false
-        dailyTransfers.push(dailyTransfer)
-      }
-      total += transferArray[i].amount
-    }
-
-    setTotalTransferAmount(total / 100)
-
-    var dailyTransferSeriesData = dailyTransfers.map(d => {
-      var tempTransferObject = {}
-      tempTransferObject.x = d.transfer_created_day
-      tempTransferObject.y = d.amount
-      return tempTransferObject
-    })
-    let temp = []
-    let temp1 = {
-      name: "Transfer Amount(USD)",
-      data: dailyTransferSeriesData
-    }
-    temp.push(temp1)
-    setGraphSeriesData(temp)
-  }, [setGraphSeriesData, setTotalTransferAmount, transactions])
-
   const LineChart = () => {
-    const options = {
-      chart: {
-        id: "basic-bar"
-      }
-    }
-
     return (
       <div
         style={{
@@ -82,13 +26,47 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
         }}
       >
         <Chart
-          options={options}
-          series={graphSeriesData}
-          type="bar"
-          height="200"
+          options={getAdminChartOptions()}
+          series={getAdminChartSeries(transactions)}
+          type='bar'
+          height='200px'
+          width='100%'
         />
       </div>
     )
+  }
+
+  const [pageTransactions, setPageTransactions] = React.useState([])
+  const [pageNumber, setPageNumber] = React.useState(1)
+  const [maxPageNumber, setMaxPageNumber] = React.useState(1)
+
+  React.useEffect(() => {
+    setPageTransactions(transactions.sort((element1, element2) => { return new Date(element2.date) - new Date(element1.date) }).slice((pageNumber - 1) * 5, pageNumber * 5))
+    setMaxPageNumber(Math.ceil(transactions.length / 5))
+  }, [transactions, pageNumber])
+
+  const nextPage = () => {
+    if (pageNumber + 1 > maxPageNumber) {
+      lastPage()
+      return
+    }
+    setPageNumber(pageNumber + 1)
+  }
+
+  const prevPage = () => {
+    if (pageNumber - 1 < 1) {
+      firstPage()
+      return
+    }
+    setPageNumber(pageNumber - 1)
+  }
+
+  const firstPage = () => {
+    setPageNumber(1)
+  }
+
+  const lastPage = () => {
+    setPageNumber(maxPageNumber)
   }
 
   return (
@@ -99,7 +77,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
             <div className="col-md-12 ap-box">
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h3 className="w3-center ap-title">Total Income</h3><Spaces spaceLength={4} />
-                <h1 className="w3-center">{totalTransferAmount} $</h1>
+                <h1 className="w3-center">{getTotalIncome(transactions)} $</h1>
               </div>
               <LineChart />
             </div>
@@ -150,7 +128,7 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
         <div className="adminSales overflow1">
           <h3 className="ap-title ml-1 mt-1">Track Sales</h3>
           <br />
-          {transactions.map((item, index) => (
+          {pageTransactions.map((item, index) => (
             <table className="saleList w3-table" key={index}>
               <tbody>
                 <tr>
@@ -172,6 +150,23 @@ const MasterAdminDashboard = ({ getAdminTransactions, adminID, transactions, get
               </tbody>
             </table>
           ))}
+          <div className='text-center pt-1'>
+            {(pageNumber - 1) * 5 + 1} - {(pageNumber - 1) * 5 + pageTransactions.length} of {transactions.length}
+          </div>
+          <div className='text-center pt-1'>
+            <button className='btn btn-sm' onClick={() => firstPage()}>
+              <i className="material-icons">first_page</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => prevPage()}>
+              <i className="material-icons">navigate_before</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => nextPage()}>
+              <i className="material-icons">navigate_next</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => lastPage()}>
+              <i className="material-icons">last_page</i>
+            </button>
+          </div>
         </div>
         <br />
       </div>
