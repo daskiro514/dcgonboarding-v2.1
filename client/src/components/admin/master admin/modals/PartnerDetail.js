@@ -10,83 +10,77 @@ const PartnerDetail = ({ showPartnerDetail, PartnerForShow, showPartner }) => {
         <header className="w3-container">
           <span onClick={() => showPartnerDetail('none', {})}
             className="w3-button w3-display-topright">&times;</span>
-          <h2>Partner Detail</h2>
+          <h2 style={{ minHeight: '36px' }}>Partner Detail</h2>
         </header>
         <div className="w3-container">
-          <br />
-          <table className="w3-table w3-btransfered">
-            <thead>
-              <tr>
-                <th width="25%">NAME</th>
-                <th width="25%">EMAIL</th>
-                <th width="25%">PASSWORD</th>
-                <th width="25%">CONNECTED ACCOUNT STATUS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{PartnerForShow.name}</td>
-                <td>{PartnerForShow.email}</td>
-                <td>{PartnerForShow.passwordForUpdate}</td>
-                <td>{PartnerForShow.connectedAccountStatus === 'enabled' ? <span><span className="w3-text-indigo">TRANSFERS</span> and <span className="w3-text-indigo">PAYOUTS</span> are enabled.</span> : <span>Account is <span className="w3-text-indigo">RESTRICTED</span>. It needs more information.</span>}</td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
-          <table className="w3-table w3-btransfered">
-            <thead>
-              <tr>
-                <th width="25%">REQUEST DATE</th>
-                <th width="25%">USERNAME</th>
-                <th width="25%">STATUS</th>
-                <th width="25%">STATUS DESCRIPTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><Moment format="MM/DD/YYYY">{PartnerForShow.date}</Moment></td>
-                <td>{PartnerForShow.username}</td>
-                <td>{PartnerForShow.status ? PartnerForShow.status.toUpperCase() : null}</td>
-                <td>{PartnerForShow.inActiveReason}</td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
-          <table className="w3-table w3-btransfered">
-            <thead>
-              <tr>
-                <th width="25%">BRAND</th>
-                <th width="25%">PHONE</th>
-                <th width="50%">DESCRIPTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{PartnerForShow.brand}</td>
-                <td>{PartnerForShow.phone}</td>
-                <td>{PartnerForShow.description}</td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
-          <table className="w3-table w3-btransfered">
-            <thead>
-              <tr>
-                <th width="25%">FACEBOOK</th>
-                <th width="25%">TWITTER</th>
-                <th width="25%">INSTAGRAM</th>
-                <th width="25%">STRIPE CONNECTED ACCOUNT NUMBER</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{PartnerForShow.facebook}</td>
-                <td>{PartnerForShow.twitter}</td>
-                <td>{PartnerForShow.instagram}</td>
-                <td>{PartnerForShow.stripeConnectedAccount}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div className='row px-2 pt-2'>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>Name</h5>
+              <p>{PartnerForShow.name}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>EMAIL</h5>
+              <p>{PartnerForShow.email}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>PASSWORD</h5>
+              <p>{PartnerForShow.passwordForUpdate}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>CONNECTED ACCOUNT STATUS</h5>
+              <p>{PartnerForShow.connectedAccountStatus === 'enabled' ? <span><span className="w3-text-indigo">TRANSFERS</span> and <span className="w3-text-indigo">PAYOUTS</span> are enabled.</span> : <span>Account is <span className="w3-text-indigo">RESTRICTED</span>. It needs more information.</span>}</p>
+            </div>
+          </div>
+          <div className='row px-2 pt-2'>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>REQUEST DATE</h5>
+              <p><Moment format="MM/DD/YYYY">{PartnerForShow.date}</Moment></p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>USERNAME</h5>
+              <p>{PartnerForShow.username}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>STATUS</h5>
+              <p>{PartnerForShow.status ? PartnerForShow.status.toUpperCase() : null}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>STATUS DESCRIPTION</h5>
+              <p>{PartnerForShow.inActiveReason}</p>
+            </div>
+          </div>
+          <div className='row px-2 pt-2'>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>BRAND</h5>
+              <p>{PartnerForShow.brand}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>PHONE</h5>
+              <p>{PartnerForShow.phone}</p>
+            </div>
+            <div className='col-md-6 pt-1'>
+              <h5 className='text-bold pb-1'>DESCRIPTION</h5>
+              <p>{PartnerForShow.description}</p>
+            </div>
+          </div>
+          <div className='row px-2 pt-2'>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>FACEBOOK</h5>
+              <p>{PartnerForShow.facebook}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>TWITTER</h5>
+              <p>{PartnerForShow.twitter}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>INSTAGRAM</h5>
+              <p>{PartnerForShow.instagram}</p>
+            </div>
+            <div className='col-md-3 pt-1'>
+              <h5 className='text-bold pb-1'>STRIPE CONNECTED ACCOUNT NUMBER</h5>
+              <p>{PartnerForShow.stripeConnectedAccount}</p>
+            </div>
+          </div>
           <br />
         </div>
       </div>

@@ -1100,6 +1100,31 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   padding-top: 50px !important;
 }
 
+.px-1 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.px-2 {
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}
+
+.px-3 {
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}
+
+.px-4 {
+  padding-right: 40px !important;
+  padding-left: 40px !important;
+}
+
+.px-5 {
+  padding-right: 50px !important;
+  padding-left: 50px !important;
+}
+
 .pt-1 {
   padding-top: 10px !important;
 }
