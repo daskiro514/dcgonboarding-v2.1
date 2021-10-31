@@ -15,7 +15,7 @@ const PartnerProfile = ({ partner }) => {
   }
 
   return (
-    <div className="bg-panelMain row partnerAdminProfile">
+    <div className="bg-panelMain partnerAdminProfile">
       <div className="adminSales">
         <div className="row">
           <div className="col-md-12 ap-box">
