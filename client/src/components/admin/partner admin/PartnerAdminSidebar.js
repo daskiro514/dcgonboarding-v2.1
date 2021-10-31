@@ -62,7 +62,7 @@ const PartnerAdminSidebar = ({ logout, user, setCurrentPage, currentPage }) => {
       </div>
       <div className={'p-1 pl-2 h4 menu-item ' + (currentPage === 'coursevideos' ? 'selected' : '')} onClick={() => goPage('coursevideos')}>
         <div className='flex align-items-center'>
-          <div className='w3-center'><i className="fas fa-photo-video mr-1"></i></div>
+          <div className='w3-center'><i className="fas fa-video mr-1"></i></div>
           <div>COURSE VIDEOS</div>
         </div>
       </div>
