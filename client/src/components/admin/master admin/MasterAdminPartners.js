@@ -32,7 +32,7 @@ const MasterAdminPartners = ({ partners, getPartners, showPartnerDetail, goPartn
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-eye-open"></span> is for DETAILS.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pencil"></span> is for Password RESET.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pause"></span> is for SUSPEND.</span>
-                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-refresh"></span> is for UNSUSPEND.</span>
+                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-play"></span> is for UNSUSPEND.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-trash"></span> is for DELETE.</span>
               </div><br />
               <div className='table-responsive'>
@@ -110,7 +110,7 @@ const MasterAdminPartners = ({ partners, getPartners, showPartnerDetail, goPartn
                                     let answer = window.confirm("Are you sure to UNSUSPEND this partner?")
                                     if (answer) unsuspendPartner(item._id)
                                   }}
-                                ><span className="glyphicon glyphicon-refresh"></span></button>
+                                ><span className="glyphicon glyphicon-play"></span></button>
                                 <Spaces spaceLength={1} />
                                 <button
                                   onClick={e => {

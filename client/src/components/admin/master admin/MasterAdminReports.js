@@ -95,11 +95,11 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
         <div className="adminSales">
           <div className="row">
             <div className="col-md-12 ap-box">
-              <h2>REPORTS</h2>
+              <h2 className='mb-2'>REPORTS</h2>
               <button onClick={() => stateChange('create')} >CREATE A REPORT</button>
               {stateForCreate ?
                 <div>
-                  <h3>CREATE A REPORT</h3>
+                  <h3 className='w3-center mt-2'>CREATE A REPORT</h3>
                   <div className="report_option" style={{ marginLeft: "20px" }}>
                     <input type="radio" value="text" checked={reportType === "text"} onChange={() => onSelectReportType("text")} /><Spaces spaceLength={1} />
                     <label>Text</label><Spaces spaceLength={3} />
@@ -158,7 +158,7 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
               }
               {stateForEdit ?
                 <div>
-                  <h3>EDIT A REPORT</h3>
+                  <h3 className='w3-center mt-2'>EDIT A REPORT</h3>
                   <div className="report_option" style={{ marginLeft: "20px" }}>
                     <input type="radio" value="text" checked={reportType === "text"} onChange={() => onSelectReportType("text")} /><Spaces spaceLength={1} />
                     <label>Text</label><Spaces spaceLength={3} />
@@ -231,8 +231,8 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
                     <thead>
                       <tr>
                         <th>NO</th>
+                        <th>THUMBNAIL</th>
                         <th>TITLE</th>
-                        <th>THUMB IMAGE</th>
                         <th>CONTENT</th>
                         <th>DATE</th>
                         <th>ACTIONS</th>
@@ -243,8 +243,8 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
                       {reports.map((item, index) => (
                         <tr key={index}>
                           <td>{index + 1}</td>
-                          <td><p style={{ width: '100px' }}>{item.title}</p></td>
                           <td><img src={baseURL + item.thumbimage} alt="THUMB" width="70px" height="70px" /></td>
+                          <td><p style={{ width: '100px' }}>{item.title}</p></td>
                           <td>
                             {item.type === 'text' ?
                               <p style={{ width: '300px' }} dangerouslySetInnerHTML={{ __html: item.content }}></p>
@@ -258,7 +258,7 @@ const MasterAdminReports = ({ addNewReport, getReports, updateReport, deleteRepo
                           </td>
                           <td><p style={{ width: '100px' }}><Moment format="MM/DD/YYYY HH:mm:ss">{item.date}</Moment></p></td>
                           <td>
-                            <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-pencil"></span></button>
+                            <button onClick={() => stateChange(item)}><span className="glyphicon glyphicon-erase"></span></button>
                             <Spaces spaceLength={1} />
                             <button
                               onClick={() => {

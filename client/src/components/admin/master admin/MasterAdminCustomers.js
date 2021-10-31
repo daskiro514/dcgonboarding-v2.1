@@ -23,7 +23,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
               <h2>ALL DCG CUSTOMERS</h2>
               <div className="w3-text-indigo" style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pause"></span> is for SUSPEND.</span>
-                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-refresh"></span> is for RESTORE a suspended.</span>
+                <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-play"></span> is for RESTORE a suspended.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-trash"></span> is for DELETE.</span>
               </div><br />
               <div className='table-responsive'>
@@ -75,7 +75,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                                   if (answer) restoreCustomer(item._id)
                                 }}
                               >
-                                <span className="glyphicon glyphicon-refresh"></span>
+                                <span className="glyphicon glyphicon-play"></span>
                               </button>
                               :
                               <button
