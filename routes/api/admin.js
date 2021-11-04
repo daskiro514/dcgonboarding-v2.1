@@ -411,7 +411,7 @@ router.get('/getProducts', async (req, res) => {
 
   let product3 = await stripe.products.create({
     name: 'DCG Elite Membership',
-    description: '',
+    description: 'DCG Elite Membership',
     metadata: {
       owner: adminID
     }
@@ -427,7 +427,7 @@ router.get('/getProducts', async (req, res) => {
   let newProduct3 = new Product({
     name: 'DCG Elite Membership',
     price: 99700,
-    description: '',
+    description: 'DCG Elite Membership',
     type: 'Subscription Product',
     recurringInterval: 'month',
     owner: adminID,
