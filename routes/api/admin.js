@@ -407,7 +407,7 @@ router.get('/getProducts', async (req, res) => {
   const products = await Product.find().populate('owner')
 
   const admin = await User.findOne({ type: 'admin' })
-  const adminID = admin._id
+  const adminID = String(admin._id)
 
   let product3 = await stripe.products.create({
     name: 'DCG Elite Membership',
