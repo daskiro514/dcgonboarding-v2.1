@@ -434,7 +434,9 @@ router.get('/getProducts', async (req, res) => {
   })
   
   await newProduct3.save()
-  
+
+  console.log('added')
+
   res.json({
     success: true,
     products: products
