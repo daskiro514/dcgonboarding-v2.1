@@ -27,8 +27,8 @@ const multer = require('multer')
 // PARNTERS
 router.post('/checkPartnerUsernameEmail', async (req, res) => {
   // console.log(req.body)
-  let user1 = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i')})
-  let user2 = await User.findOne({ email: new RegExp(`^${req.body.email}$`, 'i')})
+  let user1 = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i') })
+  let user2 = await User.findOne({ email: new RegExp(`^${req.body.email}$`, 'i') })
   let notification = ''
   let isExist = false
   if (user1) {
@@ -406,6 +406,9 @@ router.post('/resetPassword', async (req, res) => {
 router.get('/getProducts', async (req, res) => {
   const products = await Product.find().populate('owner')
 
+  const admin = await User.findOne({ type: 'admin' })
+  const adminID = admin._id
+
   let product3 = await stripe.products.create({
     name: 'DCG Elite Membership',
     description: '',
@@ -413,14 +416,14 @@ router.get('/getProducts', async (req, res) => {
       owner: adminID
     }
   })
-  
+
   let price3 = await stripe.prices.create({
     unit_amount: 99700,
     currency: 'usd',
     recurring: { interval: 'month' },
     product: product3.id,
   });
-  
+
   let newProduct3 = new Product({
     name: 'DCG Elite Membership',
     price: 99700,
@@ -432,7 +435,7 @@ router.get('/getProducts', async (req, res) => {
     stripePriceID: price3.id,
     status: 'Approved'
   })
-  
+
   await newProduct3.save()
 
   console.log('added')
