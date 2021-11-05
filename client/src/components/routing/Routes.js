@@ -16,6 +16,7 @@ import FailedConnectAccount from '../layout/FailedConnectAccount'
 import Sales from '../sales/Sales'
 import Sales1 from '../sales/Sales1'
 import Sales2 from '../sales/Sales2'
+import Sales3 from '../sales/Sales3'
 import CheckoutForSubscription from '../sales/CheckoutForSubscription'
 import CheckoutForSubscription2 from '../sales/CheckoutForSubscription2'
 import CheckoutForProduct from '../sales/CheckoutForProduct'
@@ -43,6 +44,7 @@ const Routes = props => {
         <Route path="/sales/:id" component={Sales} />
         <Route path="/sales1/:id" component={Sales1} />
         <Route path="/sales2/:id" component={Sales2} />
+        <Route path="/sales3/:id" component={Sales3} />
         <Route path="/checkoutsub/:id" component={CheckoutForSubscription} />
         <Route path="/checkoutsub2/:id" component={CheckoutForSubscription2} />
         <Route path="/checkoutone/:id" component={CheckoutForProduct} />

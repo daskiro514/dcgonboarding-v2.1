@@ -60,6 +60,12 @@ const PartnerAdminSidebar = ({ logout, user, setCurrentPage, currentPage }) => {
           <div>SALES PAGE 2</div>
         </div>
       </div>
+      <div className={'p-1 pl-2 h4 menu-item'} onClick={() => history.push(`/sales3/${user._id}`)}>
+        <div className='flex align-items-center'>
+          <div className='w3-center'><i className="	far fa-hand-point-right mr-1"></i></div>
+          <div>SALES PAGE 3</div>
+        </div>
+      </div>
       <div className={'p-1 pl-2 h4 menu-item ' + (currentPage === 'coursevideos' ? 'selected' : '')} onClick={() => goPage('coursevideos')}>
         <div className='flex align-items-center'>
           <div className='w3-center'><i className="fas fa-video mr-1"></i></div>

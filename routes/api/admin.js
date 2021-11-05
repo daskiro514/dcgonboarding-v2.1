@@ -406,40 +406,6 @@ router.post('/resetPassword', async (req, res) => {
 router.get('/getProducts', async (req, res) => {
   const products = await Product.find().populate('owner')
 
-  // const admin = await User.findOne({ type: 'admin' })
-  // const adminID = String(admin._id)
-
-  // let product3 = await stripe.products.create({
-  //   name: 'DCG Elite Membership',
-  //   description: 'DCG Elite Membership',
-  //   metadata: {
-  //     owner: adminID
-  //   }
-  // })
-
-  // let price3 = await stripe.prices.create({
-  //   unit_amount: 99700,
-  //   currency: 'usd',
-  //   recurring: { interval: 'month' },
-  //   product: product3.id,
-  // });
-
-  // let newProduct3 = new Product({
-  //   name: 'DCG Elite Membership',
-  //   price: 99700,
-  //   description: 'DCG Elite Membership',
-  //   type: 'Subscription Product',
-  //   recurringInterval: 'month',
-  //   owner: adminID,
-  //   stripeProductID: product3.id,
-  //   stripePriceID: price3.id,
-  //   status: 'Approved'
-  // })
-
-  // await newProduct3.save()
-
-  // console.log('added')
-
   res.json({
     success: true,
     products: products
