@@ -18,6 +18,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
   React.useEffect(() => {
     if (defaultProducts.length) {
       const eliteProduct = defaultProducts.find(element => element.name === 'DCG Elite Membership' || element.price === 99700)
+      console.log(defaultProducts)
       setEliteProduct(eliteProduct)
     }
   }, [defaultProducts])

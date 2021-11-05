@@ -19,7 +19,6 @@ const CheckoutForSubscription2 = ({ match, getProductByID, productForSale, strip
     getProductByID(match.params.id)
   }, [getProductByID, match.params.id])
 
-
   return (
     <div className='container-fluid bg-checksub2'>
       <div className='row'>
