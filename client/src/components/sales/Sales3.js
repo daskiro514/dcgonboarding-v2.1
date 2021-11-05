@@ -759,7 +759,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                               data-v-87df0c64="">
                               <div className="main-heading-group" data-v-87df0c64="">
                                 <div className="button-icon-start" data-v-87df0c64=""></div>
-                                <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1250</div>
+                                <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1000</div>
                                 <div className="button-icon-end" data-v-87df0c64=""></div>
                               </div>
                               <div className="text-xs font-sans" data-v-87df0c64="">
@@ -945,7 +945,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                           <div
                             className="sub-heading-4Oxf6n-RWo text-output csub-heading-4Oxf6n-RWo none noBorder radius0 none">
                             <div>
-                              <p>ONLY <s>$2100</s><strong> $1250</strong></p>
+                              <p>ONLY <s>$2100</s><strong> $1000</strong></p>
                             </div>
                           </div>
                         </div>
