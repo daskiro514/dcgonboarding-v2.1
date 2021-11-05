@@ -82,6 +82,13 @@ const PartnerAdminDashboard = ({ getPartnerTransactions, partnerID, transactions
               >
                 Copy Sales Page 2 Link
               </button>
+              <Spaces spaceLength={1} />
+              <button
+                onClick={() => navigator.clipboard.writeText(`https://dcgonboarding.com/sales3/${partnerID}`)}
+                style={{color: 'black'}}
+              >
+                Copy Sales Page 3 Link
+              </button>
             </div>
           </div>
         </div>

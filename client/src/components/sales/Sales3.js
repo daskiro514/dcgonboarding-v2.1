@@ -108,31 +108,38 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                             </div>
                           </figure>
                         </div>
-                        <div id="button-zGqq7_8D4" className="c-button c-wrapper button-zGqq7_8D4" data-v-44243b2d=""><button
-                          id="button-zGqq7_8D4"
-                          className="cbutton-zGqq7_8D4 buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
-                          data-v-87df0c64="">
-                          <div className="main-heading-group" data-v-87df0c64="">
-                            <div className="button-icon-start" data-v-87df0c64=""></div>
-                            <div className="main-heading-button" data-v-87df0c64="">Join DCG ELITE INNER CIRCLE</div>
-                            <div className="button-icon-end" data-v-87df0c64=""></div>
-                          </div>
-                          <div className="text-xs font-sans" data-v-87df0c64="">
-                            <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG ELITE 2022</div>
-                          </div>
-                          <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                            <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                <div className="v-moon v-moon2"
-                                  style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                </div>
-                                <div className="v-moon v-moon3"
-                                  style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }} >
+                        <div id="button-zGqq7_8D4" className="c-button c-wrapper button-zGqq7_8D4" data-v-44243b2d="">
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button
+                              id="button-zGqq7_8D4"
+                              className="cbutton-zGqq7_8D4 buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">Join DCG ELITE INNER CIRCLE</div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
+                              </div>
+                              <div className="text-xs font-sans" data-v-87df0c64="">
+                                <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG ELITE 2022</div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2"
+                                      style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3"
+                                      style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }} >
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </button> </div>
+                            </button>
+                          </Link>
+                        </div>
                       </div>
                     </div >
                   </div >
@@ -636,32 +643,38 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                             </div>
                           </div>
                         </div>
-                        <div id="button-57LDb9ifn" className="c-button c-wrapper button-57LDb9ifn" data-v-44243b2d=""><button
-                          id="button-57LDb9ifn"
-                          className="cbutton-57LDb9ifn buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
-                          data-v-87df0c64="">
-                          <div className="main-heading-group" data-v-87df0c64="">
-                            <div className="button-icon-start" data-v-87df0c64=""></div>
-                            <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1250 A Month or 10k A
-                              Year.</div>
-                            <div className="button-icon-end" data-v-87df0c64=""></div>
-                          </div>
-                          <div className="text-xs font-sans" data-v-87df0c64="">
-                            <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG EXCLUSIVE</div>
-                          </div>
-                          <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                            <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                <div className="v-moon v-moon2"
-                                  style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                </div>
-                                <div className="v-moon v-moon3"
-                                  style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                        <div id="button-57LDb9ifn" className="c-button c-wrapper button-57LDb9ifn" data-v-44243b2d="">
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button
+                              id="button-57LDb9ifn"
+                              className="cbutton-57LDb9ifn buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1000 A Month.</div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
+                              </div>
+                              <div className="text-xs font-sans" data-v-87df0c64="">
+                                <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG EXCLUSIVE</div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2"
+                                      style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3"
+                                      style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </button > </div >
+                            </button >
+                          </Link>
+                        </div >
                       </div >
                     </div >
                   </div >
@@ -734,30 +747,37 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                   <div className="inner" data-v-44243b2d="">
                     <div id="col-8UgGqwBPuj" className="c-column c-wrapper col-8UgGqwBPuj" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
-                        <div id="button--rqIbunzcb" className="c-button c-wrapper button--rqIbunzcb" data-v-44243b2d=""><button
-                          id="button--rqIbunzcb"
-                          className="cbutton--rqIbunzcb buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
-                          data-v-87df0c64="">
-                          <div className="main-heading-group" data-v-87df0c64="">
-                            <div className="button-icon-start" data-v-87df0c64=""></div>
-                            <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1250</div>
-                            <div className="button-icon-end" data-v-87df0c64=""></div>
-                          </div>
-                          <div className="text-xs font-sans" data-v-87df0c64="">
-                            <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG ELITE</div>
-                          </div>
-                          <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                            <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                <div className="v-moon v-moon2"
-                                  style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                </div>
-                                <div className="v-moon v-moon3" style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                        <div id="button--rqIbunzcb" className="c-button c-wrapper button--rqIbunzcb" data-v-44243b2d="">
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button
+                              id="button--rqIbunzcb"
+                              className="cbutton--rqIbunzcb buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1250</div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
+                              </div>
+                              <div className="text-xs font-sans" data-v-87df0c64="">
+                                <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO DCG ELITE</div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2"
+                                      style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3" style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </button> </div>
+                            </button>
+                          </Link>
+                        </div>
                       </div >
                     </div >
                   </div >
@@ -889,30 +909,37 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                   <div className="inner" data-v-44243b2d="">
                     <div id="col-5INiJ_SAFA" className="c-column c-wrapper col-5INiJ_SAFA" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
-                        <div id="button-ZkuQctWiFs" className="c-button c-wrapper button-ZkuQctWiFs" data-v-44243b2d=""><button
-                          id="button-ZkuQctWiFs"
-                          className="cbutton-ZkuQctWiFs buttonBounce button-shadow-sharp1 custom btn-vp btn-hp borderFull radius3 none"
-                          data-v-87df0c64="">
-                          <div className="main-heading-group" data-v-87df0c64="">
-                            <div className="button-icon-start" data-v-87df0c64=""></div>
-                            <div className="main-heading-button" data-v-87df0c64="">Be The First To Profit From This </div>
-                            <div className="button-icon-end" data-v-87df0c64=""></div>
-                          </div>
-                          <div className="text-xs font-sans" data-v-87df0c64="">
-                            <div className="sub-heading-button" data-v-87df0c64="">Dont Miss This Chance</div>
-                          </div>
-                          <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                            <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                <div className="v-moon v-moon2" style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                </div>
-                                <div className="v-moon v-moon3"
-                                  style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                        <div id="button-ZkuQctWiFs" className="c-button c-wrapper button-ZkuQctWiFs" data-v-44243b2d="">
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button
+                              id="button-ZkuQctWiFs"
+                              className="cbutton-ZkuQctWiFs buttonBounce button-shadow-sharp1 custom btn-vp btn-hp borderFull radius3 none"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">Be The First To Profit From This </div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
+                              </div>
+                              <div className="text-xs font-sans" data-v-87df0c64="">
+                                <div className="sub-heading-button" data-v-87df0c64="">Dont Miss This Chance</div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2" style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3"
+                                      style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </button > </div >
+                            </button >
+                          </Link>
+                        </div >
                         <div id="sub-heading-4Oxf6n-RWo" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div
                             className="sub-heading-4Oxf6n-RWo text-output csub-heading-4Oxf6n-RWo none noBorder radius0 none">
@@ -970,29 +997,36 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                             </div>
                           </div>
                         </div>
-                        <div id="button-2DM8AgdDer" className="c-button c-wrapper button-2DM8AgdDer" data-v-44243b2d=""><button
-                          id="button-2DM8AgdDer"
-                          className="cbutton-2DM8AgdDer radius3 borderFull btn-hp-25 button-vp-15 none button-shadow-sharp1 buttonElevate"
-                          data-v-87df0c64="">
-                          <div className="main-heading-group" data-v-87df0c64="">
-                            <div className="button-icon-start" data-v-87df0c64=""></div>
-                            <div className="main-heading-button" data-v-87df0c64="">Click The Button And You Will Gain Access
-                              To The Perfect Strategy!</div>
-                            <div className="button-icon-end" data-v-87df0c64=""></div>
-                          </div>
-                          <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                            <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                <div className="v-moon v-moon2"
-                                  style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                </div>
-                                <div className="v-moon v-moon3"
-                                  style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                        <div id="button-2DM8AgdDer" className="c-button c-wrapper button-2DM8AgdDer" data-v-44243b2d="">
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button
+                              id="button-2DM8AgdDer"
+                              className="cbutton-2DM8AgdDer radius3 borderFull btn-hp-25 button-vp-15 none button-shadow-sharp1 buttonElevate"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">Click The Button And You Will Gain Access
+                                  To The Perfect Strategy!</div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2"
+                                      style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3"
+                                      style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </div>
-                        </button> </div >
+                            </button>
+                          </Link>
+                        </div >
                       </div >
                     </div >
                     <div id="col-V3b7eZPbAa" className="c-column c-wrapper col-V3b7eZPbAa" data-v-44243b2d="">
@@ -1234,30 +1268,35 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                     <div id="col-VGIce77MVVV" className="c-column c-wrapper col-VGIce77MVVV" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="button-7NMGNM86L-o" className="c-button c-wrapper button-7NMGNM86L-o" data-v-44243b2d="">
-                          <button id="button-7NMGNM86L-o"
-                            className="cbutton-7NMGNM86L-o buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
-                            data-v-87df0c64="">
-                            <div className="main-heading-group" data-v-87df0c64="">
-                              <div className="button-icon-start" data-v-87df0c64=""></div>
-                              <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1000</div>
-                              <div className="button-icon-end" data-v-87df0c64=""></div>
-                            </div>
-                            <div className="text-xs font-sans" data-v-87df0c64="">
-                              <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO ALL OUR TRADING STRATEGIES
+                          <Link to={`/checkoutsub2/${eliteProduct._id}`} style={{
+                            textDecoration: 'none',
+                            color: 'white'
+                          }}>
+                            <button id="button-7NMGNM86L-o"
+                              className="cbutton-7NMGNM86L-o buttonElevate btnshadow custom btn-vp btn-hp noBorder radius0 none"
+                              data-v-87df0c64="">
+                              <div className="main-heading-group" data-v-87df0c64="">
+                                <div className="button-icon-start" data-v-87df0c64=""></div>
+                                <div className="main-heading-button" data-v-87df0c64="">GET ACCESS FOR $1000</div>
+                                <div className="button-icon-end" data-v-87df0c64=""></div>
                               </div>
-                            </div>
-                            <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
-                              <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
-                                <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
-                                  <div className="v-moon v-moon2"
-                                    style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
-                                  </div>
-                                  <div className="v-moon v-moon3" style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                              <div className="text-xs font-sans" data-v-87df0c64="">
+                                <div className="sub-heading-button" data-v-87df0c64="">GET ACCESS TO ALL OUR TRADING STRATEGIES
+                                </div>
+                              </div>
+                              <div className="btn-loader-position" style={{ display: "none" }} data-v-87df0c64="">
+                                <div className="v-spinner" style={{ display: "none" }} data-v-87df0c64="">
+                                  <div className="v-moon v-moon1" style={{ height: "30px", width: "30px", borderRadius: "100%" }}>
+                                    <div className="v-moon v-moon2"
+                                      style={{ height: "4.285714285714286px", width: "4.285714285714286px", borderRadius: "100%", top: "12.857142857142858px", backgroundColor: "rgb(255, 255, 255)" }}>
+                                    </div>
+                                    <div className="v-moon v-moon3" style={{ height: "30px", width: "30px", borderRadius: "100%", border: "4.285714285714286px solid rgb(255, 255, 255)" }}>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-                            </div>
-                          </button >
+                            </button >
+                          </Link>
                         </div >
                       </div >
                     </div >
