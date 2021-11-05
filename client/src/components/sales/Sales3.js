@@ -3,6 +3,7 @@ import './Sales3.css'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getTempUser, getSalesProducts, getPublishableKey } from '../../actions/partner'
+import Vimeo from '@u-wave/react-vimeo'
 
 const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defaultProducts }) => {
   const userID = match.params.id
@@ -1171,14 +1172,19 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                     <div id="col-QOv8ZDGi7B" className="c-column c-wrapper col-QOv8ZDGi7B" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="video-BCeFgx8aVb" className="c-video c-wrapper video-BCeFgx8aVb" data-v-44243b2d="">
-                          <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{
+                          <Vimeo
+                            video={"575850724"}
+                            autoplay
+                            responsive={true}
+                          />
+                          {/* <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{
                             width: "100%"
                           }}
                             data-v-e08fb840="" > <span id="video-BCeFgx8aVb" className="video-container" data-v-e08fb840="">
                               <div className="video-container"
                                 style={{ width: "100%", background: "url(https://i.vimeocdn.com/video/1190884371-bfd0e025e5a765b7c367028448e523f524b81b1ebe8ddaf32e23a93303646338-d_1280.jpg)", paddingBottom: "56.25%" }}
                                 data-v-e08fb840="" ></div>
-                            </span></figure>
+                            </span></figure> */}
                         </div>
                       </div>
                     </div>
