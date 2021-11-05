@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getTempUser, getSalesProducts, getPublishableKey } from '../../actions/partner'
 import Vimeo from '@u-wave/react-vimeo'
 
-const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defaultProducts }) => {
+const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defaultProducts }) => {
   const userID = match.params.id
   const [eliteProduct, setEliteProduct] = React.useState({})
 
@@ -1375,4 +1375,4 @@ const mapStateToProps = state => ({
   defaultProducts: state.partner.defaultProducts,
 })
 
-export default connect(mapStateToProps, { getTempUser, getSalesProducts, getPublishableKey })(Sales1)
+export default connect(mapStateToProps, { getTempUser, getSalesProducts, getPublishableKey })(Sales3)
