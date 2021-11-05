@@ -1172,14 +1172,12 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                     <div id="col-QOv8ZDGi7B" className="c-column c-wrapper col-QOv8ZDGi7B" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="video-BCeFgx8aVb" className="c-video c-wrapper video-BCeFgx8aVb" data-v-44243b2d="">
-                          {/* <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{ width: "100%" }} data-v-e08fb840="" > */}
-                            <span id="video-BCeFgx8aVb" className="video-container" data-v-e08fb840="">
-                              <Vimeo
-                                video={"575850724"}
-                                responsive={true}
-                              />
-                            </span>
-                          {/* </figure> */}
+                          <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{ width: "100%" }} data-v-e08fb840="" >
+                            <Vimeo
+                              video="575850724"
+                              responsive={true}
+                            />
+                          </figure>
                         </div>
                       </div>
                     </div>
@@ -1188,14 +1186,12 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="video-W2VV-AaB4i" className="c-video c-wrapper video-W2VV-AaB4i" data-v-44243b2d="">
                           <figure className="figure cvideo-W2VV-AaB4i none noBorder radius0 none" style={{
                             width: "100%"
-                          }}
-                            data-v-e08fb840="" > <span id="video-W2VV-AaB4i" className="video-container" data-v-e08fb840="">
-                              <div className="video-container"
-                                style={{
-                                  width: "100%", background: "url(https://i.vimeocdn.com/video/1190904670-f4c856fb5652cd6434d8983afb8ce8c23eb799d512ee37e029f99514e0edee23-d_1280.jpg)", paddingBottom: "56.25%"
-                                }}
-                                data-v-e08fb840="" ></div>
-                            </span></figure>
+                          }} data-v-e08fb840="" >
+                            <Vimeo
+                              video="575860875"
+                              responsive={true}
+                            />
+                          </figure>
                         </div>
                       </div >
                     </div >
@@ -1208,13 +1204,12 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="video-Mf_Neb0isR" className="c-video c-wrapper video-Mf_Neb0isR" data-v-44243b2d="">
                           <figure className="figure cvideo-Mf_Neb0isR none noBorder radius0 none" style={{ width: "100%" }}
-                            data-v-e08fb840=""><span id="video-Mf_Neb0isR" className="video-container" data-v-e08fb840="">
-                              <div className="video-container"
-                                style={{
-                                  width: "100%", background: "url(https://i.vimeocdn.com/video/1190886155-1e20f957a5a0f0560ec169db4a3875a5900146e84ebe97cbee3576f5402693a4-d_1280.jpg)", paddingBottom: "56.25%"
-                                }}
-                                data-v-e08fb840="" ></div>
-                            </span></figure>
+                            data-v-e08fb840="">
+                            <Vimeo
+                              video="575852128"
+                              responsive={true}
+                            />
+                          </figure>
                         </div>
                       </div>
                     </div>
@@ -1222,13 +1217,12 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="video-HaP3t0dDSMm" className="c-video c-wrapper video-HaP3t0dDSMm" data-v-44243b2d="">
                           <figure className="figure cvideo-HaP3t0dDSMm none noBorder radius0 none" style={{ width: "100%" }}
-                            data-v-e08fb840=""><span id="video-HaP3t0dDSMm" className="video-container" data-v-e08fb840="">
-                              <div className="video-container"
-                                style={{
-                                  width: "100%", background: "url(https://i.vimeocdn.com/video/1190885363-a1926779a5c34178a7c0eb86bacff14d55c64c38d3c1022ab96d47e86afc3ce7-d_1280.jpg)", paddingBottom: "56.25%"
-                                }}
-                                data-v-e08fb840="" ></div>
-                            </span></figure>
+                            data-v-e08fb840="">
+                            <Vimeo
+                              video="575851430"
+                              responsive={true}
+                            />
+                          </figure>
                         </div>
                       </div >
                     </div >
