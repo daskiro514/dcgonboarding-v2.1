@@ -1172,14 +1172,14 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                     <div id="col-QOv8ZDGi7B" className="c-column c-wrapper col-QOv8ZDGi7B" data-v-44243b2d="">
                       <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
                         <div id="video-BCeFgx8aVb" className="c-video c-wrapper video-BCeFgx8aVb" data-v-44243b2d="">
-                          <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{ width: "100%" }} data-v-e08fb840="" >
+                          {/* <figure className="figure cvideo-BCeFgx8aVb none noBorder radius0 none" style={{ width: "100%" }} data-v-e08fb840="" > */}
                             <span id="video-BCeFgx8aVb" className="video-container" data-v-e08fb840="">
                               <Vimeo
                                 video={"575850724"}
                                 responsive={true}
                               />
                             </span>
-                          </figure>
+                          {/* </figure> */}
                         </div>
                       </div>
                     </div>
