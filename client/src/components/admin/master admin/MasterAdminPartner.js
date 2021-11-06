@@ -74,9 +74,9 @@ const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPart
         <div className="adminSales">
           <div className="row">
             <div className="col-md-12 ap-box">
-              <h2>{partner.username}: ({partner.type ? partner.type.toUpperCase() : null})</h2>
+              <h2>{partner.name}: ({partner.type ? partner.type.toUpperCase() : null})</h2>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <h3 className="w3-center ap-title">TOTAL INCOME</h3><Spaces spaceLength={4} />
+                <h3 className="w3-center ap-title">Total Income</h3><Spaces spaceLength={4} />
                 <h1 className="w3-center">{getTotalIncome(transactions)} $</h1>
               </div>
               <LineChart />
