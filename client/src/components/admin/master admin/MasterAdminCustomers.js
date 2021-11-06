@@ -14,13 +14,31 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
     getAllCustomers()
   }, [getAllCustomers])
 
+  const [showCustomers, setShowCustomers] = React.useState([])
+  const [searchKey, setSearchKey] = React.useState('')
+
+  React.useEffect(() => {
+    setShowCustomers(customers.filter(customer => customer.name.toLowerCase().includes(searchKey.toLowerCase()) || customer.username.toLowerCase().includes(searchKey.toLowerCase()) || customer.email.toLowerCase().includes(searchKey.toLowerCase())))
+  }, [customers, searchKey])
+
   return (
     <div className="bg-panelMain row masterAdminCustomers">
       <div className="col-md-12">
         <div className="adminSales">
           <div className="row">
             <div className="col-md-12 ap-box">
-              <h2>ALL DCG CUSTOMERS</h2>
+              <div className='row'>
+                <div className='col-md-3'><h2 className='mt-2'>CUSTOMERS</h2></div>
+                <div className='col-md-9 my-2'>
+                  <input
+                    className='ml-2'
+                    placeholder='Search'
+                    value={searchKey}
+                    onChange={e => setSearchKey(e.target.value)}
+                    style={{ backgroundColor: '#eee', border: 'none', marginTop: '5px', borderRadius: '3px', padding: '3px' }}
+                  />
+                </div>
+              </div>
               <div className="w3-text-indigo" style={{ display: 'flex', flexWrap: 'wrap' }}>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-pause"></span> is for SUSPEND.</span>
                 <span><Spaces spaceLength={4} /><span className="glyphicon glyphicon-play"></span> is for RESTORE a suspended.</span>
@@ -48,7 +66,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                     ? null
                     :
                     <tbody>
-                      {customers.map((item, index) => (
+                      {showCustomers.map((item, index) => (
                         <tr
                           key={index}
                           onClick={() => goCustomerPage(item, history)}
@@ -57,14 +75,14 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                           <td>{index + 1}</td>
                           <td>{item.username}</td>
                           <td><img src={item.avatar} alt="PARTNER AVATAR" width="70px" height="70px" /></td>
-                          <td><p style={{width: '120px'}}>{item.name}</p></td>
+                          <td><p style={{ width: '120px' }}>{item.name}</p></td>
                           <td>{item.customerStatus === 'Suspended' ? <span className="w3-text-red">Suspended</span> : <span className="w3-text-blue">Active</span>}</td>
                           <td>{item.seller.name}</td>
-                          <td><p style={{width: '100px'}}>{item.email}</p></td>
-                          <td><p style={{width: '100px'}}>{item.phone}</p></td>
+                          <td><p style={{ width: '100px' }}>{item.email}</p></td>
+                          <td><p style={{ width: '100px' }}>{item.phone}</p></td>
                           <td>{item.purchasedProductID.name}</td>
-                          <td><p style={{width: '100px'}}><Moment format="MM/DD/YYYY HH:mm:ss">{item.subscriptionStartDate * 1000}</Moment></p></td>
-                          <td><p style={{width: '100px'}}><Moment format="MM/DD/YYYY HH:mm:ss">{item.subscriptionEndDate * 1000}</Moment></p></td>
+                          <td><p style={{ width: '100px' }}><Moment format="MM/DD/YYYY HH:mm:ss">{item.subscriptionStartDate * 1000}</Moment></p></td>
+                          <td><p style={{ width: '100px' }}><Moment format="MM/DD/YYYY HH:mm:ss">{item.subscriptionEndDate * 1000}</Moment></p></td>
                           <td>
                             {item.customerStatus === 'Suspended'
                               ?
