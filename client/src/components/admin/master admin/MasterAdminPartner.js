@@ -1,79 +1,55 @@
 import React from 'react'
 import Moment from 'react-moment'
 import Chart from "react-apexcharts"
-import { PieChart } from 'react-minimal-pie-chart'
 import { connect } from 'react-redux'
-import { getPartnerTransactions } from '../../../actions/partner'
+import { getPartnerTransactions, getPartnerCustomers } from '../../../actions/partner'
+import { getTotalIncome, getAdminChartOptions, getAdminChartSeries } from '../../../utils/adminCharts'
 import Spaces from '../../layout/Spaces'
 
-const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPartnerTransactions }) => {
+const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPartnerTransactions, getPartnerCustomers, customers }) => {
   if (partner.type === undefined) {
     history.push('/partners')
   }
 
-  const [graphSeriesData, setGraphSeriesData] = React.useState([])
-  const [totalTransferAmount, setTotalTransferAmount] = React.useState(0)
-
   React.useEffect(() => {
     getPartnerTransactions(partnerID)
-  }, [getPartnerTransactions, partnerID])
+    getPartnerCustomers(partnerID)
+  }, [getPartnerTransactions, getPartnerCustomers, partnerID])
+
+  const [pageCustomers, setPageCustomers] = React.useState([])
+  const [pageNumber, setPageNumber] = React.useState(1)
+  const [maxPageNumber, setMaxPageNumber] = React.useState(1)
 
   React.useEffect(() => {
-    let transferArray = transactions ? transactions : []
-    for (let i = 0; i < transferArray.length; i++) {
-      let transfer = transferArray[i]
-      let transfer_created = new Date(transfer.date)
-      let transfer_created_fullDay = transfer_created.toLocaleDateString()
-      transferArray[i].transferCreatedFullDay = transfer_created_fullDay
-    }
-    let dailyTransfers = []
-    let firstTransferFlag = true
-    let total = 0
-    for (let i = 0; i < transferArray.length; i++) {
-      let dailyTransfer = {
-        transfer_created_day: transferArray[i].transferCreatedFullDay,
-        amount: transferArray[i].amount / 100,
-      }
-      let sameTransferDayFindFlag = false
-      for (let j = 0; j < dailyTransfers.length; j++) {
-        if (dailyTransfers[j].transfer_created_day === dailyTransfer.transfer_created_day) {
-          sameTransferDayFindFlag = true
-          dailyTransfers[j].amount += dailyTransfer.amount
-          break
-        }
-      }
-      if (!sameTransferDayFindFlag || firstTransferFlag) {
-        sameTransferDayFindFlag = false
-        firstTransferFlag = false
-        dailyTransfers.push(dailyTransfer)
-      }
-      total += transferArray[i].amount
-    }
+    setPageCustomers(customers.filter(customer => customer.customerStatus === 'Active').slice((pageNumber - 1) * 5, pageNumber * 5))
+    setMaxPageNumber(Math.ceil(customers.length / 5))
+  }, [customers, pageNumber])
 
-    setTotalTransferAmount(total / 100)
-
-    var dailyTransferSeriesData = dailyTransfers.reverse().map(d => {
-      var tempTransferObject = {}
-      tempTransferObject.x = d.transfer_created_day
-      tempTransferObject.y = d.amount
-      return tempTransferObject
-    })
-    let temp = []
-    let temp1 = {
-      name: "Transfer Amount(USD)",
-      data: dailyTransferSeriesData
+  const nextPage = () => {
+    if (pageNumber + 1 > maxPageNumber) {
+      lastPage()
+      return
     }
-    temp.push(temp1)
-    setGraphSeriesData(temp)
-  }, [setGraphSeriesData, setTotalTransferAmount, transactions])
+    setPageNumber(pageNumber + 1)
+  }
+
+  const prevPage = () => {
+    if (pageNumber - 1 < 1) {
+      firstPage()
+      return
+    }
+    setPageNumber(pageNumber - 1)
+  }
+
+  const firstPage = () => {
+    setPageNumber(1)
+  }
+
+  const lastPage = () => {
+    setPageNumber(maxPageNumber)
+  }
 
   const LineChart = () => {
-    const options = {
-      chart: {
-        id: "basic-bar"
-      }
-    }
-
     return (
       <div
         style={{
@@ -82,10 +58,11 @@ const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPart
         }}
       >
         <Chart
-          options={options}
-          series={graphSeriesData}
-          type="bar"
-          height="200"
+          options={getAdminChartOptions()}
+          series={getAdminChartSeries(transactions)}
+          type='bar'
+          height='200px'
+          width='100%'
         />
       </div>
     )
@@ -100,63 +77,58 @@ const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPart
               <h2>{partner.username}: ({partner.type ? partner.type.toUpperCase() : null})</h2>
               <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h3 className="w3-center ap-title">TOTAL INCOME</h3><Spaces spaceLength={4} />
-                <h1 className="w3-center">{totalTransferAmount} $</h1>
+                <h1 className="w3-center">{getTotalIncome(transactions)} $</h1>
               </div>
               <LineChart />
             </div>
           </div>
         </div>
-        <div className="adminSales">
-          <h3 className="w3-center ap-title">PERCENTAGE INCOME</h3>
-          <div className="row">
-            <div className="col-md-7 ap-box">
-              <PieChart
-                style={{ height: "40vh" }}
-                data={[
-                  { title: 'One', value: 99.9, color: '#C13C37' },
-                  { title: 'Two', value: 0.1, color: '#E38627' },
-                ]}
-              />
-            </div>
-            <div className="col-md-5 ap-box">
-              <h1 className="w3-center">100%</h1>
-              <p className="w3-center">THIS YEAR</p>
-              <h1 className="w3-center">0%</h1>
-              <p className="w3-center">LAST YEAR</p>
-            </div>
-          </div>
-        </div>
+
         <br />
       </div>
       <div className="col-md-5 ap-box">
         <div className="adminSales overflow1">
-          <h2 className="w3-center ap-title">TRACK SALES</h2>
-          {transactions.map((item, index) => (
+          <h3 className="ap-title ml-1 mt-1">Customers</h3>
+          <br />
+          {pageCustomers.map((item, index) =>
             <table className="saleList w3-table" key={index}>
               <tbody>
                 <tr>
-                  <td>PRODUCT NAME:</td>
-                  <td>{item.product ? item.product : item.productID.name}</td>
+                  <td className='text-bold'>CUSTOMER NAME:</td>
+                  <td>{item.name}</td>
                 </tr>
                 <tr>
-                  <td>TRANSFER ID:</td>
-                  <td>{item.stripeTransferID}</td>
+                  <td className='text-bold'>REGISTERED:</td>
+                  <td><Moment format="MM/DD/YYYY">{item.date}</Moment></td>
                 </tr>
                 <tr>
-                  <td>AMOUNT:</td>
-                  <td>{item.amount / 100}<span>$</span></td>
+                  <td className='text-bold'>PURCHASED SUBSCRIPTION:</td>
+                  <td>{item.purchasedProductID ? item.purchasedProductID.name : null}</td>
                 </tr>
                 <tr>
-                  <td>CUSTOMER:</td>
-                  <td>{item.customerID ? item.customerID.name : item.customerName}</td>
-                </tr>
-                <tr>
-                  <td>DATE:</td>
-                  <td><Moment format="MM/DD/YYYY HH:mm:ss">{item.date}</Moment></td>
+                  <td className='text-bold'>PERIOD ENDS:</td>
+                  <td><Moment format="MM/DD/YYYY">{item.subscriptionEndDate * 1000}</Moment></td>
                 </tr>
               </tbody>
             </table>
-          ))}
+          )}
+          <div className='text-center pt-1'>
+            {(pageNumber - 1) * 5 + 1} - {(pageNumber - 1) * 5 + pageCustomers.length} of {customers.filter(customer => customer.customerStatus === 'Active').length}
+          </div>
+          <div className='text-center pt-1'>
+            <button className='btn btn-sm' onClick={() => firstPage()}>
+              <i className="material-icons">first_page</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => prevPage()}>
+              <i className="material-icons">navigate_before</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => nextPage()}>
+              <i className="material-icons">navigate_next</i>
+            </button>
+            <button className='btn btn-sm' onClick={() => lastPage()}>
+              <i className="material-icons">last_page</i>
+            </button>
+          </div>
         </div>
         <br />
       </div>
@@ -167,7 +139,8 @@ const MasterAdminPartner = ({ partner, history, partnerID, transactions, getPart
 const mapStateToProps = state => ({
   partner: state.admin.currentPartner,
   partnerID: state.admin.currentPartner._id,
-  transactions: state.partner.partnerTransactions
+  transactions: state.partner.partnerTransactions,
+  customers: state.partner.partnerCustomers
 })
 
-export default connect(mapStateToProps, { getPartnerTransactions })(MasterAdminPartner)
+export default connect(mapStateToProps, { getPartnerTransactions, getPartnerCustomers })(MasterAdminPartner)
