@@ -255,11 +255,10 @@ router.get('/getPendingPartners', async (req, res) => {
     limit: 100,
   })
   customers.data.forEach(customer => {
-    let {name, email, id} = customer
-    console.log('id: ', id)
-    console.log('name: ', name)
-    console.log('email: ', email)
-    console.log()
+    let {id} = customer
+    if (id === 'cus_KhIjzRCmDjtdqa' || id === 'cus_Kh7wPpxc3RysVR' || id === 'cus_KgcnV1UVD3PmBA') {
+      console.log(customer)
+    }
   })
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
