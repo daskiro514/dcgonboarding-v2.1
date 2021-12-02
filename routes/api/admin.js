@@ -251,6 +251,16 @@ router.get('/getPendingPartnerByUserId/:id', async (req, res) => {
 })
 
 router.get('/getPendingPartners', async (req, res) => {
+  const customers = await stripe.customers.list({
+    limit: 100,
+  })
+  customers.data.forEach(customer => {
+    let {name, email, id} = customer
+    console.log('id: ', id)
+    console.log('name: ', name)
+    console.log('email: ', email)
+    console.log()
+  })
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
 })
