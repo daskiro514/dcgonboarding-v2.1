@@ -279,74 +279,73 @@ router.get('/getPendingPartners', async (req, res) => {
   //   console.log(product)
   // })
 
-  const wilw77 = await User.findOne({ username: 'wilw77' })
-  // const cryptoprince40 = await User.findOne({ username: 'cryptoprince40' })
+  // const wilw77 = await User.findOne({ username: 'wilw77' })
+  const cryptoprince40 = await User.findOne({ username: 'cryptoprince40' })
 
   // console.log(wilw77, cryptoprince40)
 
-  // const newUser = new User({
-  //   type: "customer",
-  //   name: 'DJ Makens',
-  //   email: 'djmakens@gmail.com',
-  //   phone: '6172830847',
-  //   username: 'djmakens',
-  //   passwordForUpdate: 'customer123',
-  //   password: bcrypt.hashSync('customer123', 10),
-  //   seller: '6116abd6e862fabbab789f72',
-  //   stripeCustomerID: 'cus_KhIjzRCmDjtdqa',
-  //   stripeSubscription: 'sub_1K1u8WAQ1wHtJVmk9Q4PwZpL',
-  //   purchasedProductID: '6109b8dd061751f05729f60d',
-  //   customerStatus: 'Active',
-  //   date: new Date(1638370220000),
-  //   avatar: normalize(
-  //     gravatar.url('djmakens@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
-  //     { forceHttps: true }
-  //   ),
-  //   subscriptionStartDate: 1638370220,
-  //   subscriptionEndDate: 1641048620
-  // })
-  // await newUser.save()
-  const newUser = await User.findOne({name: "DJ Makens"})
+  const newUser = new User({
+    type: "customer",
+    name: 'Georgia Uche',
+    email: 'Guche101@gmail.com',
+    phone: '5164779361',
+    username: 'Guche101',
+    passwordForUpdate: 'customer123',
+    password: bcrypt.hashSync('customer123', 10),
+    seller: '618572ddd2214d9869d47696',
+    stripeCustomerID: 'cus_Kh7wPpxc3RysVR',
+    stripeSubscription: 'sub_1K1jgMAQ1wHtJVmkeJC6y0fb',
+    purchasedProductID: '6109b8dd061751f05729f60d',
+    customerStatus: 'Active',
+    date: new Date(1638330033000),
+    avatar: normalize(
+      gravatar.url('Guche101@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
+      { forceHttps: true }
+    ),
+    subscriptionStartDate: 1638330034,
+    subscriptionEndDate: 1641008434
+  })
+  await newUser.save()
 
   const paidAmount = 49700
   const toHiddenTransferAmount = paidAmount * 0.1
   const toPartnerTransferAmouont = paidAmount * 0.5
 
-  // const master = await User.findOne({ type: "admin" })
-  // const toMasterTransaction = new Transaction({
-  //   ownerID: master._id,
-  //   customerID: newUser._id,
-  //   amount: paidAmount
-  // })
-  // await toMasterTransaction.save()
+  const master = await User.findOne({ type: "admin" })
+  const toMasterTransaction = new Transaction({
+    ownerID: master._id,
+    customerID: newUser._id,
+    amount: paidAmount
+  })
+  await toMasterTransaction.save()
 
-  // const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
-  // const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
+  const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
+  const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
 
-  // const transferSentToHidden = await stripe.transfers.create({
-  //   amount: toHiddenTransferAmount,
-  //   currency: 'usd',
-  //   destination: hiddenConnectedAccount,
-  // })
-  // const toHiddenTransaction = new Transaction({
-  //   ownerID: hiddenAdmin._id,
-  //   customerID: newUser._id,
-  //   amount: toHiddenTransferAmount,
-  //   stripeTransferID: transferSentToHidden.id
-  // })
-  // await toHiddenTransaction.save()
+  const transferSentToHidden = await stripe.transfers.create({
+    amount: toHiddenTransferAmount,
+    currency: 'usd',
+    destination: hiddenConnectedAccount,
+  })
+  const toHiddenTransaction = new Transaction({
+    ownerID: hiddenAdmin._id,
+    customerID: newUser._id,
+    amount: toHiddenTransferAmount,
+    stripeTransferID: transferSentToHidden.id
+  })
+  await toHiddenTransaction.save()
 
-  // const partnerConnectedAccount = wilw77.stripeConnectedAccount
-  // const transferSentToPartner = await stripe.transfers.create({
-  //   amount: toPartnerTransferAmouont,
-  //   currency: 'usd',
-  //   destination: partnerConnectedAccount,
-  // })
+  const partnerConnectedAccount = cryptoprince40.stripeConnectedAccount
+  const transferSentToPartner = await stripe.transfers.create({
+    amount: toPartnerTransferAmouont,
+    currency: 'usd',
+    destination: partnerConnectedAccount,
+  })
   const toPartnerTransaction = new Transaction({
-    ownerID: wilw77._id,
+    ownerID: cryptoprince40._id,
     customerID: newUser._id,
     amount: toPartnerTransferAmouont,
-    // stripeTransferID: transferSentToPartner.id
+    stripeTransferID: transferSentToPartner.id
   })
   await toPartnerTransaction.save()
 
