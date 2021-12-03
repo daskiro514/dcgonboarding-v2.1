@@ -284,40 +284,41 @@ router.get('/getPendingPartners', async (req, res) => {
 
   // console.log(wilw77, cryptoprince40)
 
-  const newUser = new User({
-    type: "customer",
-    name: 'DJ Makens',
-    email: 'djmakens@gmail.com',
-    phone: '6172830847',
-    username: 'djmakens',
-    passwordForUpdate: 'customer123',
-    password: bcrypt.hashSync('customer123', 10),
-    seller: '6116abd6e862fabbab789f72',
-    stripeCustomerID: 'cus_KhIjzRCmDjtdqa',
-    stripeSubscription: 'sub_1K1u8WAQ1wHtJVmk9Q4PwZpL',
-    purchasedProductID: '6109b8dd061751f05729f60d',
-    customerStatus: 'Active',
-    date: new Date(1638370220000),
-    avatar: normalize(
-      gravatar.url('djmakens@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
-      { forceHttps: true }
-    ),
-    subscriptionStartDate: 1638370220,
-    subscriptionEndDate: 1641048620
-  })
-  await newUser.save()
+  // const newUser = new User({
+  //   type: "customer",
+  //   name: 'DJ Makens',
+  //   email: 'djmakens@gmail.com',
+  //   phone: '6172830847',
+  //   username: 'djmakens',
+  //   passwordForUpdate: 'customer123',
+  //   password: bcrypt.hashSync('customer123', 10),
+  //   seller: '6116abd6e862fabbab789f72',
+  //   stripeCustomerID: 'cus_KhIjzRCmDjtdqa',
+  //   stripeSubscription: 'sub_1K1u8WAQ1wHtJVmk9Q4PwZpL',
+  //   purchasedProductID: '6109b8dd061751f05729f60d',
+  //   customerStatus: 'Active',
+  //   date: new Date(1638370220000),
+  //   avatar: normalize(
+  //     gravatar.url('djmakens@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
+  //     { forceHttps: true }
+  //   ),
+  //   subscriptionStartDate: 1638370220,
+  //   subscriptionEndDate: 1641048620
+  // })
+  // await newUser.save()
+  const newUser = await User.findOne({name: "DJ Makens"})
 
   const paidAmount = 49700
   const toHiddenTransferAmount = paidAmount * 0.1
   const toPartnerTransferAmouont = paidAmount * 0.5
 
-  const master = await User.findOne({ type: "admin" })
-  const toMasterTransaction = new Transaction({
-    ownerID: master._id,
-    customerID: newUser._id,
-    amount: paidAmount
-  })
-  await toMasterTransaction.save()
+  // const master = await User.findOne({ type: "admin" })
+  // const toMasterTransaction = new Transaction({
+  //   ownerID: master._id,
+  //   customerID: newUser._id,
+  //   amount: paidAmount
+  // })
+  // await toMasterTransaction.save()
 
   const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
   const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
