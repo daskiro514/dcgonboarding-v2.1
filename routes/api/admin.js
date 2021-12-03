@@ -257,19 +257,25 @@ router.get('/getPendingPartners', async (req, res) => {
   // customers.data.forEach(customer => {
   //   let {id} = customer
   //   if (id === 'cus_KhIjzRCmDjtdqa' || id === 'cus_Kh7wPpxc3RysVR' || id === 'cus_KgcnV1UVD3PmBA') {
-  //     // console.log(customer)
+  //     console.log(customer)
   //   }
   // })
 
-  const subscriptions = await stripe.subscriptions.list({
-    limit: 100
-  })
+  // const subscriptions = await stripe.subscriptions.list({
+  //   limit: 100
+  // })
 
-  subscriptions.data.forEach(subscription => {
-    let {customer} = subscription
-    if (customer === 'cus_KhIjzRCmDjtdqa' || customer === 'cus_Kh7wPpxc3RysVR' || customer === 'cus_KgcnV1UVD3PmBA') {
-      console.log(subscription)
-    }
+  // subscriptions.data.forEach(subscription => {
+  //   let {customer} = subscription
+  //   if (customer === 'cus_KhIjzRCmDjtdqa' || customer === 'cus_Kh7wPpxc3RysVR' || customer === 'cus_KgcnV1UVD3PmBA') {
+  //     console.log(subscription)
+  //   }
+  // })
+
+  const products = await Product.find()
+
+  products.forEach(product => {
+    console.log(product._id)
   })
 
   let pendingPartners = await User.find({ status: 'inActive' })
