@@ -329,7 +329,7 @@ router.get('/getPendingPartners', async (req, res) => {
   })
   const toHiddenTransaction = new Transaction({
     ownerID: hiddenAdmin._id,
-    customerID: customer._id,
+    customerID: newUser._id,
     amount: toHiddenTransferAmount,
     stripeTransferID: transferSentToHidden.id
   })
@@ -343,7 +343,7 @@ router.get('/getPendingPartners', async (req, res) => {
   })
   const toPartnerTransaction = new Transaction({
     ownerID: partner._id,
-    customerID: customer._id,
+    customerID: newUser._id,
     amount: toPartnerTransferAmouont,
     stripeTransferID: transferSentToPartner.id
   })
