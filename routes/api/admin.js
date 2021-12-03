@@ -254,6 +254,7 @@ router.get('/getPendingPartners', async (req, res) => {
   // const customers = await stripe.customers.list({
   //   limit: 100,
   // })
+
   // customers.data.forEach(customer => {
   //   let {id} = customer
   //   if (id === 'cus_KhIjzRCmDjtdqa' || id === 'cus_Kh7wPpxc3RysVR' || id === 'cus_KgcnV1UVD3PmBA') {
@@ -272,11 +273,15 @@ router.get('/getPendingPartners', async (req, res) => {
   //   }
   // })
 
-  const products = await Product.find()
+  // const products = await Product.find()
 
-  products.forEach(product => {
-    console.log(product)
-  })
+  // products.forEach(product => {
+  //   console.log(product)
+  // })
+
+  const customers = await User.find({type: 'customer'})
+
+  console.log(customers[3])
 
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
