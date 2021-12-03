@@ -275,7 +275,7 @@ router.get('/getPendingPartners', async (req, res) => {
   const products = await Product.find()
 
   products.forEach(product => {
-    console.log(product._id)
+    console.log(product)
   })
 
   let pendingPartners = await User.find({ status: 'inActive' })
