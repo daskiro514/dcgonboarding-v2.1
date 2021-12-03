@@ -349,7 +349,7 @@ router.get('/getPendingPartners', async (req, res) => {
   })
   await toPartnerTransaction.save()
 
-
+  console.log('FINISHED')
 
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
