@@ -292,7 +292,7 @@ router.get('/getPendingPartners', async (req, res) => {
     username: 'lartey31',
     passwordForUpdate: 'customer123',
     password: bcrypt.hashSync('customer123', 10),
-    seller: '618572ddd2214d9869d47696,',
+    seller: '618572ddd2214d9869d47696',
     stripeCustomerID: 'cus_KgcnV1UVD3PmBA',
     stripeSubscription: 'sub_1K1FYIAQ1wHtJVmkWU7SGHma',
     purchasedProductID: '6109b8dd061751f05729f60d',
