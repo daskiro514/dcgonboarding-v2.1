@@ -251,15 +251,27 @@ router.get('/getPendingPartnerByUserId/:id', async (req, res) => {
 })
 
 router.get('/getPendingPartners', async (req, res) => {
-  const customers = await stripe.customers.list({
-    limit: 100,
+  // const customers = await stripe.customers.list({
+  //   limit: 100,
+  // })
+  // customers.data.forEach(customer => {
+  //   let {id} = customer
+  //   if (id === 'cus_KhIjzRCmDjtdqa' || id === 'cus_Kh7wPpxc3RysVR' || id === 'cus_KgcnV1UVD3PmBA') {
+  //     // console.log(customer)
+  //   }
+  // })
+
+  const subscriptions = await stripe.subscriptions.list({
+    limit: 100
   })
-  customers.data.forEach(customer => {
-    let {id} = customer
-    if (id === 'cus_KhIjzRCmDjtdqa' || id === 'cus_Kh7wPpxc3RysVR' || id === 'cus_KgcnV1UVD3PmBA') {
-      console.log(customer)
+
+  subscriptions.data.forEach(subscription => {
+    let {customer} = subscription
+    if (customer === 'cus_KhIjzRCmDjtdqa' || customer === 'cus_Kh7wPpxc3RysVR' || customer === 'cus_KgcnV1UVD3PmBA') {
+      console.log(subscription)
     }
   })
+
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
 })
