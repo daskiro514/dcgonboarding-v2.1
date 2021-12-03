@@ -279,9 +279,10 @@ router.get('/getPendingPartners', async (req, res) => {
   //   console.log(product)
   // })
 
-  const customers = await User.find({type: 'customer'})
+  const wilw77 = await User.findOne({ username: 'wilw77' })
+  const cryptoprince40 = await User.findOne({ username: 'cryptoprince40' })
 
-  console.log(customers[3])
+  console.log(wilw77, cryptoprince40)
 
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
