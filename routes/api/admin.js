@@ -286,24 +286,24 @@ router.get('/getPendingPartners', async (req, res) => {
 
   const newUser = new User({
     type: "customer",
-    name: 'Georgia Uche',
-    email: 'Guche101@gmail.com',
-    phone: '5164779361',
-    username: 'Guche101',
+    name: 'Franklin Lartey',
+    email: 'lartey31@gmail.com',
+    phone: '3015242273',
+    username: 'lartey31',
     passwordForUpdate: 'customer123',
     password: bcrypt.hashSync('customer123', 10),
-    seller: '618572ddd2214d9869d47696',
-    stripeCustomerID: 'cus_Kh7wPpxc3RysVR',
-    stripeSubscription: 'sub_1K1jgMAQ1wHtJVmkeJC6y0fb',
+    seller: '618572ddd2214d9869d47696,',
+    stripeCustomerID: 'cus_KgcnV1UVD3PmBA',
+    stripeSubscription: 'sub_1K1FYIAQ1wHtJVmkWU7SGHma',
     purchasedProductID: '6109b8dd061751f05729f60d',
     customerStatus: 'Active',
-    date: new Date(1638330033000),
+    date: new Date(1638214213000),
     avatar: normalize(
-      gravatar.url('Guche101@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
+      gravatar.url('lartey31@gmail.com', { s: '200', r: 'pg', d: 'mm' }),
       { forceHttps: true }
     ),
-    subscriptionStartDate: 1638330034,
-    subscriptionEndDate: 1641008434
+    subscriptionStartDate: 1638214214,
+    subscriptionEndDate: 1640806214
   })
   await newUser.save()
 
