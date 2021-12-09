@@ -581,6 +581,10 @@ router.get('/suspendProduct/:id', async (req, res) => {
 
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
+  const customers1 = await stripe.customers.list({
+    limit: 100,
+  })
+  console.log(customers1)
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
   res.json({
