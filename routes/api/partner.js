@@ -304,20 +304,6 @@ router.get('/getPublishableKey', async (req, res) => {
 })
 
 router.post('/createCustomer', async (req, res) => {
-  const customer = await stripe.customers.create({
-    payment_method: req.body.paymentMethodID,
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    invoice_settings: {
-      default_payment_method: req.body.paymentMethodID
-    }
-  })
-  const subscription = await stripe.subscriptions.create({
-    customer: customer.id,
-    items: [{ price: req.body.productForSale.stripePriceID }],
-    expand: ['latest_invoice.payment_intent']
-  })
   const newUser = new User({
     type: "customer",
     name: req.body.name,
@@ -327,11 +313,29 @@ router.post('/createCustomer', async (req, res) => {
     passwordForUpdate: req.body.password,
     password: bcrypt.hashSync(req.body.password, 10),
     seller: req.body.sellerID,
-    stripeCustomerID: customer.id,
-    stripeSubscription: subscription.id,
     purchasedProductID: req.body.productForSale._id,
     customerStatus: 'Active'
   })
+  
+  const customer = await stripe.customers.create({
+    payment_method: req.body.paymentMethodID,
+    name: req.body.name,
+    email: req.body.email,
+    phone: req.body.phone,
+    invoice_settings: {
+      default_payment_method: req.body.paymentMethodID
+    }
+  })
+
+  const subscription = await stripe.subscriptions.create({
+    customer: customer.id,
+    items: [{ price: req.body.productForSale.stripePriceID }],
+    expand: ['latest_invoice.payment_intent']
+  })
+
+  newUser.stripeCustomerID = customer.id
+  newUser.stripeSubscription = subscription.id
+
   const avatar = normalize(
     gravatar.url(req.body.email, { s: '200', r: 'pg', d: 'mm' }),
     { forceHttps: true }
