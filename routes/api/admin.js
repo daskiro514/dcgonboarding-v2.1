@@ -584,6 +584,15 @@ router.get('/getAllCustomers', async (req, res) => {
   // const subscriptions = await stripe.subscriptions.list({
   //   limit: 100,
   // })
+  const customers1 = await User.find({ type: 'customer' })
+  customers1.forEach((customer, index) => {
+    console.log('No. ', index + 1)
+    console.log('Name. ', customer.name)
+    console.log('Status. ', customer.customerStatus)
+    console.log('Stripe Customer ID. ', customer.stripeCustomerID)
+    console.log('Stripe Subscription ID. ', customer.stripeSubscription)
+    console.log('\n')
+  })
 
 
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
