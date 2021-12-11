@@ -97,8 +97,8 @@ const payToHiddenAndPartner = async (invoice) => {
     to: 'ilia@siliconslopesconsulting.com',
     subject: 'A Customer Purchased A Subscription.',
     text: `Subscription Sale Happended on Partner ${partner.name}. 
-    Customer username is ${customer.username} and password is ${customer.passwordForUpdate}
-    Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
+    Customer username is ${customer.username}
+    Partner username is ${partner.username}
     Please check his dashboard and customers page.
     You should CHECK <SUBCRIPTION END DATE> and DASHBOARD INCOME. And SPLIT PAYMENT.
     DCGONBOARDING TEAM`
