@@ -251,88 +251,88 @@ router.get('/getPendingPartnerByUserId/:id', async (req, res) => {
 })
 
 router.get('/getPendingPartners', async (req, res) => {
-  const customer = await stripe.customers.retrieve('cus_KmM8Pszu1QqYXT')
-  let subscription = {}
+  // const customer = await stripe.customers.retrieve('cus_KmM8Pszu1QqYXT')
+  // let subscription = {}
 
-  const subscriptions = await stripe.subscriptions.list({ limit: 100 })
+  // const subscriptions = await stripe.subscriptions.list({ limit: 100 })
 
-  subscriptions.data.forEach(innerSubscription => {
-    let customerProperty = innerSubscription.customer
-    if (customerProperty === customer.id) {
-      subscription = innerSubscription
-    }
-  })
+  // subscriptions.data.forEach(innerSubscription => {
+  //   let customerProperty = innerSubscription.customer
+  //   if (customerProperty === customer.id) {
+  //     subscription = innerSubscription
+  //   }
+  // })
 
-  const seller = await User.findOne({ username: 'wilw77' })
-  const product = await Product.findOne({ price: 49700 })
+  // const seller = await User.findOne({ username: 'wilw77' })
+  // const product = await Product.findOne({ price: 49700 })
 
-  const newUser = new User({
-    type: "customer",
-    name: customer.name,
-    email: customer.email,
-    phone: customer.phone,
-    username: customer.email,
-    passwordForUpdate: customer.email,
-    password: bcrypt.hashSync(customer.email, 10),
-    seller: seller._id,
-    stripeCustomerID: customer.id,
-    stripeSubscription: subscription.id,
-    purchasedProductID: product._id,
-    customerStatus: 'Active',
-    date: new Date(subscription.created * 1000),
-    avatar: normalize(
-      gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
-      { forceHttps: true }
-    ),
-    subscriptionStartDate: subscription.current_period_start,
-    subscriptionEndDate: subscription.current_period_end
-  })
+  // const newUser = new User({
+  //   type: "customer",
+  //   name: customer.name,
+  //   email: customer.email,
+  //   phone: customer.phone,
+  //   username: customer.email,
+  //   passwordForUpdate: customer.email,
+  //   password: bcrypt.hashSync(customer.email, 10),
+  //   seller: seller._id,
+  //   stripeCustomerID: customer.id,
+  //   stripeSubscription: subscription.id,
+  //   purchasedProductID: product._id,
+  //   customerStatus: 'Active',
+  //   date: new Date(subscription.created * 1000),
+  //   avatar: normalize(
+  //     gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
+  //     { forceHttps: true }
+  //   ),
+  //   subscriptionStartDate: subscription.current_period_start,
+  //   subscriptionEndDate: subscription.current_period_end
+  // })
 
-  await newUser.save()
+  // await newUser.save()
 
-  const paidAmount = product.price
-  const toHiddenTransferAmount = paidAmount * 0.1
-  const toPartnerTransferAmouont = paidAmount * 0.5
+  // const paidAmount = product.price
+  // const toHiddenTransferAmount = paidAmount * 0.1
+  // const toPartnerTransferAmouont = paidAmount * 0.5
 
-  const master = await User.findOne({ type: 'admin' })
-  const toMasterTransaction = new Transaction({
-    ownerID: master._id,
-    customerID: newUser._id,
-    amount: paidAmount
-  })
-  await toMasterTransaction.save()
+  // const master = await User.findOne({ type: 'admin' })
+  // const toMasterTransaction = new Transaction({
+  //   ownerID: master._id,
+  //   customerID: newUser._id,
+  //   amount: paidAmount
+  // })
+  // await toMasterTransaction.save()
 
-  const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
-  const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
+  // const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
+  // const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
 
-  const transferSentToHidden = await stripe.transfers.create({
-    amount: toHiddenTransferAmount,
-    currency: 'usd',
-    destination: hiddenConnectedAccount,
-  })
-  const toHiddenTransaction = new Transaction({
-    ownerID: hiddenAdmin._id,
-    customerID: newUser._id,
-    amount: toHiddenTransferAmount,
-    stripeTransferID: transferSentToHidden.id
-  })
-  await toHiddenTransaction.save()
+  // const transferSentToHidden = await stripe.transfers.create({
+  //   amount: toHiddenTransferAmount,
+  //   currency: 'usd',
+  //   destination: hiddenConnectedAccount,
+  // })
+  // const toHiddenTransaction = new Transaction({
+  //   ownerID: hiddenAdmin._id,
+  //   customerID: newUser._id,
+  //   amount: toHiddenTransferAmount,
+  //   stripeTransferID: transferSentToHidden.id
+  // })
+  // await toHiddenTransaction.save()
 
-  const partnerConnectedAccount = seller.stripeConnectedAccount
-  const transferSentToPartner = await stripe.transfers.create({
-    amount: toPartnerTransferAmouont,
-    currency: 'usd',
-    destination: partnerConnectedAccount,
-  })
-  const toPartnerTransaction = new Transaction({
-    ownerID: seller._id,
-    customerID: newUser._id,
-    amount: toPartnerTransferAmouont,
-    stripeTransferID: transferSentToPartner.id
-  })
-  await toPartnerTransaction.save()
+  // const partnerConnectedAccount = seller.stripeConnectedAccount
+  // const transferSentToPartner = await stripe.transfers.create({
+  //   amount: toPartnerTransferAmouont,
+  //   currency: 'usd',
+  //   destination: partnerConnectedAccount,
+  // })
+  // const toPartnerTransaction = new Transaction({
+  //   ownerID: seller._id,
+  //   customerID: newUser._id,
+  //   amount: toPartnerTransferAmouont,
+  //   stripeTransferID: transferSentToPartner.id
+  // })
+  // await toPartnerTransaction.save()
 
-  console.log('FINISHED')
+  // console.log('FINISHED')
 
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
