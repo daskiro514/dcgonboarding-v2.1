@@ -254,43 +254,44 @@ router.get('/getPendingPartners', async (req, res) => {
   const customer = await stripe.customers.retrieve('cus_KmkLsHE79B85LS')
   let subscription = {}
 
-  const subscriptions = await stripe.subscriptions.list({
-    limit: 100
-  })
+  const subscriptions = await stripe.subscriptions.list({ limit: 100 })
 
   subscriptions.data.forEach(innerSubscription => {
     let { customerProperty } = innerSubscription
     if (customerProperty === customer.id) {
+      console.log(innerSubscription)
       subscription = innerSubscription
     }
   })
 
-  const seller = await User.findOne({ username: 'wilw77' })
-  const product = await Product.findOne({ price: 49700 })
+  console.log(subscription)
 
-  const newUser = new User({
-    type: "customer",
-    name: customer.name,
-    email: customer.email,
-    phone: customer.phone,
-    username: customer.email,
-    passwordForUpdate: customer.email,
-    password: bcrypt.hashSync(customer.email, 10),
-    seller: seller._id,
-    stripeCustomerID: customer.id,
-    stripeSubscription: subscription.id,
-    purchasedProductID: product._id,
-    customerStatus: 'Active',
-    date: new Date(subscription.created * 1000),
-    avatar: normalize(
-      gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
-      { forceHttps: true }
-    ),
-    subscriptionStartDate: subscription.current_period_start,
-    subscriptionEndDate: subscription.current_period_end
-  })
+  // const seller = await User.findOne({ username: 'wilw77' })
+  // const product = await Product.findOne({ price: 49700 })
 
-  console.log(newUser)
+  // const newUser = new User({
+  //   type: "customer",
+  //   name: customer.name,
+  //   email: customer.email,
+  //   phone: customer.phone,
+  //   username: customer.email,
+  //   passwordForUpdate: customer.email,
+  //   password: bcrypt.hashSync(customer.email, 10),
+  //   seller: seller._id,
+  //   stripeCustomerID: customer.id,
+  //   stripeSubscription: subscription.id,
+  //   purchasedProductID: product._id,
+  //   customerStatus: 'Active',
+  //   date: new Date(subscription.created * 1000),
+  //   avatar: normalize(
+  //     gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
+  //     { forceHttps: true }
+  //   ),
+  //   subscriptionStartDate: subscription.current_period_start,
+  //   subscriptionEndDate: subscription.current_period_end
+  // })
+
+  // console.log(newUser)
 
   // console.log('FINISHED')
 
