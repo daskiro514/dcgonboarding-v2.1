@@ -578,6 +578,18 @@ router.get('/getAllCustomers', async (req, res) => {
   //   }
   // })
 
+  const subscription = await stripe.subscriptions.retrieve('sub_1K761XAQ1wHtJVmkgdf8CBm9')
+
+  const customer1 = await User.findOneAndUpdate({stripeCustomerID: 'cus_KahNEoEQQbec71'}, {
+    stripeCustomerID: subscription.customer,
+    stripeSubscription: subscription.id,
+    date: new Date(subscription.created * 1000),
+    subscriptionStartDate: subscription.current_period_start,
+    subscriptionEndDate: subscription.current_period_end
+  }, {new: true})
+
+  console.log(customer1)
+
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
   res.json({
