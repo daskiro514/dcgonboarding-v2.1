@@ -578,9 +578,6 @@ router.get('/getAllCustomers', async (req, res) => {
   //   }
   // })
 
-  const customer1 = await User.findOne({email: 'montray22@gmail.com'})
-  console.log(customer1)
-
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
   res.json({
