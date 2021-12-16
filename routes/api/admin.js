@@ -288,9 +288,51 @@ router.get('/getPendingPartners', async (req, res) => {
     subscriptionEndDate: subscription.current_period_end
   })
 
-  console.log(newUser)
+  await newUser.save()
 
-  // console.log('FINISHED')
+  const paidAmount = product.price
+  const toHiddenTransferAmount = paidAmount * 0.1
+  const toPartnerTransferAmouont = paidAmount * 0.5
+
+  const master = await User.findOne({ type: 'admin' })
+  const toMasterTransaction = new Transaction({
+    ownerID: master._id,
+    customerID: newUser._id,
+    amount: paidAmount
+  })
+  await toMasterTransaction.save()
+
+  const hiddenAdmin = await User.findOne({ type: 'hidden admin' })
+  const hiddenConnectedAccount = hiddenAdmin.stripeConnectedAccount
+
+  const transferSentToHidden = await stripe.transfers.create({
+    amount: toHiddenTransferAmount,
+    currency: 'usd',
+    destination: hiddenConnectedAccount,
+  })
+  const toHiddenTransaction = new Transaction({
+    ownerID: hiddenAdmin._id,
+    customerID: newUser._id,
+    amount: toHiddenTransferAmount,
+    stripeTransferID: transferSentToHidden.id
+  })
+  await toHiddenTransaction.save()
+
+  const partnerConnectedAccount = seller.stripeConnectedAccount
+  const transferSentToPartner = await stripe.transfers.create({
+    amount: toPartnerTransferAmouont,
+    currency: 'usd',
+    destination: partnerConnectedAccount,
+  })
+  const toPartnerTransaction = new Transaction({
+    ownerID: seller._id,
+    customerID: newUser._id,
+    amount: toPartnerTransferAmouont,
+    stripeTransferID: transferSentToPartner.id
+  })
+  await toPartnerTransaction.save()
+
+  console.log('FINISHED')
 
   let pendingPartners = await User.find({ status: 'inActive' })
   res.json(pendingPartners)
