@@ -578,11 +578,8 @@ router.get('/getAllCustomers', async (req, res) => {
   //   }
   // })
 
-  const customer1 = await User.findOne({stripeCustomerID: 'cus_Klc1ePruETEldS'})
+  const customer1 = await User.findOne({email: 'montray22@gmail.com'})
   console.log(customer1.name)
-
-  const customer2 = await User.findOne({stripeCustomerID: 'cus_Klc1MuGpoBebMM'})
-  console.log(customer2.name)
 
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
