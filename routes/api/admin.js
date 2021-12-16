@@ -580,8 +580,8 @@ router.get('/getAllCustomers', async (req, res) => {
 
   const brandon = await User.findOne({ name: 'Brandon Harbaugh', type: 'partner' })
   const nick = await User.findOne({ name: 'nick henderson', type: 'partner' })
-  const dawn = await User.findOne({ name: 'DAWN J HARRIS', type: 'customer' })
-  const sylvia = await User.findOne({ name: 'Sylvia Donahue', type: 'customer' })
+  const dawn = await User.findOneAndUpdate({ name: 'DAWN J HARRIS' }, { seller: brandon._id }, { new: true })
+  const sylvia = await User.findOneAndUpdate({ name: 'Sylvia Donahue' }, { seller: nick._id }, { new: true })
 
   console.log(brandon.name)
   console.log(nick.name)
