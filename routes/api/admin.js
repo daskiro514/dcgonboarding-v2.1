@@ -257,7 +257,7 @@ router.get('/getPendingPartners', async (req, res) => {
   const subscriptions = await stripe.subscriptions.list({ limit: 100 })
 
   subscriptions.data.forEach(innerSubscription => {
-    let { customerProperty } = innerSubscription
+    let customerProperty = innerSubscription.customer
     if (customerProperty === customer.id) {
       console.log(innerSubscription)
       subscription = innerSubscription
