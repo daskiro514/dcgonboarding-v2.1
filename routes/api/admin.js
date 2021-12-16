@@ -578,6 +578,16 @@ router.get('/getAllCustomers', async (req, res) => {
   //   }
   // })
 
+  const brandon = await User.findOne({ name: 'Brandon Harbaugh', type: 'partner' })
+  const nick = await User.findOne({ name: 'nick henderson', type: 'partner' })
+  const dawn = await User.findOne({ name: 'DAWN J HARRIS', type: 'customer' })
+  const sylvia = await User.findOne({ name: 'Sylvia Donahue', type: 'customer' })
+
+  console.log(brandon.name)
+  console.log(nick.name)
+  console.log(dawn.name)
+  console.log(sylvia.name)
+
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
   res.json({
