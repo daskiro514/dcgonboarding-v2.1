@@ -251,27 +251,27 @@ router.get('/getPendingPartnerByUserId/:id', async (req, res) => {
 })
 
 router.get('/getPendingPartners', async (req, res) => {
-  const customers = await stripe.customers.list({
-    limit: 100,
-  })
-
-  customers.data.forEach(customer => {
-    let {id} = customer
-    if (id === 'cus_KmkLsHE79B85LS' || id === 'cus_KmM8Pszu1QqYXT') {
-      console.log(customer)
-    }
-  })
-
-  // const subscriptions = await stripe.subscriptions.list({
-  //   limit: 100
+  // const customers = await stripe.customers.list({
+  //   limit: 100,
   // })
 
-  // subscriptions.data.forEach(subscription => {
-  //   let {customer} = subscription
-  //   if (customer === 'cus_KhIjzRCmDjtdqa' || customer === 'cus_Kh7wPpxc3RysVR' || customer === 'cus_KgcnV1UVD3PmBA') {
-  //     console.log(subscription)
+  // customers.data.forEach(customer => {
+  //   let {id} = customer
+  //   if (id === 'cus_KmkLsHE79B85LS' || id === 'cus_KmM8Pszu1QqYXT') {
+  //     console.log(customer)
   //   }
   // })
+
+  const subscriptions = await stripe.subscriptions.list({
+    limit: 100
+  })
+
+  subscriptions.data.forEach(subscription => {
+    let {customer} = subscription
+    if (customer === 'cus_KmkLsHE79B85LS' || customer === 'cus_KmM8Pszu1QqYXT') {
+      console.log(subscription)
+    }
+  })
 
   // const products = await Product.find()
 
