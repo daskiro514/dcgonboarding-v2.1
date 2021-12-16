@@ -262,24 +262,27 @@ router.get('/getPendingPartners', async (req, res) => {
   //   }
   // })
 
-  const subscriptions = await stripe.subscriptions.list({
-    limit: 100
-  })
+  // const subscriptions = await stripe.subscriptions.list({
+  //   limit: 100
+  // })
 
-  subscriptions.data.forEach(subscription => {
-    let {customer} = subscription
-    if (customer === 'cus_KmkLsHE79B85LS' || customer === 'cus_KmM8Pszu1QqYXT') {
-      console.log(subscription)
+  // subscriptions.data.forEach(subscription => {
+  //   let {customer} = subscription
+  //   if (customer === 'cus_KmkLsHE79B85LS' || customer === 'cus_KmM8Pszu1QqYXT') {
+  //     console.log(subscription)
+  //   }
+  // })
+
+  const products = await Product.find()
+
+  products.forEach(product => {
+    if (product.price === 49700) {
+      console.log(product)
     }
   })
 
-  // const products = await Product.find()
-
-  // products.forEach(product => {
-  //   console.log(product)
-  // })
-
-  // const wilw77 = await User.findOne({ username: 'wilw77' })
+  const wilw77 = await User.findOne({ username: 'wilw77' })
+  console.log(wilw77._id)
   // const cryptoprince40 = await User.findOne({ username: 'cryptoprince40' })
 
   // const newUser = new User({
