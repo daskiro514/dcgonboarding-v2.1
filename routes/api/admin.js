@@ -578,15 +578,11 @@ router.get('/getAllCustomers', async (req, res) => {
   //   }
   // })
 
-  // const brandon = await User.findOne({ name: 'Brandon Harbaugh', type: 'partner' })
-  // const nick = await User.findOne({ name: 'nick henderson', type: 'partner' })
-  // const dawn = await User.findOneAndUpdate({ name: 'DAWN J HARRIS' }, { seller: brandon._id }, { new: true })
-  // const sylvia = await User.findOneAndUpdate({ name: 'Sylvia Donahue' }, { seller: nick._id }, { new: true })
+  const customer1 = await User.findOne({stripeCustomerID: 'cus_Klc1ePruETEldS'})
+  console.log(customer1.name)
 
-  // console.log(brandon.name)
-  // console.log(nick.name)
-  // console.log(dawn.name)
-  // console.log(sylvia.name)
+  const customer2 = await User.findOne({stripeCustomerID: 'cus_Klc1MuGpoBebMM'})
+  console.log(customer2.name)
 
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
