@@ -259,39 +259,36 @@ router.get('/getPendingPartners', async (req, res) => {
   subscriptions.data.forEach(innerSubscription => {
     let customerProperty = innerSubscription.customer
     if (customerProperty === customer.id) {
-      console.log(innerSubscription)
       subscription = innerSubscription
     }
   })
 
-  console.log(subscription)
+  const seller = await User.findOne({ username: 'wilw77' })
+  const product = await Product.findOne({ price: 49700 })
 
-  // const seller = await User.findOne({ username: 'wilw77' })
-  // const product = await Product.findOne({ price: 49700 })
+  const newUser = new User({
+    type: "customer",
+    name: customer.name,
+    email: customer.email,
+    phone: customer.phone,
+    username: customer.email,
+    passwordForUpdate: customer.email,
+    password: bcrypt.hashSync(customer.email, 10),
+    seller: seller._id,
+    stripeCustomerID: customer.id,
+    stripeSubscription: subscription.id,
+    purchasedProductID: product._id,
+    customerStatus: 'Active',
+    date: new Date(subscription.created * 1000),
+    avatar: normalize(
+      gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
+      { forceHttps: true }
+    ),
+    subscriptionStartDate: subscription.current_period_start,
+    subscriptionEndDate: subscription.current_period_end
+  })
 
-  // const newUser = new User({
-  //   type: "customer",
-  //   name: customer.name,
-  //   email: customer.email,
-  //   phone: customer.phone,
-  //   username: customer.email,
-  //   passwordForUpdate: customer.email,
-  //   password: bcrypt.hashSync(customer.email, 10),
-  //   seller: seller._id,
-  //   stripeCustomerID: customer.id,
-  //   stripeSubscription: subscription.id,
-  //   purchasedProductID: product._id,
-  //   customerStatus: 'Active',
-  //   date: new Date(subscription.created * 1000),
-  //   avatar: normalize(
-  //     gravatar.url(customer.email, { s: '200', r: 'pg', d: 'mm' }),
-  //     { forceHttps: true }
-  //   ),
-  //   subscriptionStartDate: subscription.current_period_start,
-  //   subscriptionEndDate: subscription.current_period_end
-  // })
-
-  // console.log(newUser)
+  console.log(newUser)
 
   // console.log('FINISHED')
 
