@@ -1,4 +1,5 @@
 import api from '../utils/api'
+import { setAlert } from './alert'
 import { loadUser } from './auth'
 import {
   ONETIME_PRODUCT_CREATE_INPROGRESS,
@@ -153,23 +154,30 @@ export const getPublishableKey = () => async dispatch => {
 }
 
 export const createCustomer = (formData, history, sellerID) => async dispatch => {
-  dispatch({
-    type: CUSTOMER_CREATE_INPROGRESS,
-    payload: true
-  })
-  const res = await api.post('/partner/createCustomer', formData)
-  if (res.data.success) {
+  try {
     dispatch({
-      type: CUSTOMER_CREATED,
-      payload: res.data
+      type: CUSTOMER_CREATE_INPROGRESS,
+      payload: true
     })
+    const res = await api.post('/partner/createCustomer', formData)
+    if (res.data.success) {
+      dispatch({
+        type: CUSTOMER_CREATED,
+        payload: res.data
+      })
+    }
+    dispatch({
+      type: CUSTOMER_CREATE_INPROGRESS,
+      payload: false
+    })
+    history.push(`/thankscustomer`)
+  } catch (err) {
+    const errors = err.response.data.errors
+
+    if (errors) {
+      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+    }
   }
-  dispatch({
-    type: CUSTOMER_CREATE_INPROGRESS,
-    payload: false
-  })
-  // history.push(`/sales/${sellerID}`)
-  history.push(`/thankscustomer`)
 }
 
 export const customerResubscribe = (formData, history) => async dispatch => {

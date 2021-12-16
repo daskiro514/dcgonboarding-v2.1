@@ -304,104 +304,120 @@ router.get('/getPublishableKey', async (req, res) => {
 })
 
 router.post('/createCustomer', async (req, res) => {
-  const newUser = new User({
-    type: "customer",
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    username: req.body.username,
-    passwordForUpdate: req.body.password,
-    password: bcrypt.hashSync(req.body.password, 10),
-    seller: req.body.sellerID,
-    purchasedProductID: req.body.productForSale._id,
-    customerStatus: 'Active'
-  })
-  
-  const customer = await stripe.customers.create({
-    payment_method: req.body.paymentMethodID,
-    name: req.body.name,
-    email: req.body.email,
-    phone: req.body.phone,
-    invoice_settings: {
-      default_payment_method: req.body.paymentMethodID
+  try {
+    const emailSameUser = await User.findOne({ email: req.body.email })
+    if (emailSameUser) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: `DUPLICATE EMAIL! ${req.body.email} is already exist.` }] })
     }
-  })
+    const usernameSameUser = await User.findOne({ username: req.body.username })
+    if (usernameSameUser) {
+      return res
+        .status(400)
+        .json({ errors: [{ msg: `DUPLICATE USERNAME! ${req.body.username} is already exist.` }] })
+    }
 
-  const subscription = await stripe.subscriptions.create({
-    customer: customer.id,
-    items: [{ price: req.body.productForSale.stripePriceID }],
-    expand: ['latest_invoice.payment_intent']
-  })
+    const newUser = new User({
+      type: "customer",
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      username: req.body.username,
+      passwordForUpdate: req.body.password,
+      password: bcrypt.hashSync(req.body.password, 10),
+      seller: req.body.sellerID,
+      purchasedProductID: req.body.productForSale._id,
+      customerStatus: 'Active'
+    })
 
-  newUser.stripeCustomerID = customer.id
-  newUser.stripeSubscription = subscription.id
+    const customer = await stripe.customers.create({
+      payment_method: req.body.paymentMethodID,
+      name: req.body.name,
+      email: req.body.email,
+      phone: req.body.phone,
+      invoice_settings: {
+        default_payment_method: req.body.paymentMethodID
+      }
+    })
 
-  const avatar = normalize(
-    gravatar.url(req.body.email, { s: '200', r: 'pg', d: 'mm' }),
-    { forceHttps: true }
-  )
-  newUser.avatar = avatar
+    const subscription = await stripe.subscriptions.create({
+      customer: customer.id,
+      items: [{ price: req.body.productForSale.stripePriceID }],
+      expand: ['latest_invoice.payment_intent']
+    })
 
-  await newUser.save()
-  var emailData = {}
-  if (req.body.productForSale.type === 'Subscription Product') {
+    newUser.stripeCustomerID = customer.id
+    newUser.stripeSubscription = subscription.id
+
+    const avatar = normalize(
+      gravatar.url(req.body.email, { s: '200', r: 'pg', d: 'mm' }),
+      { forceHttps: true }
+    )
+    newUser.avatar = avatar
+
+    await newUser.save()
+    var emailData = {}
+    if (req.body.productForSale.type === 'Subscription Product') {
+      emailData = {
+        from: 'DCGONBOARDING <info@dcgonboarding.com>',
+        to: req.body.email,
+        subject: 'Welcom to DCGONBOARDING',
+        text: 'Your request have successfully approved. Your username is <' + req.body.username + '> and password is <' + req.body.password + '>. Thanks. DCGONBOARDING TEAM'
+      }
+    } else {
+      emailData = {
+        from: 'DCGONBOARDING <info@dcgonboarding.com>',
+        to: req.body.email,
+        subject: 'Welcom to DCGONBOARDING',
+        text: 'Your request have successfully approved. Thanks. DCGONBOARDING TEAM'
+      }
+    }
+    mailgun.messages().send(emailData, function (error, body) {
+      console.log(body)
+    })
+
+    const partner = await User.findById(req.body.sellerID)
+
     emailData = {
       from: 'DCGONBOARDING <info@dcgonboarding.com>',
-      to: req.body.email,
-      subject: 'Welcom to DCGONBOARDING',
-      text: 'Your request have successfully approved. Your username is <' + req.body.username + '> and password is <' + req.body.password + '>. Thanks. DCGONBOARDING TEAM'
-    }
-  } else {
-    emailData = {
-      from: 'DCGONBOARDING <info@dcgonboarding.com>',
-      to: req.body.email,
-      subject: 'Welcom to DCGONBOARDING',
-      text: 'Your request have successfully approved. Thanks. DCGONBOARDING TEAM'
-    }
-  }
-  mailgun.messages().send(emailData, function (error, body) {
-    console.log(body)
-  })
-
-  const partner = await User.findById(req.body.sellerID)
-
-  emailData = {
-    from: 'DCGONBOARDING <info@dcgonboarding.com>',
-    to: 'ilia@siliconslopesconsulting.com',
-    subject: 'A Customer Purchased A Subscription.',
-    text: `Subscription Sale Happended on Partner ${partner.name}. 
+      to: 'ilia@siliconslopesconsulting.com',
+      subject: 'A Customer Purchased A Subscription.',
+      text: `Subscription Sale Happended on Partner ${partner.name}. 
     Customer username is ${req.body.username} and password is ${req.body.password}
     Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
     If subscription payment succeed, then you will get another SUCCESS mail.
     DCGONBOARDING TEAM`
-  }
+    }
 
-  mailgun.messages().send(emailData, function (error, body) {
-    console.log(body)
-  })
+    mailgun.messages().send(emailData, function (error, body) {
+      console.log(body)
+    })
 
-  emailData = {
-    from: 'DCGONBOARDING <info@dcgonboarding.com>',
-    to: 'Steven@hooley.me',
-    subject: 'A Customer Purchased A Subscription.',
-    text: `Subscription Sale Happended on Partner ${partner.name}. 
+    emailData = {
+      from: 'DCGONBOARDING <info@dcgonboarding.com>',
+      to: 'Steven@hooley.me',
+      subject: 'A Customer Purchased A Subscription.',
+      text: `Subscription Sale Happended on Partner ${partner.name}. 
     Customer username is ${req.body.username} and password is ${req.body.password}
     Partner username is ${partner.username} and password is ${partner.passwordForUpdate}
     If subscription payment succeed, then you will get another SUCCESS mail.
     DCGONBOARDING TEAM`
+    }
+
+    mailgun.messages().send(emailData, function (error, body) {
+      console.log(body)
+    })
+
+    res.json({
+      success: true,
+      customer: newUser,
+      customerProduct: req.body.productForSale
+    })
+  } catch (err) {
+    console.error(err.message)
+    res.status(500).send('Server error')
   }
-
-  mailgun.messages().send(emailData, function (error, body) {
-    console.log(body)
-  })
-
-  // await payToHiddenAndPartner(subscription.id, customer.id, 19900)
-
-  res.json({
-    success: true,
-    customer: newUser,
-    customerProduct: req.body.productForSale
-  })
 })
 
 router.post('/customerResubscribe', async (req, res) => {

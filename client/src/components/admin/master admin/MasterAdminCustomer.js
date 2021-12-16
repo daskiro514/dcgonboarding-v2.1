@@ -36,6 +36,14 @@ const MasterAdminCustomer = ({ customer, getCustomerTransactions, transactions }
                         <td>PURCHASED SUBSCRIPTION:</td>
                         <td className="w3-text-indigo">{customer.purchasedProductID ? customer.purchasedProductID.name : null}</td>
                       </tr>
+                      <tr>
+                        <td>STRIPE CUSTOMER ID</td>
+                        <td className="w3-text-indigo">{customer.stripeCustomerID}</td>
+                      </tr>
+                      <tr>
+                        <td>STRIPE SUBSCRIPTION ID</td>
+                        <td className="w3-text-indigo">{customer.stripeSubscription}</td>
+                      </tr>
                       {customer.customerStatus === 'Active'
                         ?
                         <>
