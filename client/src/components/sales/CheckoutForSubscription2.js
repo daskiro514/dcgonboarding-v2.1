@@ -116,6 +116,16 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, custom
     }
   }
 
+  const validateEmail = (mail) => {
+    if (mail.length === 0) {
+      return (false)
+    }
+    if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+      return (true)
+    }
+    return (false)
+  }
+
   const onSubmit = async () => {
     let card = elements.getElement(CardNumberElement)
 
@@ -142,6 +152,14 @@ const CheckoutForm = ({ productForSale, stripe, sellerID, createCustomer, custom
       const isExist = await checkPartnerUsernameEmail({ username, email })
 
       if (isExist) {
+        return
+      }
+      if (validateEmail(email) === false) {
+        setAlert('Your email address is invalid.', 'warning')
+        return
+      }
+      if (name.length < 2 || username.length < 2 || phone.length < 2) {
+        setAlert('You should input the fields correct!', 'warning')
         return
       }
       if (password.length < 6) {

@@ -115,17 +115,17 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
           <div className='row'>
             <ul>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Learn From The Masterminds.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>All DCG Classes Are Live – Taught By Traders Who Actually Trade.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>All DCG Classes Are Live - Taught By Traders Who Actually Trade.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Learn Day Trading and Swing Trading Strategies Without Sitting In Front of Charts All Day.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Many Traders Find Success DCG Within 30 Days – The Culture In DCG is For Those Who Do Not Have.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Many Traders Find Success DCG Within 30 Days - The Culture In DCG is For Those Who Do Not Have.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Time To Spend Months Watching Videos. When You Join DCG You Get Access To.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Our Business As A Trader Course – Do You Know How To Structure Your Business To Minimize Taxes?</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Our Business As A Trader Course - Do You Know How To Structure Your Business To Minimize Taxes?</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Do You Know How To Leverage Other Traders To Generate Profits?</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>You will have access to our No Chart Course – The Ability To Make Money In Trading Without Charts.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Get access to our Masterclass On NFT’s.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>You will have access to our No Chart Course - The Ability To Make Money In Trading Without Charts.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Get access to our Masterclass On NFT's.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Learn How To Making Money in Crypto With Digital Assets.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Make 6 and 7 Figures With Virtual Land, Digital Art, Gaming NFT’s.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Access To Our Time Management Formula – Manage More In Less Time.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Make 6 and 7 Figures With Virtual Land, Digital Art, Gaming NFT's.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Access To Our Time Management Formula - Manage More In Less Time.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Our Mastermind Course Include Mindset Training For Traders and Entrepreneurs.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Our Discord Server Has 24/7 Full Chat Support and Signals.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Totally Transparent You Will Know When We Trade and What We Are Trading.</li>
@@ -155,7 +155,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <ul>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>TRADING BOOTCAMP</strong> (EVERY TUESDAY AND THURSDAY NIGHT COURSE FOR BEGINNERS)</li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Market Cycle Course</strong> (Learn To Trade Seasonality and Market Cycles) Trading With A Full-Time Job</li>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>Our Trading Is 24 Hours</strong> – Access Live Recordings Daily Even IF You Are Not Able To Attend Live</li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>Our Trading Is 24 Hours</strong> - Access Live Recordings Daily Even IF You Are Not Able To Attend Live</li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Access to all of our revised Courses For 2021 </strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Stocks and Options 101</strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Crypto Trading 101</strong></li>
@@ -356,7 +356,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             <div className='w3-center'>
               <p>Copyright © 2021, All Rights Reserved - DCG™</p>
               <p>
-                Trading financial instruments is a challenging and potentially profitable endeavor for educated and disciplined investors who are willing to take an above-average risk on their capital. Before you decide to invest in the markets you should carefully consider your objectives, education, and capability but most importantly your risk aversion. The possibility of sustaining a loss of some or all of your initial investment exists, it´s because of this that you should never invest money you cannot afford to lose.
+                Trading financial instruments is a challenging and potentially profitable endeavor for educated and disciplined investors who are willing to take an above-average risk on their capital. Before you decide to invest in the markets you should carefully consider your objectives, education, and capability but most importantly your risk aversion. The possibility of sustaining a loss of some or all of your initial investment exists, it's because of this that you should never invest money you cannot afford to lose.
                 <br />
                 <span>Past performance is not indicative of future results.</span>
               </p>
