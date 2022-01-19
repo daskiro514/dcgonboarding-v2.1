@@ -587,7 +587,8 @@ router.get('/getAllCustomers', async (req, res) => {
 
   // CUSTOMER RESUBSCRIPTION UPDATE
 
-  // const subscription = await stripe.subscriptions.retrieve('sub_1K761XAQ1wHtJVmkgdf8CBm9')
+  const subscription = await stripe.subscriptions.retrieve('sub_1K6nQCAQ1wHtJVmkQPSFisdy')
+  console.log(subscription)
 
   // const customer1 = await User.findOneAndUpdate({stripeCustomerID: 'cus_KahNEoEQQbec71'}, {
   //   stripeCustomerID: subscription.customer,
