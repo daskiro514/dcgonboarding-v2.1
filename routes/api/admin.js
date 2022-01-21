@@ -599,7 +599,7 @@ router.get('/getAllCustomers', async (req, res) => {
 
   customers.forEach(async customer => {
     if (customer.subscriptionEndDate < dateInSeconds) {
-      console.log(customer.name)
+      customer.customerStatus = 'Expired'
     }
   })
 
