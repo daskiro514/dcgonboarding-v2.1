@@ -76,7 +76,17 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                           <td>{item.username}</td>
                           <td><img src={item.avatar} alt="PARTNER AVATAR" width="70px" height="70px" /></td>
                           <td><p style={{ width: '120px' }}>{item.name}</p></td>
-                          <td>{item.customerStatus === 'Suspended' ? <span className="w3-text-red">Suspended</span> : <span className="w3-text-blue">Active</span>}</td>
+                          <td>
+                            {item.customerStatus === 'Suspended'
+                              ?
+                              <span className="w3-text-red">Suspended</span>
+                              : item.customerStatus === 'Expired'
+                                ?
+                                <span className="w3-text-warning">Expired</span>
+                                :
+                                <span className="w3-text-blue">Active</span>
+                            }
+                          </td>
                           <td>{item.seller.name}</td>
                           <td><p style={{ width: '100px' }}>{item.email}</p></td>
                           <td><p style={{ width: '100px' }}>{item.phone}</p></td>
