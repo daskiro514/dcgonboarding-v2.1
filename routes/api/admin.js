@@ -566,12 +566,12 @@ router.get('/suspendProduct/:id', async (req, res) => {
 
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
-  const stripeCustomers = await stripe.customers.list({
-    limit: 100,
+  const invoices = await stripe.invoices.list({
+    limit: 3,
   })
 
-  stripeCustomers.data.forEach(customer => {
-    console.log(customer.email)
+  invoices.data.forEach(invoice => {
+    console.log(invoice)
   })
   // const customers1 = await User.find({ type: 'customer' })
   // customers1.forEach((customer, index) => {
@@ -586,9 +586,6 @@ router.get('/getAllCustomers', async (req, res) => {
   // })
 
   // CUSTOMER RESUBSCRIPTION UPDATE
-
-  const subscription = await stripe.subscriptions.retrieve('sub_1K6nQCAQ1wHtJVmkQPSFisdy')
-  console.log(subscription)
 
   // const customer1 = await User.findOneAndUpdate({stripeCustomerID: 'cus_KahNEoEQQbec71'}, {
   //   stripeCustomerID: subscription.customer,
