@@ -596,6 +596,7 @@ router.get('/getAllCustomers', async (req, res) => {
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
 
   customers.forEach(async customer => {
+    console.log('')
     console.log(customer.name)
   })
 
