@@ -567,16 +567,7 @@ router.get('/suspendProduct/:id', async (req, res) => {
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
   console.log('GET ALL CUSTOMERS.')
-  // const invoices = await stripe.invoices.list({
-  //   limit: 300,
-  // })
 
-  // invoices.data.forEach(invoice => {
-  //   console.log('name: ' + invoice.customer_name + '    auto advance: ' + invoice.auto_advance)
-  // })
-
-  const customer = await User.findOne({ username: 'sdonawho@gmail.com' })
-  console.log(customer)
   // const customers1 = await User.find({ type: 'customer' })
   // customers1.forEach((customer, index) => {
   //   if (customer.customerStatus !== 'Active') {
@@ -603,6 +594,11 @@ router.get('/getAllCustomers', async (req, res) => {
 
   const customersFromDB = await User.find({ type: 'customer' }).populate('purchasedProductID').populate('seller')
   const customers = customersFromDB.filter(customer => customer.customerStatus !== 'Deleted')
+
+  customers.forEach(async customer => {
+    console.log(customer.name)
+  })
+
   res.json({
     success: true,
     customers
