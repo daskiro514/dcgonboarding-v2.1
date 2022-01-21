@@ -79,12 +79,12 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
                           <td>
                             {item.customerStatus === 'Suspended'
                               ?
-                              <span className="w3-text-red">Suspended</span>
+                              <p style={{ width: '100px' }} className="w3-text-red">Suspended</p>
                               : item.customerStatus === 'Expired'
                                 ?
-                                <span className="w3-text-warning">Expired</span>
+                                <p style={{ width: '100px' }} className="w3-text-orange">Expired</p>
                                 :
-                                <span className="w3-text-blue">Active</span>
+                                <p style={{ width: '100px' }} className="w3-text-blue">Active</p>
                             }
                           </td>
                           <td>{item.seller.name}</td>
