@@ -566,7 +566,7 @@ router.get('/suspendProduct/:id', async (req, res) => {
 
 // CUSTOMERS
 router.get('/getAllCustomers', async (req, res) => {
-  console.log('GET ALL CUSTOMERS')
+  console.log('GET ALL CUSTOMERS.')
   const invoices = await stripe.invoices.list({
     limit: 3,
   })
