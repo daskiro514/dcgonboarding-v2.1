@@ -935,6 +935,13 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
 
 .bg-customer .whitepanel .greendiv a .secondspan {
   font-size: 14px;
+  font-weight: lighter;
+}
+
+.bg-customer .whitepanel .no-green {
+  background-color: white !important;
+  color: rgb(0, 0, 238) !important;
+  font-weight: lighter !important;
 }
 
 .bg-customer .footer  {
@@ -1320,4 +1327,14 @@ i {
 
 .adminSales .apexcharts-inner path:hover {
   fill: #9b6719;
+}
+
+.customer-home-background {
+  position: fixed;
+  /* background-image: url('./img/login/home-bg2.png'); */
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('./img/login/home-bg2.png');
+  width: 100vw;
+  height: 100vh;
+  filter: contrast(1);
+  background-size: 100% 100%;
 }
