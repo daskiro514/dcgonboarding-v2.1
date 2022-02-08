@@ -362,8 +362,8 @@ router.post('/createCustomer', async (req, res) => {
       emailData = {
         from: 'DCGONBOARDING <info@dcgonboarding.com>',
         to: req.body.email,
-        subject: 'Welcom to DCGONBOARDING',
-        text: 'Your request have successfully approved. Your username is <' + req.body.username + '> and password is <' + req.body.password + '>. Thanks. DCGONBOARDING TEAM'
+        subject: 'Welcome to DCG,',
+        text: 'Welcome to DCG \n \n Here is your login info... Your username is <' + req.body.username + '> and password is <' + req.body.password + '>. Thanks. DCGONBOARDING TEAM'
       }
     } else {
       emailData = {
