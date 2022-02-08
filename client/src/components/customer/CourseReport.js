@@ -29,7 +29,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
       <br />
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12" style={{marginBottom: '20px'}}>
             <Link to="/home" className="btn w3-white">BACK</Link>
           </div>
           <br />
@@ -38,7 +38,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
             <br />
             <div className="report-below-courses">
               <img src={logoImage} alt="lalala" className="img-responsive" />
-              <p className="justify">
+              <p className="justify" style={{marginBottom: '20px'}}>
                 Welcome to the onboarding course. The goal of this course is to get you caught up to speed on everything you need to know to get started!
               </p>
             </div>
@@ -78,7 +78,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
 
           </div>
           <div className="col-md-5">
-            <h1>
+            <h1 style={{paddingBottom: '20px'}}>
               REPORTS
             </h1>
             <div className="w3-row under-report">

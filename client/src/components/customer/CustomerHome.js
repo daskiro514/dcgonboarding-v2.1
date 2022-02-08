@@ -15,6 +15,9 @@ const CustomerHome = ({ isAuthenticated, user, logout, setAlert }) => {
       setAlert('Your Subscription Has Already Ended.', 'warning')
       history.push(`/checkoutsub2/${user.purchasedProductID._id}`)
     }
+    if (user.purchasedProductID.price < 25000) {
+      history.push('/coursereports')
+    }
   }, [user, history, setAlert])
 
   return (
