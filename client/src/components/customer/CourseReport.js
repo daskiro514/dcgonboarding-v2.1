@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { getReports } from '../../actions/admin'
 import { getCourses } from '../../actions/partner'
 import logoImage from '../../img/course/logo2.png'
+import { logout } from '../../actions/auth'
 
 const defaultVideos = [
   'Class 1 Bootcamp 10 Welcome TeailaK',
@@ -17,7 +18,7 @@ const defaultVideos = [
   'Start up - Dcg Organization & New Member Start Up',
 ]
 
-const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, courses }) => {
+const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, logout, courses }) => {
   React.useEffect(() => {
     getReports()
     getCourses(seller)
@@ -31,6 +32,7 @@ const CourseReport = ({ baseURL, seller, getReports, getCourses, reports, course
         <div className="row">
           <div className="col-md-12" style={{marginBottom: '20px'}}>
             <Link to="/home" className="btn w3-white">BACK</Link>
+            <button onClick={logout} className="btn w3-white w3-margin-left">LOGOUT</button>
           </div>
           <br />
           <div className="col-md-5">
@@ -112,4 +114,4 @@ const mapStateToProps = state => ({
   courses: state.partner.partnerCourses
 })
 
-export default connect(mapStateToProps, { getReports, getCourses })(CourseReport)
+export default connect(mapStateToProps, { getReports, getCourses, logout })(CourseReport)
