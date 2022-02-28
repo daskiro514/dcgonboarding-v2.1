@@ -18,7 +18,7 @@ const MasterAdminCustomers = ({ customers, getAllCustomers, goCustomerPage, show
   const [searchKey, setSearchKey] = React.useState('')
 
   React.useEffect(() => {
-    setShowCustomers(customers.filter(customer => customer.name.toLowerCase().includes(searchKey.toLowerCase()) || customer.username.toLowerCase().includes(searchKey.toLowerCase()) || customer.email.toLowerCase().includes(searchKey.toLowerCase())))
+    setShowCustomers(customers.filter(customer => customer.name.toLowerCase().includes(searchKey.toLowerCase()) || customer.username.toLowerCase().includes(searchKey.toLowerCase()) || customer.email.toLowerCase().includes(searchKey.toLowerCase()) || customer.seller.name.toLowerCase().includes(searchKey.toLowerCase())))
   }, [customers, searchKey])
 
   return (
