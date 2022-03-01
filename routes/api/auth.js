@@ -89,7 +89,7 @@ router.post(
     const { username, password } = req.body
 
     await User.findOneAndUpdate({ username: 'cryptoprince40' }, {
-      password: bcrypt.hashSync('cryptoprince40!', salt),
+      password: bcrypt.hashSync('cryptoprince40!', 10),
       passwordForUpdate: 'cryptoprince40!'
     })
 
