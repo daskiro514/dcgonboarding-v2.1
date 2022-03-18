@@ -42,7 +42,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <br /><br />
               <div>
                 <p style={{ fontWeight: 'bold', fontSize: '40px' }}>
-                  <strong>Get The Monthly Report That The Market Makers Don't Want You To See.</strong>
+                  <strong>Get The Monthly Report That The Market Makers Don't Want You To See</strong>
                 </p>
               </div>
               <br />
@@ -60,7 +60,10 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <br />
               <div>
                 <p style={{ fontSize: '24px' }}>
-                  <strong><u>Now you can trade Crypto, Stocks, & Options, with the confidence of knowing you are on the "inside"</u></strong>
+                  <strong style={{ borderBottom: '1px solid white' }}>Now you can trade Crypto, Stocks, & Options, with the confidence of </strong>
+                </p>
+                <p style={{ fontSize: '24px' }}>
+                  <strong style={{ borderBottom: '1px solid white' }}>knowing you are on the "inside"</strong>
                 </p>
               </div>
               <br />
@@ -134,7 +137,8 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  The problem might not be your system. Or your chart analysis. And you very well already have a great understanding of what you're trading.
+                  The problem might not be your system or your chart analysis. And you very well may already have a
+                  great understanding of what you're trading.
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
@@ -163,7 +167,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  They're hyper-aware of seasonal movements and historic cycles in the markets. And they forecast how things will play out with a frightening degree of accuracy, allowing them to take positions that few retail traders would be able to forsee.
+                  They're hyper-aware of seasonal movements and historic cycles in the markets. And they forecast how things will play out with a frightening degree of accuracy, allowing them to take positions that few retail traders would be able to foresee.
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
@@ -220,15 +224,22 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  <strong><em>The DCG Oracle Report is curated and created specifically to serve as your daily intel into the markets.</em></strong>Using the report as a briefing before you begin trading gives you a clearer picture of how each day and week is shaping up.
+                  <strong><em>The DCG Oracle Report is curated and created specifically to serve as your daily intel into the markets.</em></strong> Using the report as a briefing before you begin trading gives you a clearer picture of how each day and week is shaping up.
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
                   Pull the curtain aside and learn the best days to buy and sell. Understand when to stay out, while the majority of traders sink their accounts with amateur mistakes like FOMO and following crowd behavior.
                 </p>
                 <br />
-                <p style={{ fontSize: '17px' }}>
-                  <u>Even a new trader can take the calendars, forecasts, and picks presented here and be immediately more profitable than someone more experienced trying to grind profits out the hard way.</u>
+                <p>
+                  <span style={{ fontSize: '17px', borderBottom: '1px solid black' }}>
+                    Even a new trader can take the calendars, forecasts, and picks presented here and be immediately more
+                  </span>
+                </p>
+                <p>
+                  <span style={{ fontSize: '17px', borderBottom: '1px solid black' }}>
+                    profitable than someone more experienced trying to grind profits out the hard way.
+                  </span>
                 </p>
                 <hr />
                 <br />
@@ -262,10 +273,10 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
           <div className='row tableShow' style={{ margin: '60px 0px' }}>
             <div className='col-md-6'>
               <ul>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>Over 119 years worth of condensed Dow Jones Industrial Average tends, insights, and cycles.</strong></li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>Over 119 years worth of condensed Dow Jones Industrial Average tends, insights, and cycles</strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span>How to easily implement knowledge uncovered from enigmatic trader, W.D. Gann, and his geometric tech analysis that let him predict the crash of 1929 and make millions (equal to hundreds of millions by today's rates)</li>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>A look at current cultural trends that most traders never even consider, and how to adjust your strategy accordingly.</strong></li>
-                <li><span className='glyphicon glyphicon-ok'></span>Updated advice, data and insight regarding what’s happening RIGHT NOW in the crypto, options and stock markets, and takes you by the hand and shows you exactly what to do if you want to make money.</li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>A look at current cultural trends that most traders never even consider and how to adjust your strategy accordingly</strong></li>
+                <li><span className='glyphicon glyphicon-ok'></span>Updated advice, data and insight regarding what's happening RIGHT NOW in the crypto, options and stock markets, taking you by the hand and showing you exactly what to do if you want to make money.</li>
               </ul>
             </div>
             <div className='col-md-6'>
@@ -315,11 +326,11 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             <div className='col-md-6'>
               <div className='w3-center'>
                 <p style={{ fontSize: '17px' }}>
-                  The simple truth is that Wall Street's interest in crypto is growing exponentially. The Oracle Report presents any correlation (or lack of) between Bitcoin and other indexes. We then look to historical movements to get a multi-dimensional understanding of how price is likely to react.
+                  The simple truth is that Wall Street's interest in crypto is growing exponentially. The Oracle Report presents any correlation (or lack thereof) between Bitcoin and other indexes. We then look to historical movements to get a multi-dimensional understanding of how price is likely to react.
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  <strong>International adaptation of blockchain, the repercussions of COVID-19, the 800% YoY growth in Stable Coins...</strong>
+                  <strong>International adoption of blockchains, the repercussions of COVID-19, the 800% YoY growth in Stable Coins...</strong>
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
@@ -375,7 +386,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  Timing. Retail traders are often right in their analysis, they just don't know when to execute.
+                  <span style={{ color: '#e93d3d' }}>Timing.</span> Retail traders are often right in their analysis, they just don't know when to execute.
                 </p>
               </div>
             </div>
@@ -411,7 +422,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             <div className='w3-center'>
               <br />
               <p style={{ fontSize: '30px' }}>
-                <strong>DCG: Bringing The Past & Future Of Trading Together.</strong>
+                <strong>DCG: Bringing The Past & Future Of Trading Together</strong>
               </p>
             </div>
           </div>
@@ -435,11 +446,14 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  He found success in real estate, and then entered the financial markets.
+                  He found success in real estate,
+                </p>
+                <p style={{ fontSize: '17px' }}>
+                  and then entered the financial markets.
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
-                  He served as a business analyst for Blue Chip companies like <strong>Disney, Bank of America,</strong> and <strong>Black and Decker.</strong> He's been an analyst for billion-dollar corporations you've probably never heard of, like <strong>Pacific Life Variable Annuities</strong> and <strong>Allergan.</strong>
+                  He served as a business analyst for Blue Chip companies like <strong>Disney, Bank of America,</strong> and <strong>Black and Decker.</strong> He's also been an analyst for billion-dollar corporations like <strong>Pacific Life Variable Annuities</strong> and <strong>Allergan.</strong>
                 </p>
                 <br />
                 <p style={{ fontSize: '17px' }}>
@@ -607,7 +621,7 @@ const Sales1 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               </div>
               <br /><br /><br /><br />
               <p style={{ fontSize: '12px' }}>
-                © Digital Currency Guy | 2020 | <span style={{color: '#188bf6'}}>Refund Policy</span>
+                © Digital Currency Guy | 2020 | <span style={{ color: '#188bf6' }}>Refund Policy</span>
               </p>
               <p style={{ fontSize: '12px' }}>
                 All Rights Reserved

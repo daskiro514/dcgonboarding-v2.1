@@ -67,7 +67,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             </div>
             <div className='col-sm-5 col-md-5'>
               <div className='text-uppercase w3-center'>
-                <h2 style={{ color: '#aaa' }}>learn and get full</h2>
+                <h2>learn and get full</h2>
                 <div style={{ margin: '15px 0px' }}>
                   <h2>access to the</h2>
                   <h2>alligator trading</h2>
@@ -81,7 +81,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               </div>
               <br />
               <div className='w3-center'>
-                The Trading Mastermind - Where Entrepreneurs Master Stocks, Options, Forex, and Crypto! When you join DCG Mastermind You Get Access To Over 6, 7, and 8 Figure Traders.
+                The Trading Mastermind - where entrepreneurs master Stocks, Options, Forex, and Crypto! When you join DCG Mastermind, you get access to over 6, 7 and 8 figure traders' insights and expertise.
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
           <div className='giveButton' style={{
             backgroundColor: '#ff7902',
             fontWeight: 'bold',
-            padding: '5px 0px 5px',
+            padding: '15px 0px 15px',
             margin: 'auto',
             marginBottom: '10px',
             textAlign: 'center',
@@ -100,8 +100,6 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               color: 'white'
             }}>
               <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
-              <br />
-              <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
             </Link>
           </div>
         </div>
@@ -114,12 +112,34 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
         <div className='container blackParts'>
           <div className='row'>
             <ul>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Learn From The Masterminds.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>All DCG Classes Are Live - Taught By Traders Who Actually Trade.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Learn Day Trading and Swing Trading Strategies Without Sitting In Front of Charts All Day.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Many Traders Find Success DCG Within 30 Days - The Culture In DCG is For Those Who Do Not Have.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Time To Spend Months Watching Videos. When You Join DCG You Get Access To.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Our Business As A Trader Course - Do You Know How To Structure Your Business To Minimize Taxes?</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Learn from the Masterminds</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>All DCG Classes are LIVE - taught by Traders who actually trade</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Learn Day Trading and Swing Trading strategies without sitting in front of charts all day</li>
+              <li>
+                <span className='glyphicon glyphicon-ok-sign'></span>
+                Many Traders find success within 30 days - the DCG culture is to provide help for those who do not have time to spend months watching videos
+              </li>
+              <li>
+                <span className='glyphicon glyphicon-ok-sign'></span>
+                When you join DCG, you get access to these types of live courses:
+                <ul>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>Business as a Trader - Structuring Your Business to Minimize Taxes</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>How to Leverage Other Traders to Generate Profits</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>No Charts - The Ability to Make Money in Trading Without Charts</li>
+                </ul>
+              </li>
+              <li>
+                <span className='glyphicon glyphicon-ok-sign'></span>
+                You'll also receive:
+                <ul>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>Our Masterclass on NFTs and Mindset Training for Traders and Entrepreneurs</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>Education on how to make money in crypto with digital assets</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>How to make 6 and 7 figure income with Land, Digital Art, and Gaming NFTs</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>Our proven Time Management Formula helping you manage more in less time</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>All DCG Strategies</li>
+                  <li><i className='fa fa-dot-circle-o mr-1'></i>And Our monthly Mastermind Oracle Trading Report ($197 value)</li>
+                </ul>
+              </li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Do You Know How To Leverage Other Traders To Generate Profits?</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>You will have access to our No Chart Course - The Ability To Make Money In Trading Without Charts.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Get access to our Masterclass On NFT's.</li>
@@ -127,8 +147,8 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <li><span className='glyphicon glyphicon-ok-sign'></span>Make 6 and 7 Figures With Virtual Land, Digital Art, Gaming NFT's.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Access To Our Time Management Formula - Manage More In Less Time.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Our Mastermind Course Include Mindset Training For Traders and Entrepreneurs.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Our Discord Server Has 24/7 Full Chat Support and Signals.</li>
-              <li><span className='glyphicon glyphicon-ok-sign'></span>Totally Transparent You Will Know When We Trade and What We Are Trading.</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>Our Discord Server has 24/7 full chat support and signals</li>
+              <li><span className='glyphicon glyphicon-ok-sign'></span>We are totally transparent; you will know when we trade and what we are trading</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Get Access To All The Strategies.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>The No Chart Trading Strategy.</li>
               <li><span className='glyphicon glyphicon-ok-sign'></span>Also, get a copy of our Mastermind Oracle Trading Report.</li>
@@ -149,14 +169,14 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
         <div className='container'>
           <div className='row'>
             <div className='text-uppercase w3-center' style={{ marginTop: '40px' }}>
-              <h1><strong>once you join get access to the</strong></h1>
+              <h1><strong>ONCE YOU JOIN, GET ACCESS TO:</strong></h1>
             </div>
             <div className='w3-center getAccess' style={{ marginTop: '20px' }}>
               <ul>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>TRADING BOOTCAMP</strong> (EVERY TUESDAY AND THURSDAY NIGHT COURSE FOR BEGINNERS)</li>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>Market Cycle Course</strong> (Learn To Trade Seasonality and Market Cycles) Trading With A Full-Time Job</li>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>Our Trading Is 24 Hours</strong> - Access Live Recordings Daily Even IF You Are Not Able To Attend Live</li>
-                <li><span className='glyphicon glyphicon-ok'></span><strong>Access to all of our revised Courses For 2021 </strong></li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>DCG TRADING BOOTCAMP</strong> (Every Tuesday and Thursday night LIVE course for beginners)</li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>Market Cycle Course</strong> (learn Seasonal Trading and Market Cycles and Trading with a full-time job)</li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>24-hour education</strong> (access recordings daily even if you are not able to attend live)</li>
+                <li><span className='glyphicon glyphicon-ok'></span><strong>ll revised courses from 2021</strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Stocks and Options 101</strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Crypto Trading 101</strong></li>
                 <li><span className='glyphicon glyphicon-ok'></span><strong>Forex Trading 101</strong></li>
@@ -165,7 +185,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             <div className='giveButton' style={{
               backgroundColor: '#ff7902',
               fontWeight: 'bold',
-              padding: '5px 0px 5px',
+              padding: '15px 0px 15px',
               margin: 'auto',
               marginBottom: '10px',
               textAlign: 'center',
@@ -177,7 +197,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               }}>
                 <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
                 <br />
-                <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
+
               </Link>
             </div>
           </div>
@@ -188,41 +208,41 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
         <div className='container blackParts'>
           <div className='row'>
             <div className='w3-center text-uppercase'>
-              <h1>we give you everything you need, in advance.</h1>
+              <h1>IT'S ALL ABOUT TIMING - WE GIVE YOU EVERYTHING YOU NEED IN ADVANCE!</h1>
               <br />
-              <h3>the mastermind is all inclusive.</h3>
+              {/* <h3>the mastermind is all inclusive.</h3> */}
             </div>
           </div>
           <div className='row'>
             <div className='container'>
               <div className='row'>
                 <ul>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Live Zoom Calls Daily.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>24/7 Trading Alert Group.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Telegram Alert Group.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To Alligator Strategy.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To No Charts Course.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To The NFT Masterclass.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To The Monthly Mastermind Report.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To The Automated Trading Platform.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Access To All Trading View Templates And Strategies.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Month To Month Program.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Complete Access To DCG Bootcamp and Mastermind Alliance.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Nothing is held back.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>Virtual Land, Gaming, And Digital Arts</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>You will be around others that are winning.</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Daily Live Zoom Calls</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>24/7 Trading Alert Group</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Telegram Alert Group</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Alligator Strategy Education</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Automated Trading Platform</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Trading View Templates and Strategies</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Month-to-Month Subscription Program</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>DCG Bootcamp and Mastermind Alliance</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>We hold nothing back - you will be around others that are WINNING!</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>How to know what to buy, when and why</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>How to Swing Trade saving you time</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>Learn the method and process I use to turn 2K into $41K in one trade!</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>You will be surprised how much you can learn in a short amount of time</li>
+                  {/* <li><span className='glyphicon glyphicon-ok-sign'></span>You will be around others that are winning.</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>How To Identify What To Buy, When, and Why.</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>Get Access To all the trading view tools we use while trading.</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>Learn how to SWING TRADING that saves your time.</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>Trading Rehab Mastermind Material</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>Learn and receive my alligator strategy with your membership</li>
                   <li><span className='glyphicon glyphicon-ok-sign'></span>Learn the exact method and process I use to turn 2k into$41,000 in one trade.</li>
-                  <li><span className='glyphicon glyphicon-ok-sign'></span>You will be surprised at what you can learn in a short amount of time.</li>
+                  <li><span className='glyphicon glyphicon-ok-sign'></span>You will be surprised at what you can learn in a short amount of time.</li> */}
                 </ul>
                 <div className='giveButton' style={{
                   backgroundColor: '#ff7902',
                   fontWeight: 'bold',
-                  padding: '5px 0px 5px',
+                  padding: '15px 0px 15px',
                   margin: 'auto',
                   marginTop: '30px',
                   marginBottom: '30px',
@@ -235,7 +255,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                   }}>
                     <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
                     <br />
-                    <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
+
                   </Link>
                 </div>
               </div>
@@ -269,9 +289,9 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
               <h1><strong>About Your Coach</strong></h1>
             </div>
             <div className='col-md-6 w3-center'>
-              <p>Jamar James is a Professional Trader and Crypto Currency Coach who helps entrepreneurs and business professionals earn a full-time income investing in crypto-currency strategies.</p>
-              <p>Jamar, also known as the Digital Currency Guy has created a dynamic coaching group designed to take an individual from being introduced to crypto-currency to living completely off of crypto-currency investments within 12 months.</p>
-              <p>Before creating the perfect DCG crypto-currency system, Jamar spent 20 years as a Technology Consultant and Prop Trader for private financial firms in the U.S. After a successful career in I.T., helping fortune 500 companies and investing money successfully in the stock market, as well as real estate, Jamar has now built a community of traders and Mastermind members who are now earning a full-time income from crypto-currency in their spare time.</p>
+              <p>Jamar James is a Professional Trader and Crypto Currency Coach who helps entrepreneurs and business professionals earn a full-time income investing in cryptocurrency strategies.</p>
+              <p>Jamar, also known as the Digital Currency Guy has created a dynamic coaching group designed to take an individual from being introduced to cryptocurrency to living completely off of cryptocurrency investments within 12 months.</p>
+              <p>Before creating the perfect DCG cryptocurrency system, Jamar spent 20 years as a Technology Consultant and Prop Trader for private financial firms in the U.S. After a successful career in I.T., helping fortune 500 companies and investing money successfully in the stock market, as well as real estate, Jamar has now built a community of traders and Mastermind members who are now earning a full-time income from cryptocurrency in their spare time.</p>
               <p>Jamar also loves to teach programming to children and often hosts workshops to bring mass awareness about the benefits of digital currency.</p>
               <div className='giveButton' style={{
                 backgroundColor: '#ff7902',
@@ -332,7 +352,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
           <div className='giveButton' style={{
             backgroundColor: '#ff7902',
             fontWeight: 'bold',
-            padding: '5px 0px 5px',
+            padding: '15px 0px 15px',
             margin: 'auto',
             marginBottom: '10px',
             textAlign: 'center',
@@ -344,7 +364,7 @@ const Sales2 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
             }}>
               <span style={{ fontSize: '24px' }}>GIVE ME ACCESS TO MASTERMIND</span>
               <br />
-              <span style={{ fontSize: '14px' }}>I'm looking for DETERMINED people; This opportunity will not be available soon.</span>
+
             </Link>
           </div>
           <div className='row' style={{ marginTop: '80px' }}>

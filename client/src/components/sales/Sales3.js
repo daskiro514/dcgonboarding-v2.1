@@ -76,20 +76,19 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-Kmi6FAWLf" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-Kmi6FAWLf text-output cheading-Kmi6FAWLf none noBorder radius0 none">
                             <div>
-                              <h1>DCG <strong>INVITATION ONLY ELITE MASTERMIND CLUB</strong>!!!</h1>
+                              <h1><strong>DCG INVITATION ONLY ELITE MASTERMIND CLUB!!!</strong></h1>
                             </div>
                           </div>
                         </div>
                         <div id="sub-heading-npvewSjmt" className="c-sub-heading c-wrapper" data-v-44243b2d="">
-                          <div className="sub-heading-npvewSjmt text-output csub-heading-npvewSjmt none noBorder radius0 none">
+                          <div className="text-uppercase sub-heading-npvewSjmt text-output csub-heading-npvewSjmt none noBorder radius0 none">
                             <div>
-                              <h2>UPGRADE TO TEAM DCG ELITE - A Special <strong>MASTERMIND UNIT WORKING WITH JAMAR'S INNER
-                                CIRCLE.</strong></h2>
-                              <h2><strong>WORK WITH THE SELECTED MASTERMIND TRADERS </strong>FROM JAMARS INNER CIRCLE. GET
-                                UNLIMITED ACCESS. </h2>
-                              <h2><strong>WORK DIRECTLY WITH DCG ELITE THE MOST PROFITABLE GROUP OF TRADERS IN DCG.</strong>
-                              </h2>
-                              <p> <strong>WE WIN TOGETHER..</strong></p>
+                              <h2>FROM YOUR MASTERMIND SUBSCRIPTION, UPGRADE TO TEAM DCG ELITE</h2>
+                              <br />
+                              <h2>--- A SPECIAL MASTERMIND UNIT OF JAMAR'S INNER CIRCLE. WORK WITH THE SELECTED MASTERMIND </h2>
+                              <h2>TRADERS GETTING UNLIMITED ACCESS TO THE MOST PROFITABLE GROUP OF TRADERS IN DCG ---</h2>
+                              <br />
+                              <h2>WE WIN TOGETHER!</h2>
                             </div>
                           </div>
                         </div>
@@ -162,11 +161,12 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                             </div>
                           </div>
                         </div>
+                        <br />
                         <div id="sub-heading-J5Q5n7PT9" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-J5Q5n7PT9 text-output csub-heading-J5Q5n7PT9 none noBorder radius0 none">
                             <div>
-                              <h2>GET ACCESS TO <strong>VARIOUS STRATERGIES </strong>AND <strong>VARIOUS TRICKS</strong>
-                                THAT<strong> MASTERMINDS</strong> USE TO <strong>TRADE</strong></h2>
+                              <h2>GET ACCESS TO VARIOUS STRATEGIES AND VARIOUS</h2>
+                              <h2>TRICKS THAT MASTERMINDS USE TO TRADE</h2>
                             </div>
                           </div>
                         </div>
@@ -205,8 +205,8 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-b06pE4Z8r" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-b06pE4Z8r text-output csub-heading-b06pE4Z8r none noBorder radius0 none">
                             <div>
-                              <h2>Get <strong>exclusives insight</strong> on the trades inside the report and detailed
-                                explanation on what to <strong>purchase</strong> and when to <strong>exit</strong>!</h2>
+                              <h2>Get <strong>exclusive insight</strong> on the trades inside the report and detailed
+                                explanations on what to <strong>purchase</strong> and when to <strong>exit</strong>!</h2>
                             </div>
                           </div>
                         </div>
@@ -232,14 +232,14 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-3OTm4RpjYd" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-3OTm4RpjYd text-output cheading-3OTm4RpjYd none noBorder radius0 none">
                             <div>
-                              <h1><strong>Expand Deeper Into The Intro Crypto Course</strong></h1>
+                              <h1><strong>Expand Deeper Into The Intro to Crypto Course</strong></h1>
                             </div>
                           </div>
                         </div>
                         <div id="sub-heading-u-TZVckgB" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-u-TZVckgB text-output csub-heading-u-TZVckgB none noBorder radius0 none">
                             <div>
-                              <h2>Get the <strong>in-depth</strong> knowledge about <strong>Crypto currencies</strong> and
+                              <h2>Get the <strong>in-depth</strong> knowledge about <strong>Cryptocurrencies</strong> and
                                 dive deeper with <strong>Crypto Black</strong>.</h2>
                             </div>
                           </div>
@@ -277,9 +277,8 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-thwh0LuKD" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-thwh0LuKD text-output csub-heading-thwh0LuKD none noBorder radius0 none">
                             <div>
-                              <h2>Access The <strong>Masterminds</strong> Who Select The <strong>Best DCG picks</strong>.
-                              </h2>
-                              <h2>Know which <strong>Stocks and Options</strong> are being bought!</h2>
+                              <h2>Access the Masterminds who select the <strong>BEST</strong> DCG picks.</h2>
+                              <h2>Know which Stocks and Options are being bought!</h2>
                             </div>
                           </div>
                         </div>
@@ -314,7 +313,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                           <div className="sub-heading-8h1PhCKNz text-output csub-heading-8h1PhCKNz none noBorder radius0 none">
                             <div>
                               <h2>Get the in-depth <strong>knowledge</strong> about<strong> Foreign Exchanges</strong> and
-                                how it works</h2>
+                                how they work</h2>
                             </div>
                           </div>
                         </div>
@@ -353,7 +352,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-cpMp2k2yz" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-cpMp2k2yz text-output csub-heading-cpMp2k2yz none noBorder radius0 none">
                             <div>
-                              <h2>An in-depth guide on how to take a loan from <strong>Youself</strong> </h2>
+                              <h2>An in-depth guide on how to take a loan from <strong>Yourself</strong> </h2>
                             </div>
                           </div>
                         </div>
@@ -387,8 +386,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-LsngKiWY6" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-LsngKiWY6 text-output csub-heading-LsngKiWY6 none noBorder radius0 none">
                             <div>
-                              <h2>NFT are an <strong>Intangible Assets</strong> and with the correct knowledge you can just
-                                live on passive incomes</h2>
+                              <h2>NFTs are an <strong>Intangible Asset</strong> and with the correct knowledge, you can live on passive income</h2>
                             </div>
                           </div>
                         </div>
@@ -427,9 +425,8 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-WMzdfwwf9" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-WMzdfwwf9 text-output csub-heading-WMzdfwwf9 none noBorder radius0 none">
                             <div>
-                              <h2>DCG Primary Strategy For Swing Trades. Learn how DCG <strong>MASTERMIND Traders</strong>
-                                benefit from swing trading and get exclusive access to when this strategy will lead to
-                                profitability..</h2>
+                              <h2>DCG Primary Strategy For Swing Trades. Learn how DCG <strong>MASTERMIND Traders</strong> benefit from swing trading and get exclusive access to when this strategy will lead to
+                                profitability...</h2>
                             </div>
                           </div>
                         </div>
@@ -456,15 +453,14 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-6JLweL46eG" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-6JLweL46eG text-output cheading-6JLweL46eG none noBorder radius0 none">
                             <div>
-                              <h1><strong>7 Day Strategy</strong></h1>
+                              <h1><strong>7-Day Strategy</strong></h1>
                             </div>
                           </div>
                         </div>
                         <div id="sub-heading-tXiowuiSq" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-tXiowuiSq text-output csub-heading-tXiowuiSq none noBorder radius0 none">
                             <div>
-                              <h2>A collection of <strong>Strategies and Tricks</strong> that you will have access to on how
-                                to make your every trade profitable.</h2>
+                              <h2>A collection of <strong>Strategies and Tricks</strong> to help you make every trade profitable.</h2>
                             </div>
                           </div>
                         </div>
@@ -503,8 +499,9 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-JOC4oYT0S" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-JOC4oYT0S text-output csub-heading-JOC4oYT0S none noBorder radius0 none">
                             <div>
-                              <h2>A <strong>CAccess To DCG Business and Finances Resources. Monthly Special Access Classes
-                                to help </strong>your wealth grow!</h2>
+                              <h2>
+                                Access to DCG Business and Financial Resources. Monthly Special Access Classes to help your wealth grow!
+                              </h2>
                             </div>
                           </div>
                         </div>
@@ -571,15 +568,14 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-rfukC1ZD2e" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-rfukC1ZD2e text-output cheading-rfukC1ZD2e none noBorder radius0 none">
                             <div>
-                              <h1><strong>Replay Access To The 30 days private Masterclass</strong></h1>
+                              <h1><strong>Replay Access to the 30-Days Private Masterclass</strong></h1>
                             </div>
                           </div>
                         </div>
                         <div id="sub-heading-Sp7tuYp-D" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-Sp7tuYp-D text-output csub-heading-Sp7tuYp-D none noBorder radius0 none">
                             <div>
-                              <h2>Get Access To A <strong>Special Stocks and Option private masterclass</strong> replay to
-                                take your <strong>crypto and stocks options</strong> trading to the next level. </h2>
+                              <h2>A special private masterclass replay to take your Crypto and Stocks and Options trading to the next level</h2>
                             </div>
                           </div>
                         </div>
@@ -606,7 +602,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-47ANHsEl7h" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-47ANHsEl7h text-output cheading-47ANHsEl7h none noBorder radius0 none">
                             <div>
-                              <h1><strong>A private exclusive DCG group with direct access to the DCG Elite Team.</strong>
+                              <h1><strong>A private, exclusive DCG group with direct access to the DCG Elite Team</strong>
                               </h1>
                             </div>
                           </div>
@@ -614,8 +610,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="sub-heading-f_8NA_7yA" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-f_8NA_7yA text-output csub-heading-f_8NA_7yA none noBorder radius0 none">
                             <div>
-                              <h2>Get Exclusive invites into DCG teams. Join our <strong>Inner MASTERMIND Circle
-                              </strong>and get<strong> access to 1 team per month.</strong></h2>
+                              <h2>Get Exclusive invites into DCG teams. Join our <strong>Inner MASTERMIND Circle</strong> and get<strong> access to 1 team per month.</strong></h2>
                             </div>
                           </div>
                         </div>
@@ -631,16 +626,16 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-BxJshR4sLk" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-BxJshR4sLk text-output cheading-BxJshR4sLk none noBorder radius0 none">
                             <div>
-                              <h1><strong>Also Get Exclusive Insider knowledge with </strong></h1>
-                              <h1><strong>Weekly Trading Calls with specific MASTERMINDS.</strong></h1>
+                              <h1><strong>Exclusive insider knowledge with weekly trading calls</strong></h1>
+                              <h1><strong>with specific MASTERMINDS</strong></h1>
                             </div>
                           </div>
                         </div>
+                        <br />
                         <div id="sub-heading-H3mNAS1XW" className="c-sub-heading c-wrapper" data-v-44243b2d="">
                           <div className="sub-heading-H3mNAS1XW text-output csub-heading-H3mNAS1XW none noBorder radius0 none">
                             <div>
-                              <h2>GET TO KNOW ALL THE TRADING STRATERGY USED BY THE <strong>MASTERMINDS </strong>ON </h2>
-                              <h2> WEEKLY Zoom TRADING SESSIONS</h2>
+                              <h2>GET TO KNOW ALL THE TRADING STRATEGIES (stratergy isn't a word) USED BY THE <strong>MASTERMINDS</strong> ON WEEKLY ZOOM TRADING SESSIONS</h2>
                             </div>
                           </div>
                         </div>
@@ -693,7 +688,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-EoSlAX0nDg" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-EoSlAX0nDg text-output cheading-EoSlAX0nDg none noBorder radius0 none">
                             <div>
-                              <h1><strong>WE GIVE YOU EVERYTHING YOU NEED, IN ADVANCE.</strong></h1>
+                              <h1><strong>WE GIVE YOU EVERYTHING YOU NEED IN ADVANCE</strong></h1>
                             </div>
                           </div>
                         </div>
@@ -710,13 +705,11 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                           <div className="bulletList-4NnBOfMFjg text-output cbulletList-4NnBOfMFjg none noBorder radius0 none">
                             <div>
                               <ul>
-                                <li>Access To The <strong>NFT Special Elite Group</strong></li>
-                                <li>Virtual Land, Gaming, And Digital Arts.</li>
-                                <li>DCG <strong>Mastermind Material And Alerts.</strong></li>
-                                <li>Access To <strong>Special Energy &amp; Mindset Trainings</strong>.</li>
-                                <li>Get Access and support on all the trading view Templates And Strategies we use while
-                                  trading.</li>
-                                <li>Access To All Special Business Growth hacks and income opportunities for the ELITE.</li>
+                                <li>Access to the <strong>NFT Special Elite Group</strong></li>
+                                <li>Virtual Land, Gaming and Digital Arts.</li>
+                                <li>DCG <strong>Mastermind Material and Alerts.</strong></li>
+                                <li><strong>Special Energy and Mindset Trainings</strong>.</li>
+                                <li>Support for all the Trading View Templates And Strategies used when Trading.</li>
                               </ul>
                             </div>
                           </div>
@@ -729,12 +722,9 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                           <div className="bulletList-pwHIthVtt_ text-output cbulletList-pwHIthVtt_ none noBorder radius0 none">
                             <div>
                               <ul>
-                                <li>Access To <strong>Alligator Strategy</strong>.</li>
-                                <li>Access To Get Set Up On Special DCG Index Fund Setup.</li>
-                                <li>How To Identify What To Buy, When, and Why.</li>
-                                <li>Learn how to <strong>manage your bank (BYOB) information </strong>that saves you time.
-                                </li>
-                                <li>You will be around others that are <strong>Winning</strong>.</li>
+                                <li>Special Business Growth Hacks and Income Opportunities for the ELITE</li>
+                                <li>Alligator Strategy Training</li>
+                                <li>Special DCG Index Fund Setup</li>
                               </ul>
                             </div>
                           </div>
@@ -785,45 +775,6 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                 </div >
               </div >
             </div >
-            <div id="section-BPVZKRSzF" className="fullSection none noBorder radius0 none c-section c-wrapper section-BPVZKRSzF"
-              data-v-44243b2d="">
-              <div className="inner" data-v-44243b2d="">
-                <div id="row-NHSexlS_OO"
-                  className="row-align-center shadow40 noBorder radius0 none c-row c-wrapper row-NHSexlS_OO" data-v-44243b2d="">
-                  <div className="inner" data-v-44243b2d="">
-                    <div id="col-YU7K70Ax48" className="c-column c-wrapper col-YU7K70Ax48" data-v-44243b2d="">
-                      <div className="inner none noBorder radius0 none bg bgCover vertical" data-v-44243b2d="">
-                        <div id="heading-MhobXlJ_bG" className="c-heading c-wrapper" data-v-44243b2d="">
-                          <div className="heading-MhobXlJ_bG text-output cheading-MhobXlJ_bG none noBorder radius0 none">
-                            <div>
-                              <h1><strong>Special DCG ELITE - Invite Only Access Training Schedule</strong></h1>
-                            </div>
-                          </div>
-                        </div>
-                        <div id="bulletList-F-nnJ9bPc1" className="c-bullet-list c-wrapper" data-v-44243b2d="">
-                          <div className="bulletList-F-nnJ9bPc1 text-output cbulletList-F-nnJ9bPc1 none noBorder radius0 none">
-                            <div>
-                              <ul>
-                                <li><strong>TRADING BOOTCAMP</strong> (EVERY TUESDAY AND THURSDAY NIGHT COURSE FOR
-                                  BEGINNERS)</li>
-                                <li><strong>Market Cycle Course</strong> ( Learn To Trade Seasonality and Market Cycles)
-                                  Trading With A Full-Time Job</li>
-                                <li><strong>Our Trading Is 24 Hours</strong> – Access Live Recordings Daily Even IF You Are
-                                  Not Able To Attend Live</li>
-                                <li><strong>Access to all of our revised Courses For 2021</strong></li>
-                                <li><strong>Stocks and Options 101</strong></li>
-                                <li><strong>Crypto Trading 101</strong></li>
-                                <li><strong>Forex Trading 101</strong></li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             <div id="section-RdxX-eLXU" className="fullSection none noBorder radius0 none c-section c-wrapper section-RdxX-eLXU"
               data-v-44243b2d="">
               <div className="bg bgCover"
@@ -886,17 +837,12 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                             <div>
                               <ul>
                                 <li><strong>Identify what resources you must have in 2022 to make huge profits</strong>
-                                  (Crypto moves at the speed of light and you have the opportunity to be at the forefront.)
+                                  (Crypto moves at the speed of light and you have the opportunity to be at the forefront)
                                 </li>
-                                <li><strong>How much money can really be made? </strong>Let us show you some of our biggest
-                                  wins. Leverage our experience...</li>
-                                <li><strong>Defi-The new way to build generational wealth?</strong> Defi has given us a huge
-                                  opportunity, we will reveal why.</li>
-                                <li><strong>A Digital Currency Real Estate Broker.</strong> The advantage of virtual real
-                                  estate. The new monopoly game.</li>
-                                <li><strong>Day Trading, Swing Trading, Investing, to now focused on NFT's?
-                                </strong>Knowledge is truly power, if you have time to watch youtube for 1 hour a day, we
-                                  will show you significant gains. Anyone can generate unbelievable returns with NFT's.</li>
+                                <li><strong>How much money can really be made? </strong>Let us show you some of our biggest wins. Leverage our experience</li>
+                                <li><strong>Defi-The new way to build generational wealth?</strong> Defi has given us a huge opportunity; we will reveal how and why</li>
+                                <li><strong>A Digital Currency Real Estate Broker.</strong> The advantage of virtual real estate, the new Monopoly game</li>
+                                <li><strong>Day Trading, Swing Trading, Investing, to now focused on NFT's?</strong> Knowledge is truly power. If you have time to watch a youtube video for 1 hour a day, we will show you significant gains. Anyone can generate unbelievable returns with NFTs.</li>
                               </ul>
                             </div>
                           </div>
@@ -1116,7 +1062,7 @@ const Sales3 = ({ match, getTempUser, getSalesProducts, getPublishableKey, defau
                         <div id="heading-Yakoy0r-ZT" className="c-heading c-wrapper" data-v-44243b2d="">
                           <div className="heading-Yakoy0r-ZT text-output cheading-Yakoy0r-ZT radius0 noBorder">
                             <div>
-                              <p>99.9% of our Mastermind member Take Advantage of THE DCG DISCORD SERVICES - Mastermind
+                              <p>99.9% of our Mastermind members Take Advantage of THE DCG DISCORD SERVICES - Mastermind
                                 Report + TEAM ALERTS</p>
                             </div>
                           </div>
