@@ -251,6 +251,8 @@ router.get('/getPendingPartnerByUserId/:id', async (req, res) => {
 })
 
 router.get('/getPendingPartners', async (req, res) => {
+  const customers = await stripe.customers.list()
+  console.log(customers)
   // const customer = await stripe.customers.retrieve('cus_KjCKSzgRdEZ2cK')
   // let subscription = {}
 
