@@ -254,6 +254,7 @@ router.get('/getPendingPartners', async (req, res) => {
   const customers = await stripe.customers.list()
   for (var i = 0; i < customers.data.length; i++){
     const customer = customers.data[i]
+    console.log(customer)
   }
 
   // const customer = await stripe.customers.retrieve('cus_KjCKSzgRdEZ2cK')
