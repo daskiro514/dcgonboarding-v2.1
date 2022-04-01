@@ -25,6 +25,8 @@ import CourseReport from '../customer/CourseReport'
 import ReportArticle from '../customer/ReportArticle'
 import Video from '../customer/Video'
 import DefaultVideo from '../customer/DefaultVideo'
+import PaymentUpdate from '../sales/PaymentUpdate'
+import ThanksForPaymentUpdate from '../layout/ThanksForPaymentUpdate'
 
 const Routes = props => {
   return (
@@ -48,7 +50,9 @@ const Routes = props => {
         <Route path="/checkoutsub/:id" component={CheckoutForSubscription} />
         <Route path="/checkoutsub2/:id" component={CheckoutForSubscription2} />
         <Route path="/checkoutone/:id" component={CheckoutForProduct} />
+        <Route path="/update-customer-payment/:id" component={PaymentUpdate} />
         <Route path="/thankscustomer" component={ThanksForCustomer} />
+        <Route path="/thanks-payment-update" component={ThanksForPaymentUpdate} />
         <PrivateRoute path="/coursereports" component={CourseReport} />
         <PrivateRoute path="/report/:id" component={ReportArticle} />
         <PrivateRoute path="/video/:id" component={Video} />

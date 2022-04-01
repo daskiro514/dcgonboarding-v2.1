@@ -69,6 +69,11 @@ export const login = (username, password) => async dispatch => {
       errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
     }
 
+    if (errors[0].msg === "Your Subscription Has Already Ended.") {
+      const res = await api.get(`/auth/getCustomerPaymentUpdateLink/${username}`)
+      window.location.href = `/update-customer-payment/${res.data.customerID}`
+    }
+
     dispatch({
       type: LOGIN_FAIL
     })

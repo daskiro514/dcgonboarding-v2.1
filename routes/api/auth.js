@@ -74,6 +74,17 @@ router.post('/resetPassword', async (req, res) => {
   }
 })
 
+// GET CUSTOMER PAYMENT METHOD UPDATE LINK
+router.get('/getCustomerPaymentUpdateLink/:username', async (req, res) => {
+  const username = req.params.username
+  const customer = await User.findOne({ username: new RegExp(`^${username}$`, 'i') })
+
+  res.json({
+    success: true,
+    customerID: customer._id
+  })
+})
+
 // @route    POST api/auth
 // @desc     Authenticate user & get token
 // @access   Public

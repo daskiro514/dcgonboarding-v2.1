@@ -20,6 +20,7 @@ app.use('/api/profile', require('./routes/api/profile'))
 app.use('/api/posts', require('./routes/api/posts'))
 app.use('/api/admin', require('./routes/api/admin'))
 app.use('/api/partner', require('./routes/api/partner'))
+app.use('/api/customer', require('./routes/api/customer'))
 app.use('/api/stripe', require('./routes/api/stripe'))
 
 // Serve frontend built

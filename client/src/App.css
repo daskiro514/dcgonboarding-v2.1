@@ -858,6 +858,16 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td {
   border-radius: 3px;
 }
 
+.bg-checksub2 .order .details select {
+  border-color: #ddd;
+  font-size: 110%;
+  padding: 12px;
+  height: 42px;
+  box-shadow: 0 0 1px rgb(5 5 5 / 20%);
+  line-height: normal;
+  border-radius: 3px;
+}
+
 .bg-checksub2 .order .details .col-sm-6 {
   padding: 0px 10px;
 }
