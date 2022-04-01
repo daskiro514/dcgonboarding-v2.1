@@ -103,7 +103,10 @@ router.post('/updateCustomerPaymentMethod', async (req, res) => {
     })
 
     await User.findByIdAndUpdate(req.body.customerID, {
-      stripeSubscription: subscription.id
+      stripeSubscription: subscription.id,
+      email: req.body.email,
+      name: req.body.name,
+      phone: req.body.phone,
     }, { new: true })
 
     var emailData = {
