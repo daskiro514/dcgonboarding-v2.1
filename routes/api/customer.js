@@ -62,8 +62,6 @@ router.post('/updateCustomerPaymentMethod', async (req, res) => {
       }
     })
 
-    console.log(paymentMethod)
-
     // DELETE CURRENT DEFAULT PAYMENT METHOD (CARD) 
     const stripeCustomer = await stripe.customers.retrieve(customer.stripeCustomerID)
     await stripe.paymentMethods.detach(stripeCustomer.invoice_settings.default_payment_method)
