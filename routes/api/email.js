@@ -8,8 +8,6 @@ const mailgunDomain = config.get('mailgun.domain')
 var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 
 router.post('/', async (req, res) => {
-
-  console.log(req.body)
   var emailContentToPartner = {
     from: req.body.email,
     to: 'progdev77@gmail.com',
