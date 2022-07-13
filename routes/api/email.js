@@ -10,6 +10,16 @@ var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDoma
 router.post('/', async (req, res) => {
 
   console.log(req.body)
+  var emailContentToPartner = {
+    from: req.body.email,
+    to: 'progdev77@gmail.com',
+    subject: req.body.subject,
+    text: `${req.body.name} sent a message.\n\n${req.body.message}`
+  }
+
+  mailgun.messages().send(emailContentToPartner, function (error, body) {
+    console.log(body)
+  })
 
   res.json({
     success: true
