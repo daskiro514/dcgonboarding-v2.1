@@ -22,6 +22,7 @@ app.use('/api/admin', require('./routes/api/admin'))
 app.use('/api/partner', require('./routes/api/partner'))
 app.use('/api/customer', require('./routes/api/customer'))
 app.use('/api/stripe', require('./routes/api/stripe'))
+app.use('/api/email', require('./routes/api/email'))
 
 // Serve frontend built
 app.use(express.static(__dirname + '/client/build'))
