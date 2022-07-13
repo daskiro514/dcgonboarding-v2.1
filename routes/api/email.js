@@ -13,3 +13,5 @@ router.post('/', async (req, res) => {
     success: true
   })
 })
+
+module.exports = router
