@@ -9,6 +9,8 @@ var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDoma
 
 router.post('/', async (req, res) => {
 
+  console.log(req.body)
+
   res.json({
     success: true
   })
